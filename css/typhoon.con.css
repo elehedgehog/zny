@@ -311,8 +311,8 @@
     
     .oceanPre table tr td:nth-child(1){width:20%;padding-left: 0.4rem;}
     .oceanPre table tr td:nth-child(2){width:30%;padding-left: 0.4rem;}
-    .oceanPre table tr td:nth-child(3){width:20%;padding-left: 1.1rem;}
-    .oceanPre table tr td:nth-child(4){width:30%;padding-left: 0.7rem;}
+    .oceanPre table tr td:nth-child(3){width:20%;padding-left: 1.5rem;}
+    .oceanPre table tr td:nth-child(4){width:30%;padding-left: 1.1rem;white-space: nowrap;}
     .oceanPre table tr td,.tySeawave_pre table tr td,.typhoon_detales table tr td{position: relative}
     .oceanPre table tr:nth-child(1) td:nth-child(1):before,.oceanPre table tr:nth-child(1) td:nth-child(3):before,.oceanPre table tr:nth-child(2) td:nth-child(1):before,.oceanPre table tr:nth-child(2) td:nth-child(3):before,.oceanPre table tr:nth-child(3) td:nth-child(1):before,.tySeawave_pre table tr:nth-child(1) td:nth-child(1):before,.tySeawave_pre table tr:nth-child(1) td:nth-child(3):before,.tySeawave_pre table tr:nth-child(2) td:nth-child(1):before,.tySeawave_pre table tr:nth-child(2) td:nth-child(3):before,.tySeawave_pre table tr:nth-child(3) td:nth-child(1):before,.tySeawave_pre table tr:nth-child(3) td:nth-child(3):before{position: absolute;left: 0;content: '';width:0.3rem;height:0.3rem;top: 0;}
     
@@ -322,7 +322,7 @@
     .oceanPre table tr:nth-child(2) td:nth-child(3):before{top: 0.4rem!important;background:url(../assets/typhone_gust@3x.png)no-repeat 0 0;background-size:0.3rem}
     .oceanPre table tr:nth-child(3) td:nth-child(1):before{background:url(../assets/sea_see@3x.png)no-repeat 0 0;background-size:0.3rem}
     .tySeawave_pre table tr td:nth-child(3):before{left: 0.4rem!important;}
-    .oceanPre table tr td:nth-child(3):before{left: 0.7rem!important;}
+    .oceanPre table tr td:nth-child(3):before{left: 1.1rem!important;}
     .tySeawave_pre table tr td:nth-child(3){padding-left: 0.8rem!important;}
     .tySeawave_pre table tr td:nth-child(4){padding-left:.8rem!important;}
     .tySeawave_pre table tr td{padding-left: 0.4rem;}
@@ -452,7 +452,8 @@
     .cloudPopup{
         display: none;
         position: absolute;
-        height: 26px;
+        /* height: 26px; */
+        max-height: 98px;
         overflow: hidden;
         z-index: 1000;
         background-color: rgba(255, 255, 255, 0.8);
@@ -474,6 +475,44 @@
         line-height: 26px;
         padding: 0 5px;
         white-space: nowrap;
+    }
+    ul.radar_colourCode{
+        display: none;
+        width: 100%;
+        background: rgba(0,0,0,0.2);
+        height: 0.6rem;
+        line-height: .6rem;
+        padding-left: .1rem;
+        white-space: nowrap;
+    }
+    ul.radar_colourCode>li{
+        float: left;
+        margin: 0 .05rem;
+    }
+    ul.radar_colourCode li span{
+        display: inline-block;
+        width: .28rem;
+        height: .18rem;
+        margin-right: .1rem;
+        margin-top: 0.21rem;
+    }
+    ul.radar_colourCode li:nth-child(1) span{
+        background-color: #004BC8;
+    }
+    ul.radar_colourCode li:nth-child(2) span{
+        background-color: #1BE900
+    }
+    ul.radar_colourCode li:nth-child(3) span{
+        background-color: #17B022
+    }
+    ul.radar_colourCode li:nth-child(4) span{
+        background-color: #F9A006
+    }
+    ul.radar_colourCode li:nth-child(5){
+        margin-right: 0!important;
+    }
+    ul.radar_colourCode li:nth-child(5) span{
+        background-color: #EC0D0E
     }
     .getLonLat{display: none;position: absolute;width: 3.6rem;height: .8rem;line-height: .8rem;text-align: center;background-color:rgba(255,255,255,0.8);color: #1c1c1c;z-index:999;bottom:0.666667rem;left:calc(50% - 1.8rem);}
     .noGetId{z-index: 99;}
@@ -510,7 +549,7 @@
     .live_details table tr td:nth-child(2n+1){color: #a3a3a3;}
     .live_details table tr:nth-child(2) td{padding-bottom: 0.4rem;padding-top: 0.4rem;}
     .live_details table tr td:nth-child(2n){color: #1c1c1c;}
-    .live_details table tr:nth-child(1) td:nth-child(1):before,.live_details table tr:nth-child(1) td:nth-child(3):before,.live_details table tr:nth-child(2) td:nth-child(1):beforeÃ¯Â¼Å’.live_details table tr:nth-child(2) td:nth-child(3):before,.live_details table tr:nth-child(3) td:nth-child(1):before,.live_details table tr:nth-child(3) td:nth-child(3):before{position: absolute;left: 0;content: '';width: 0.3rem;height: 0.3rem;top: 0;}
+    .live_details table tr:nth-child(1) td:nth-child(1):before,.live_details table tr:nth-child(1) td:nth-child(3):before,.live_details table tr:nth-child(2) td:nth-child(1):beforeÃƒÂ¯Ã‚Â¼Ã…â€™.live_details table tr:nth-child(2) td:nth-child(3):before,.live_details table tr:nth-child(3) td:nth-child(1):before,.live_details table tr:nth-child(3) td:nth-child(3):before{position: absolute;left: 0;content: '';width: 0.3rem;height: 0.3rem;top: 0;}
     .live_details table tr:nth-child(1) td:nth-child(1):before{background: url(../assets/live_water@3x.png)no-repeat 0 0;background-size: 0.3rem;}
     .live_details table tr:nth-child(1) td:nth-child(2):before{background: url(../assets/sea_power@3x.png)no-repeat 0 0;background-size: 0.3rem;}
     .live_details table tr:nth-child(2) td:nth-child(1):before{top: 0.4rem!important;background: url(../assets/sea_low@3x.png)no-repeat 0 0;background-size: 0.3rem;}
@@ -518,7 +557,7 @@
     .live_details table tr:nth-child(3) td:nth-child(1):before{background: url(../assets/sea_direction@3x.png)no-repeat 0 0;background-size: 0.3rem;}
     .live_details table tr:nth-child(3) td:nth-child(2):before{background: url(../assets/typhone_pressure@3x.png)no-repeat 0 0;background-size: 0.3rem;}*/
     
-    /*Ã¥Â¼ÂºÃ©Â£Å½Ã©Â¢â€žÃ¨Â­Â¦ Ã©Â¢â€žÃ¨Â­Â¦Ã§Å Â¶Ã¦â‚¬Â*/
+    /*ÃƒÂ¥Ã‚Â¼Ã‚ÂºÃƒÂ©Ã‚Â£Ã…Â½ÃƒÂ©Ã‚Â¢Ã¢â‚¬Å¾ÃƒÂ¨Ã‚Â­Ã‚Â¦ ÃƒÂ©Ã‚Â¢Ã¢â‚¬Å¾ÃƒÂ¨Ã‚Â­Ã‚Â¦ÃƒÂ§Ã…Â Ã‚Â¶ÃƒÂ¦Ã¢â€šÂ¬Ã‚Â*/
     /*.strongWind_pre{padding: 0 0.53333rem;background-color: #f2f3f8;height:3.86rem;}
     .strongWind_pre table{width:100%;font-size: 0.37333rem;table-layout: fixed;word-break: break-all}
     .strongWind_pre table td{position: relative;line-height: 1.2rem}
@@ -530,7 +569,7 @@
     .strongWind_pre table tr td:nth-child(1):before{background: url(../assets/sea_direction@3x.png)no-repeat 0 0;background-size: 0.3rem;}
     .strongWind_pre table tr td:nth-child(3):before{background: url(../assets/sea_power@3x.png)no-repeat 0 0;background-size: 0.3rem;left: 0.4rem;}*/
     
-    .early_warn{position: fixed;bottom: -4.4rem;width:100%;z-index: 1000;}
+    .early_warn{position: fixed;bottom: -4.8rem;width:100%;z-index: 1000;}
     .early_warn .early_head{width:calc(100% - 1.0666rem);padding:0 0.5333rem;height:1.0667rem;background-color:#fff;line-height: 1.0667rem;}
     .early_head .warn_title{float:left;color:#1c1c1c;font-size:0.34rem}
     .early_head .warn_btn_nd{float:right;}
@@ -564,9 +603,9 @@
     .early_warn .early_details table tr:nth-child(3) td:nth-child(1):before{background: url(../assets/typhone_storm-surge@3x.png)no-repeat 0 0;background-size: 0.3rem;}
     .early_warn .early_details table tr:nth-child(3) td:nth-child(3):before{background: url(../assets/sea_direction@3x.png)no-repeat 0 0;background-size: 0.3rem;}
     
-    /*Ã©Â¢â€žÃ¨Â­Â¦Ã§Å Â¶Ã¦â‚¬ÂÃ§Â¼â€“Ã¨Â¾â€˜*/
+    /*ÃƒÂ©Ã‚Â¢Ã¢â‚¬Å¾ÃƒÂ¨Ã‚Â­Ã‚Â¦ÃƒÂ§Ã…Â Ã‚Â¶ÃƒÂ¦Ã¢â€šÂ¬Ã‚ÂÃƒÂ§Ã‚Â¼Ã¢â‚¬â€œÃƒÂ¨Ã‚Â¾Ã¢â‚¬Ëœ*/
     
-    /*Ã¥â€ºÂ¾Ã¤Â¾â€¹*/
+    /*ÃƒÂ¥Ã¢â‚¬ÂºÃ‚Â¾ÃƒÂ¤Ã‚Â¾Ã¢â‚¬Â¹*/
     .imgEx{display:none;left: 0.533333rem;background-color: rgba(255,255,255,0.8);z-index: 999;border-radius: 0.08rem;position: absolute;bottom: 0.666667rem;z-index: 999;}
     .imgEx_titleOut{padding:0.2rem 0.2rem 0.2rem 0.08rem;position: relative}
     .imgEx_title{width: 1rem;height: 0.3rem;text-align: center;line-height: 0.3rem;font-size: 0.32rem;color: #6d6d6c;background: url(../assets/typhoon_hide@3x.png)no-repeat 0.7rem 0.2rem;}

@@ -34,24 +34,24 @@ export const getSeawaveData = () => {   //点击顶部导航栏 海浪按钮时�
     }
     hasData = true;
     getPoint(msg);
-    addNewsTip('seawave', '北京时: ' + new Date(date).Format('yyyy年MM月dd日 HH:00') + '&nbsp;海浪预报')
+    // addNewsTip('seawave', '北京时: ' + new Date(date).Format('yyyy年MM月dd日 HH:00') + '&nbsp;海浪预报')
     return false;
   }).then(msg => {
     if(!$('.swList').hasClass('on') || !msg) return;
     if(/DB_ERROR/.test(msg) || /null/.test(msg) || !msg.length) {
       getNoDataTips('.seaWave_noData');    //无数据弹窗
       hasData = false;
-      removeNewsTip('seawave')
+      // removeNewsTip('seawave')
       return;
     }
     hasData = true;
     getPoint(msg);
-    addNewsTip('seawave', '北京时: ' + new Date(date).Format('yyyy年MM月dd日 HH:00') + '&nbsp;海浪预报')
+    // addNewsTip('seawave', '北京时: ' + new Date(date).Format('yyyy年MM月dd日 HH:00') + '&nbsp;海浪预报')
   }); 
 }
 
 const mapEvent = () => {
-  $('.tycontener_bottSeawave').removeClass('on').stop().animate({'bottom': '-5.4rem'});
+  $('.tycontener_bottSeawave').removeClass('on').stop().animate({'bottom': '-6rem'});
   if($('.early_warn').hasClass('on')) return;
   if($('.simiMatch').hasClass('on')) return;
   if($('.rainProgressbar').hasClass('on')) return;
@@ -96,7 +96,7 @@ const getPoint = (msg) => {
       $('.cloudMap ul li img.on').click();        //决策区  地图切片
       $('.typhoon_seaWave p').click();            //默认恢复到海浪表格数据页
       if($('.early_warn').hasClass('on'))         //决策区详细信息
-        $('.early_warn').removeClass('on').stop().animate({bottom:'-4.4rem'});   
+        $('.early_warn').removeClass('on').stop().animate({bottom:'-4.8rem'});   
       $('.tyCl_list,.imgEx,.cloudPopup').stop().animate({'bottom':  5.9 +'rem'});    //图例 右下角工具栏
       $('.tycontener_bottSeawave').addClass('on').show().stop().animate({bottom:'0rem'});      //展开详细数据
       $('.tycontener_bottSeawave').click(function(e){
@@ -144,9 +144,14 @@ const fillTable = (time) => {
   $('.tySeawave_pre tr:eq(0) td:eq(1)').text(seaData[time].vf01015Cn);                // 海域
   $('.tySeawave_pre tr:eq(1) td:eq(1)').text(seaData[time].v2202105 + 'm');           // 最高浪高
   $('.tySeawave_pre tr:eq(2) td:eq(1)').text(seaData[time].v2202106 + 'm');           // 最低浪高
-  $('.tySeawave_pre tr:eq(3) td:eq(1)').text(seaData[time].v20059 + '-' + seaData[time].v20058 + 'm');    // 能见度
-  $('.tySeawave_pre tr:eq(1) td:eq(3)').text(seaData[time].v11041 + '级'); //阵风
-  $('.tySeawave_pre tr:eq(0) td:eq(3)').text(seaData[time].v11301 + '级'); //平均风
+  $('.tySeawave_pre tr:eq(3) td:eq(1)').text(seaData[time].v20059 + '-' + seaData[time].v20058  + 'm');    // 能见度
+  let text = seaData[time].v11041 === seaData[time].v1104101 ? seaData[time].v11041 + '级' : seaData[time].v11041 +  '-' + seaData[time].v1104101  + '级'
+  $('.tySeawave_pre tr:eq(1) td:eq(3)').text(text); //阵风
+  // $('.tySeawave_pre tr:eq(1) td:eq(3)').text(seaData[time].v11041 +  '-' + seaData[time].v1104101  + '级'); //阵风
+  let texts = seaData[time].v11301 === seaData[time].v1130101 ? seaData[time].v11301 + '级' : seaData[time].v11301 +  '-' + seaData[time].v1130101  + '级'
+  $('.tySeawave_pre tr:eq(0) td:eq(3)').text(texts); //平均风
+  
+  // $('.tySeawave_pre tr:eq(0) td:eq(3)').text(seaData[time].v11301 + '-' + seaData[time].v1130101 + '级'); //平均风
 
   // if(seaData[time].v11301) {
   //   let windLevel = getVelLevel(seaData[time].v11301);

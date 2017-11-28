@@ -104,3 +104,19 @@ let alarmPolyline = [
 for (let el of alarmPolyline) {
     L.polyline(el, { color: 'red', weight: 2 }).addTo(map)
 }
+
+//添加九段线
+let ninePolyline = [
+    [[17, 109.5], [15, 110]],
+    [[12, 110.5], [11, 110]],
+    [[7.5, 105.2], [6, 105.5]],
+    [[3, 112], [4, 113]],
+    [[7.3, 115.8], [8, 116.8 ]],
+    [[11, 118.5], [12, 119]],
+    [[15, 119], [16, 119]],
+    [[18, 119.5], [19, 120]],
+    [[21, 121], [22, 122]],
+]
+for (let el of ninePolyline) {
+    L.polyline(el, { color: '#E74727', weight: 5 }).addTo(map)
+}

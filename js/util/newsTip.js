@@ -36,26 +36,35 @@ const clickFn = () => {
   }
 }
 
-export const addNewsTip = (key, text) => {
-  clearInt()
-  $('.cloudPopup').css({height: '26px'})
-  $('.cloudPopup .wrapper').removeClass('on')
+// export const addNewsTip = (key, text) => {
+//   clearInt()
+//   $('.cloudPopup').css({height: '26px'})
+//   $('.cloudPopup .wrapper').removeClass('on')
   
-  $('.cloudPopup .wrapper>p').off('click')
+//   $('.cloudPopup .wrapper>p').off('click')
+//   $('.cloudPopup .wrapper').append(`<p class="tip-${key}">${text}</p>`)
+//   setTimeout(function() {
+//     $('.cloudPopup .wrapper>p').click(clickFn)
+//   }, 0);
+//   $('.cloudPopup').show()
+//   if ($('.cloudPopup .wrapper>p').length >= 2) playFn()
+// }
+
+// export const removeNewsTip = (key) => {
+//   clearInt()
+//   $('.cloudPopup').css({height: '26px'})
+//   $('.cloudPopup .wrapper').removeClass('on')
+  
+//   $(`.cloudPopup .wrapper .tip-${key}`).remove()
+//   if ($('.cloudPopup .wrapper>p').length >= 2) playFn()
+//   if(!$('.cloudPopup .wrapper>p').length) $('.cloudPopup').hide()
+// }
+export const addNewsTip = (key, text) => {
   $('.cloudPopup .wrapper').append(`<p class="tip-${key}">${text}</p>`)
-  setTimeout(function() {
-    $('.cloudPopup .wrapper>p').click(clickFn)
-  }, 0);
   $('.cloudPopup').show()
-  if ($('.cloudPopup .wrapper>p').length >= 2) playFn()
 }
 
 export const removeNewsTip = (key) => {
-  clearInt()
-  $('.cloudPopup').css({height: '26px'})
-  $('.cloudPopup .wrapper').removeClass('on')
-  
   $(`.cloudPopup .wrapper .tip-${key}`).remove()
-  if ($('.cloudPopup .wrapper>p').length >= 2) playFn()
   if(!$('.cloudPopup .wrapper>p').length) $('.cloudPopup').hide()
 }

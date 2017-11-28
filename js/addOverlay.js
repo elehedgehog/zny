@@ -83,7 +83,6 @@ $('#cloudOverlay li').click(function(e) {
     })
   }
 });
-
 //组合反射率(雷达回波)
 const mcrUrl = 'http://119.29.102.103:8111/roa1080/grid/swan/mcr/{datetime}/HTML/png/,,,,,/color/cache'
 const dataMcrUrl = 'http://119.29.102.103:9022/dataunit/model/renderModelData?datetime={datetime}&model=swan&element=mcr&time=0&level=3&top=27&bottom=19.2&left=108.5&right=117&width=600&height=600 '
@@ -92,6 +91,7 @@ $('.tgReflex').click(function(e) {
   if ($(this).hasClass('on')) {
     overlay.removeOverlay('mcr');
     removeNewsTip('tgReflex')
+    $('.radar_colourCode').hide()
   } else {
     getImgFn(0, 'dataMcr', $(this));    
   }
@@ -109,31 +109,35 @@ const getImgFn = (i, type, $btn)=> {    //i为请求次数
       addNewsTip('tgReflex', '北京时: ' + new Date(time.replace(/-/g, '/')).Format('yyyy年MM月dd日 HH:00') + '&nbsp;雷达回波')
     $btn.hasClass('on') ? overlay.addImageOverlay('mcr', url, bounds) : overlay.removeOverlay('mcr');
     viewerCor()
+    $('.radar_colourCode').show()
   }
   img.onerror = () => {
     i++;
     if (type === 'dataMcr') {
       if(i < 3) getImgFn(i, 'dataMcr', $btn);
+      
       else {
         i = 0
         getImgFn(i, 'mcr', $btn)
       }
     } else if (type === 'mcr') {
       if(i < 3) getImgFn(i, 'mcr', $btn);
-      else getNoDataTips('.cloudNoData'); // 取不到数据
+      else {
+        $('.radar_colourCode').hide()
+        getNoDataTips('.cloudNoData');  // 取不到数据
+      }
     }
+    
   }
   img.src = url;
 }
-
-
 //雷暴追踪
 $('.rsFollow').click(function(e) {
   e.stopPropagation();
   if($(this).hasClass('on'))  {
     overlay.removeOverlay('rainStorm');
     map.off('moveend', updateMap);
-    removeNewsTip('rainStorm')
+    // removeNewsTip('rainStorm')
   } else {
     getRsImg(0,$(this),(flag) => {
       if (!flag) {
@@ -162,7 +166,8 @@ const getRsUrl = (i) => {
     [bottom, right]
   ];
   let contSize = map.getSize();
-  const url = `http://119.29.102.103:8111/roa1080/grid/thunder/titan/${date}/json/png/${left},${right},${top},${bottom},${contSize.x},${contSize.y}/color/cache?cacheCtrl=${Date.now()}`;
+  // const url = `http://119.29.102.103:8111/roa1080/grid/thunder/titan/${date}/json/png/${left},${right},${top},${bottom},${contSize.x},${contSize.y}/color/cache?cacheCtrl=${Date.now()}`;
+  const url = `http://119.29.102.103:9022/dataunit/titan/renderTitan?datetime=${date}&top=${top}&bottom=${bottom}&left=${left}&right=${right}&width=${contSize.x}&height=${contSize.y}&cacheCtrl=${Date.now()}`
   console.log(url)
   return {
     url,
@@ -179,7 +184,7 @@ const getRsImg = (i,$btn,fn) => {
   let img = new Image;
   fn = fn || $.noop();
   img.onload = () => {
-    addNewsTip('rainStorm', '北京时: ' + new Date(ms).Format('yyyy年MM月dd日 HH:00') + '&nbsp;雷暴追踪')
+    // addNewsTip('rainStorm', '北京时: ' + new Date(ms).Format('yyyy年MM月dd日 HH:00') + '&nbsp;雷暴追踪')
     rsIndex = i;
     const rsbounds = getRsUrl(i).bounds;
     overlay.removeOverlay(id);
@@ -226,14 +231,13 @@ const updateMap = () => {
 let isWindCompAlive = false
 let windMarker = []
 const getWindData= () => {
-  const siteUrl = `http://119.29.102.103:8111/roa1080/discrete/stationreal/s2/1,广东,,/JSON?cacheCtrl=${Date.now()}`;
+  const siteUrl = `http://10.148.83.228:8922/dataunit/station/findStationData_Latest?types[]=A&elements[]=wd2dd&elements[]=wd2df&elements[]=lat&elements[]=lon&provinces[]=广东&cacheCtrl=${Date.now()}`;
   const time= Date.now() - Date.now() % (5*60*1000) - 15*60*1000;
   let datetime = new Date( time).Format('yyyy-MM-dd HH:mm:00');
-  const windUrl = `http://119.29.102.103:8111/roa1080/discrete/stationreal/d3/1,wind,${datetime}/JSON?cacheCtrl=${Date.now()}`;
   $.ajax({url:siteUrl})
   .then(data =>{
     if (!isWindCompAlive) return
-    data = JSON.parse(data)
+    // data = JSON.parse(data)
     if(/DB_ERROR/.test(data)) { getNoDataTips('.seaWave_noData'); return }
     const siteIcon = L.icon({
       iconUrl: 'assets/station.png',
@@ -244,48 +248,81 @@ const getWindData= () => {
       icon: siteIcon,
       zIndexOffset: 1000,
     };
-    let windObj ={};
-    data.map(info =>{
-      let center = [ info.latitude, info.longitude];
-      overlay.addMarker('sitePoint', center, options);
-      windObj[info.stationid] = info;
-    })
-    viewerCor()
+    var icon = { 
+      iconUrl: 'assets/arrowhead@3x.png',      // 图片地址
+      iconSize: [10,14], 
+      iconAnchor: [5, 14] 
+    }
+    for (let item of data) {
+      let center = [item.elems.lat, item.elems.lon]
+      overlay.addMarker('sitePoint', center, options)
+      if (item.elems.wd2dd) {
+        let marker =L.angleMarker([item.elems.lat, item.elems.lon], { icon: new L.Icon(icon), iconAngle: item.elems.wd2dd, iconOrigin: '50% 100%' })
+        windMarker.push(marker)
+        marker.addTo(map)
+      }
+      if (item.elems.wd2df) {
+        let className
+        if (item.elems.wd2df < 90 || item.elems.wd2df > 270) className = 'wind_veltop'
+        else className = 'wind_velbot'
+        const opts = L.divIcon({
+          html: `<div class="${className}">${ Math.floor(item.elems.wd2df * 100) / 100 + 'm/s' }</div>`
+        });
+        overlay.addMarker('windVel', [item.elems.lat, item.elems.lon], { icon: opts })
+      }
+    }
 
-    $.ajax({url: windUrl}).then(msg => {
-      if (!isWindCompAlive) return
-      addNewsTip('wind', '北京时: ' + new Date(time).Format('yyyy年MM月dd日 HH:00') + '&nbsp;实时风况')
-      msg = JSON.parse(msg);
-      if(/DB_ERROR/.test(msg)) { getNoDataTips('.seaWave_noData'); return }
-      for (let info of msg) {
-        if(windObj[info.stationid]) {
-          windObj[info.stationid] = Object.assign(windObj[info.stationid], info)
-        }
-      }
+
+
+    // let windObj ={};
+    // data.map(info =>{
+    //   let center = [ info.latitude, info.longitude];
+    //   overlay.addMarker('sitePoint', center, options);
+    //   windObj[info.stationid] = info;
+    // })
+    // data.map(info =>{
+    //   let center = [info.elems.lat,info.elems.lon];
+    //   overlay.addMarker('sitePoint', center, options);
+    //   windObj[info.id] = info;
+    // })
+    // viewerCor()
+    // console.log(windObj)
+    // $.ajax({url: windUrl}).then(msg => {
+    //   if (!isWindCompAlive) return
+    //   addNewsTip('wind', '北京时: ' + new Date(time).Format('yyyy年MM月dd日 HH:00') + '&nbsp;实时风况')
+    //   msg = JSON.parse(msg);
+    //   if(/DB_ERROR/.test(msg)) { getNoDataTips('.seaWave_noData'); return }
+    //   console.log(msg)
+    //   console.log(windObj)
+    //   for (let info of msg) {
+    //     if(windObj[info.id]) {
+    //       windObj[info.id] = Object.assign(windObj[info.id], info)
+    //     }
+    //   }
      
-      var icon = { 
-        iconUrl: 'assets/arrowhead@3x.png',      // 图片地址
-        iconSize: [10,14], 
-        iconAnchor: [5, 14] 
-      }
-      for (let i in windObj) {
-        let item = windObj[i]
-        if (item.wind_dir) {
-          let marker =L.angleMarker([item.latitude, item.longitude], { icon: new L.Icon(icon), iconAngle: item.wind_dir, iconOrigin: '50% 100%' })
-          windMarker.push(marker)
-          marker.addTo(map)
-        }
-        if (item.wind_vel) {
-          let className
-          if (item.wind_dir < 90 || item.wind_dir > 270) className = 'wind_veltop'
-          else className = 'wind_velbot'
-          const opts = L.divIcon({
-            html: `<div class="${className}">${ Number(item.wind_vel) + 'm/s' }</div>`
-          });
-          overlay.addMarker('windVel', [item.latitude, item.longitude], { icon: opts })
-        }
-      }
-    })
+    //   var icon = { 
+    //     iconUrl: 'assets/arrowhead@3x.png',      // 图片地址
+    //     iconSize: [10,14], 
+    //     iconAnchor: [5, 14] 
+    //   }
+    //   for (let i in windObj) {
+    //     let item = windObj[i]
+    //     if (item.wind_dir) {
+    //       let marker =L.angleMarker([item.elems.lat, item.elems.lon], { icon: new L.Icon(icon), iconAngle: item.wind_dir, iconOrigin: '50% 100%' })
+    //       windMarker.push(marker)
+    //       marker.addTo(map)
+    //     }
+    //     if (item.wind_vel) {
+    //       let className
+    //       if (item.wind_dir < 90 || item.wind_dir > 270) className = 'wind_veltop'
+    //       else className = 'wind_velbot'
+    //       const opts = L.divIcon({
+    //         html: `<div class="${className}">${ Number(item.wind_vel) + 'm/s' }</div>`
+    //       });
+    //       overlay.addMarker('windVel', [item.elems.lat, item.elems.lon], { icon: opts })
+    //     }
+    //   }
+    // })
   })
 }
 //实况风 
@@ -311,40 +348,48 @@ $('.actualWind').click(function(e){
 
 
 //降水
-let getImageStringUrl = 'http://119.29.102.103:9002/nc/jsonp/bin/contour?binInfoArea.modelName=qpfacc&binInfoArea.datetime={date}&binInfoArea.varname=rain&binInfoArea.level=60&bounds.left=108.5&bounds.right=118.99&bounds.top=27&bounds.bottom=18.21&bounds.width=1050&bounds.height=880&shaderOn=true&contourOn=false&contourLabelOn=false&projName=equ'
+// let getImageStringUrl = 'http://119.29.102.103:9002/nc/jsonp/bin/contour?binInfoArea.modelName=qpfacc&binInfoArea.datetime={date}&binInfoArea.varname=rain&binInfoArea.level=60&bounds.left=108.5&bounds.right=118.99&bounds.top=27&bounds.bottom=18.21&bounds.width=1050&bounds.height=880&shaderOn=true&contourOn=false&contourLabelOn=false&projName=equ'
+let getImageStringUrl = `http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime={date}&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=600&height=600`
 let rainTimes = []      // 10个时间戳
 let rainLayer           // 云图图层
 
 // 获取有数据的时间
 const getRainTime = () => {
   return new Promise((resolve, reject) => {
-    let url = 'http://119.29.102.103:18888/' + Coder.encode('zxhcqpfimage/getpictime/user/post/,/')
+    // let url = 'http://119.29.102.103:18888/' + Coder.encode('zxhcqpfimage/getpictime/user/post/,/')
+    // $.ajax({ url }).then(res => {
+    //   if (res.result === 'S_OK') resolve(res.tagObject)
+    //   else reject()
+    // })
+    let url = `http://10.148.83.228:8922/dataunit/temporary/findTemporaryDataHeader_Latest?type=swan&element=qpf&time=60&level=3`
     $.ajax({ url }).then(res => {
-      if (res.result === 'S_OK') resolve(res.tagObject)
-      else reject()
+      console.log(res)
+      resolve(res[0].datetime)
     })
+    
   })
 }
 
 // 获取图片链接
 const getRainUrl = datetime => {
-  return new Promise((resolve, reject) => {
-    console.log(datetime)
-    let url = getImageStringUrl.replace('{date}', datetime) + `&cacheCtrl=${Date.now()}`
-    $.ajax({ url, dataType: 'jsonp' }).then(res => {
-      if (res == null)
-        reject()
-      else {
-        console.log('http://119.29.102.103:9002/' + res)
-        resolve('http://119.29.102.103:9002/' + res)
-      }
-    })
-  })
+  return `http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime=${datetime}&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=800&height=800`
+  // return new Promise((resolve, reject) => {
+  //   console.log(datetime)
+  //   let url = getImageStringUrl.replace('{date}', datetime) + `&cacheCtrl=${Date.now()}`
+  //   $.ajax({ url, dataType: 'jsonp' }).then(res => {
+  //     if (res == null)
+  //       reject()
+  //     else {
+  //       console.log('http://119.29.102.103:9002/' + res)
+  //       resolve('http://119.29.102.103:9002/' + res)
+  //     }
+  //   })
+  // })
 }
 
 $('.rainForecast').click(function(e) {
   if ($(this).hasClass('on')) {
-    removeNewsTip('rainForecast')
+    // removeNewsTip('rainForecast')
     $(this).removeClass('on');
     $('.rainProgressbar').stop().animate({'bottom': '-2.67rem'}, () => {
         if($('.buttonPlay').hasClass('on')) $('.buttonPlay').click();
@@ -355,42 +400,41 @@ $('.rainForecast').click(function(e) {
     removeRainLayer()
   } else {
     $(this).addClass('on');
-    $('.early_warn').stop().animate({bottom:'-4.4rem'});
+    $('.early_warn').stop().animate({bottom:'-4.8rem'});
     if(map.hasEventListeners('click', hidePreWarnPopup)) {  // 移除预警状态的点击和移动地图事件
         map.removeEventListener('click', hidePreWarnPopup);
         map.removeEventListener('movestart', hidePreWarnPopup);
     }
     getRainTime()
     .then(res => {
-      for (let opt of res) {
-        rainTimes.push(new Date(opt).Format('yyyy-MM-dd HH:mm:00'))
+      // for (let opt of res) { 
+      //   rainTimes.push(new Date(opt).Format('yyyy-MM-dd HH:mm:00'))
+      // }
+      for(let i=0; i<10; i++){
+        let qpfTime = res - i*6*60*1000
+        rainTimes.unshift(new Date(qpfTime).Format('yyyy-MM-dd HH:mm:00'))
       }
 
       let datetime = new Date(rainTimes[0].replace(/-/g, '/')).getTime() + 3600000
       let date = new Date(datetime).Format('yyyy-MM-dd HH:mm:00')
       $('.rain_nowtime').text(date)
 
-      getRainUrl(rainTimes[0])
-      .then(url => {
-        let img = new Image()
-        img.onload = () => {
-          addNewsTip('rainForecast', '北京时: ' + new Date(datetime).Format('yyyy年MM月dd日 HH:mm') + '&nbsp;降水预测')
+      let url = getRainUrl(rainTimes[0])
+      let img = new Image()
+      img.onload = () => {
+        // addNewsTip('rainForecast', '北京时: ' + new Date(datetime).Format('yyyy年MM月dd日 HH:mm') + '&nbsp;降水预测')
 
-          $('.rainProgressbar').stop().animate({'bottom': '0rem'}).addClass('on');
-          $('.tyCl_list,.getLonLat,.imgEx,.cloudPopup').stop().animate({'bottom': '3.33rem'});   
-          addRainLayer(url)
-          viewerCor()
-        }
-        img.onerror = () => {
-          $('.rainProgressbar').stop().animate({'bottom': '0rem'}).addClass('on');
-          $('.tyCl_list,.getLonLat,.imgEx,.cloudPopup').stop().animate({'bottom': '3.33rem'});
-          getNoDataTips('.cloudNoData');
-        }
-        img.src = url
-      })
-      .catch(e => {
+        $('.rainProgressbar').stop().animate({'bottom': '0rem'}).addClass('on');
+        $('.tyCl_list,.getLonLat,.imgEx,.cloudPopup').stop().animate({'bottom': '3.33rem'});   
+        addRainLayer(url)
+        viewerCor()
+      }
+      img.onerror = () => {
+        $('.rainProgressbar').stop().animate({'bottom': '0rem'}).addClass('on');
+        $('.tyCl_list,.getLonLat,.imgEx,.cloudPopup').stop().animate({'bottom': '3.33rem'});
         getNoDataTips('.cloudNoData');
-      })
+      }
+      img.src = url
 
     })
     .catch(e => {
@@ -439,29 +483,24 @@ const intvEvent = () => {
   date = new Date(date).Format('yyyy-MM-dd HH:mm:00')
   $('.rain_nowtime').text(date)
 
-  getRainUrl(rainTimes[num])
-  .then(url => {
-    let img = new Image()
-    img.onload = () => {
+  let url = getRainUrl(rainTimes[num])
+  let img = new Image()
+  img.onload = () => {
 
-      if($('.rainForecast').hasClass('on') && $('.buttonPlay').hasClass('on')) {
-        addRainLayer(url)
-        timeout = setTimeout(intvEvent, 2000);
-      } else {
-        removeRainLayer()
-      }
-    }
-    img.onerror = () => {
+    if($('.rainForecast').hasClass('on') && $('.buttonPlay').hasClass('on')) {
+      addRainLayer(url)
+      timeout = setTimeout(intvEvent, 2000);
+    } else {
       removeRainLayer()
-      if($('.rainForecast').hasClass('on') && $('.buttonPlay').hasClass('on')) {
-        timeout = setTimeout(intvEvent, 2000);
-      }
     }
-    img.src = url
-  })
-  .catch(e => {
+  }
+  img.onerror = () => {
     removeRainLayer()
-  })
+    if($('.rainForecast').hasClass('on') && $('.buttonPlay').hasClass('on')) {
+      timeout = setTimeout(intvEvent, 2000);
+    }
+  }
+  img.src = url
 
 }
 
@@ -485,20 +524,15 @@ $('.grayPoint').click(function() {
   date = new Date(date).Format('yyyy-MM-dd HH:mm:00')
   $('.rain_nowtime').text(date)
 
-  getRainUrl(rainTimes[num])
-  .then(url => {
-    let img = new Image()
-    img.onload = () => {
-      addRainLayer(url)
-    }
-    img.onerror = () => {
-      removeRainLayer()
-    }
-    img.src = url
-  })
-  .catch(e => {
+  let url = getRainUrl(rainTimes[num])
+  let img = new Image()
+  img.onload = () => {
+    addRainLayer(url)
+  }
+  img.onerror = () => {
     removeRainLayer()
-  })
+  }
+  img.src = url
   
 });
 

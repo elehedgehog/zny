@@ -48,19 +48,19 @@ const addCenterPoint = (point, pointId, bool, pData) => {       //添加预警�
   });
   const events = {
     click: e => {
-      $('#waveHeight').text(pData.waveHeight ? pData.waveHeight + 'm' : '');
-      $('#waveDir').text(pData.waveDir ? pData.waveDir : '');
-      $('#wavePeriod').text(pData.waveProid ? pData.waveProid + 's' : '');
-      $('#windPowers').text(pData.windPower ? pData.windPower + '级' : '');
-      $('#stormSurge').text(pData.windWater);                     //风暴增水
-      $('#windDirs').text(pData.windDirection ? pData.windDirection : '');
+      $('#waveHeight').text(pData.waveHeight ? pData.waveHeight + 'm' : '---');
+      $('#waveDir').text(pData.waveDir ? pData.waveDir : '---');
+      $('#wavePeriod').text(pData.waveProid ? pData.waveProid + 's' : '---');
+      $('#windPowers').text(pData.windPower ? pData.windPower + '级' : '---');
+      $('#stormSurge').text(pData.windWater ? pData.windWater : '---');        //风暴增水
+      $('#windDirs').text(pData.windDirection ? pData.windDirection : '---');
       // console.log(pData);
 
       if($('.simiMatch.on').length) $('.closeSimi').click();
       $('.early_head').attr('pointid', pointId);
       map.addEventListener('movestart', hidePreWarnPopup);
       map.addEventListener('click', hidePreWarnPopup);
-      $('.tycontener_bottSeawave').stop().animate({'bottom': '-4.93rem'});
+      $('.tycontener_bottSeawave').stop().animate({'bottom': '-6rem'});
       $('.early_warn').addClass('on').stop().animate({bottom:'0rem'});      //展开详细信息
       $('.imgEx,.tyCl_list,.cloudPopup').stop().animate({'bottom':  4.4 +'rem'});
     }
@@ -121,13 +121,11 @@ const addDivIcon = (point, arr, pointId) => {            //添加距离div
 
 export const getTyphoonspot = () => {         //获取后台数据接口
   const userId = window.locationInfo.userId;
-  // const userId = '8dd76bbcad114776beb80c8514eb898d';
   const url = _tyUrl.obtain();
   return $.post({ url, dataType: 'json', data: { userId } });
 }
 export const addTyphoonspot = (lat, lon, radius) => {      //添加数据接口
-  // const userId = window.locationInfo.userId;
-  const userId = '8dd76bbcad114776beb80c8514eb898d';  
+  const userId = window.locationInfo.userId;  
   const url = _tyUrl.add();
   const params = {
     userId,
@@ -139,7 +137,6 @@ export const addTyphoonspot = (lat, lon, radius) => {      //添加数据接口
 }
 export const modifyTyphoonspot = (lat, lon, radius, typhoonid) => {      //编辑数据接口
   const userId = window.locationInfo.userId;
-  // const userId = '8dd76bbcad114776beb80c8514eb898d';
   const url = _tyUrl.modify();
   const params = {
     userId,
@@ -152,7 +149,6 @@ export const modifyTyphoonspot = (lat, lon, radius, typhoonid) => {      //编�
 }
 export const removeTyphoonpot = typhoonid => {       //删除数据接口
   const userId = window.locationInfo.userId;
-  // const userId = '8dd76bbcad114776beb80c8514eb898d';
   const url = _tyUrl.remove();
   const params = {
     userId,

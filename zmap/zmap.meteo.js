@@ -256,10 +256,18 @@ L.AngleMarker = L.Marker.extend({
 		}
 
 		if (this.options.iconAngle) {
-			this._icon.style.WebkitTransform = this._icon.style.WebkitTransform + ' rotate(' + this.options.iconAngle + 'deg)';
-			this._icon.style.MozTransform = this._icon.style.WebkitTransform + 'rotate(' + this.options.iconAngle + 'deg)';
-			this._icon.style.MsTransform = this._icon.style.WebkitTransform + 'rotate(' + this.options.iconAngle + 'deg)';
-			this._icon.style.OTransform = this._icon.style.WebkitTransform + 'rotate(' + this.options.iconAngle + 'deg)';
+			if (this._icon.style.WebkitTransform && !/rotate/.test(this._icon.style.WebkitTransform))
+				this._icon.style.WebkitTransform += ' rotate(' + this.options.iconAngle + 'deg)';
+			if (this._icon.style.MozTransform && !/rotate/.test(this._icon.style.MozTransform))
+				this._icon.style.MozTransform += 'rotate(' + this.options.iconAngle + 'deg)';
+			if (this._icon.style.MsTransform && !/rotate/.test(this._icon.style.MsTransform))
+				this._icon.style.MsTransform += 'rotate(' + this.options.iconAngle + 'deg)';
+			if (this._icon.style.OTransform && !/rotate/.test(this._icon.style.OTransform))
+				this._icon.style.OTransform += 'rotate(' + this.options.iconAngle + 'deg)';
+			if (this._icon.style.Transform && !/rotate/.test(this._icon.style.Transform))
+				this._icon.style.Transform += 'rotate(' + this.options.iconAngle + 'deg)';
+			if (this._icon.style.transform && !/rotate/.test(this._icon.style.transform))
+				this._icon.style.transform += 'rotate(' + this.options.iconAngle + 'deg)';
 		}
 
 		if (this.options.iconOrigin) {

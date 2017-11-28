@@ -53,7 +53,10 @@ const initTySpot = () => {
                 getInterpPoints(lon, lat).then(res => {
                     if(res.windPower >= 7) bool = true;       //判断风力是否大于7级
                     _area.addArea(lat, lon, radius, typhoonspotid, bool, res);
-                });
+                })
+                .catch(e => {
+                    _area.addArea(lat, lon, radius, typhoonspotid, bool, {})
+                })
             }
             console.log(spots_global);  
         }
@@ -74,34 +77,40 @@ const getInterpPoints = (lon, lat) => {         //获取决策区详细数据
     let stormUrl = `http://119.29.102.103:8111/Alarm/getTideInterpPoints?datetime=${date}&leadtime=0&points[0][]=${lon}&points[0][]=${lat}&cacheCtrl=${Date.now()}`; //风暴增水
     let data;
     return new Promise((resolve, reject) => {
-        $.ajax({url})
-        .then(res => {
-            if(/DB_ERROR/.test(res) || /null/.test(res) || !res.length) {
-                reject();
-                return;
+        $.ajax({
+            url, 
+            timeout: 2000, 
+            success: res => {
+                if(/DB_ERROR/.test(res) || /null/.test(res) || !res.length) {
+                    reject();
+                    return;
+                }
+                data = res[0];
+                for(let i in data) {
+                    if(/null/.test(data[i]) || data[i] === -999.9)  data[i] = '';
+                }
+                if(data.windPower)
+                    data.windPower = getVelLevel(data.windPower);
+                if(data.windDirection)
+                    data.windDirection = getDirLevel(data.windDirection);
+                if(data.waveHeight)
+                    data.waveHeight = data.waveHeight.toFixed(2);
+                if(data.waveProid)
+                    data.waveProid = data.waveProid.toFixed(2);
+                if(data.waveDir) 
+                    data.waveDir = getDirLevel(data.waveDir).replace('风', '');
+                $.ajax({ url: stormUrl, timeout: 5000 }).then(msg => {
+                    if( !msg || /DB_ERROR/.test(msg) || /null/.test(msg) || !msg.length) data.windWater = 0;
+                    data.windWater = msg[0];     //将风暴增水的msg数据添加到预警状态的data数据里
+                    if(data.windWater) data.windWater = data.windWater.toFixed(2);
+                    else data.windWater = 0;
+                    resolve(data);
+                })
+            },
+            error: err => {
+                reject()
             }
-            data = res[0];
-            for(let i in data) {
-                if(/null/.test(data[i]) || data[i] === -999.9)  data[i] = '';
-            }
-            if(data.windPower)
-                data.windPower = getVelLevel(data.windPower);
-            if(data.windDirection)
-                data.windDirection = getDirLevel(data.windDirection);
-            if(data.waveHeight)
-                data.waveHeight = data.waveHeight.toFixed(2);
-            if(data.waveProid)
-                data.waveProid = data.waveProid.toFixed(2);
-            if(data.waveDir) 
-                data.waveDir = getDirLevel(data.waveDir).replace('风', '');
-            return $.ajax({ url: stormUrl });
-        }).then(msg => {
-            if( !msg || /DB_ERROR/.test(msg) || /null/.test(msg) || !msg.length) data.windWater = 0;
-            data.windWater = msg[0];     //将风暴增水的msg数据添加到预警状态的data数据里
-            if(data.windWater) data.windWater = data.windWater.toFixed(2);
-            else data.windWater = 0;
-            resolve(data);
-        });
+        })
     });
 }
 
@@ -200,7 +209,7 @@ const toggleNavSel = (child, classN, parent) => {       //切换选中
 const deleteOcean = () => {         //清除海浪数据
     delBoundary();             //移除边界
     if($('.tycontener_bottSeawave').hasClass('on')) {           //展开了详细数据
-        $('.tycontener_bottSeawave').removeClass('on').stop().animate({'bottom': '-5.4rem'});
+        $('.tycontener_bottSeawave').removeClass('on').stop().animate({'bottom': '-6rem'});
         $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({'bottom': '0.666667rem'});
     }
 }
@@ -340,7 +349,7 @@ $('.typhoonList,.cloudMap ul li:nth-child(2)').on('click', function(){
 // -----   决策区   ------ //
 // 左下工具栏 决策区按钮
 $('#makePolicy').on('click', function() {
-    $('.early_warn').removeClass('on').show().stop().animate({bottom:'-4.4rem'});
+    $('.early_warn').removeClass('on').show().stop().animate({bottom:'-4.8rem'});
     $('.rainProgressbar').stop().animate({'bottom': '-2.67rem'}).removeClass('on'); //隐藏降水播放
     $('.tyCl_list,.getLonLat,.imgEx,.cloudPopup').stop().animate({'bottom': '0.666667rem'});
     if($('.simiMatch').hasClass('on')) $('.closeSimi').click();
@@ -424,7 +433,10 @@ const addTyphoonspot = (lat, lon, radius) => {
         getInterpPoints(lon, lat).then(res => {
             if(res.windPower >= 7) bool = true;       //判断风力是否大于7级
             _area.addArea(lat, lon, radius, pointId, bool, res);
-        });
+        })
+        .catch(e => {
+            _area.addArea(lat, lon, radius, pointId, bool, {})
+        })
         spots_global[pointId] = res.tagObject;
     });
     closeAreaPopup();
@@ -483,7 +495,7 @@ const getBuoyData = () =>{
         });
         const buoyLabel = L.divIcon({
             className: 'ty-name-label',
-            html: `<span class="buoyLabel">浮标预警点</span>`
+            html: `<span class="buoyLabel">浮标站</span>`
         });
         
         data.map(info => {
@@ -492,12 +504,12 @@ const getBuoyData = () =>{
                 click: (e) =>{
                     $('.rainProgressbar').stop().animate({'bottom': '-2.67rem'}).removeClass('on');
                     if($('.tycontener_bottSeawave').hasClass('on')) {           //展开了详细数据
-                        $('.tycontener_bottSeawave').removeClass('on').stop().animate({bottom: '-5.4rem'});
+                        $('.tycontener_bottSeawave').removeClass('on').stop().animate({bottom: '-6rem'});
                         if($('.buoy_bott').hasClass('on'))  $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({'bottom': '6.466667rem'});
                         else $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({'bottom': '0.666667rem'});
                     }
                     if($('.early_warn').hasClass('on'))         //决策区详细信息
-                         $('.early_warn').removeClass('on').stop().animate({bottom:'-4.4rem'}); 
+                         $('.early_warn').removeClass('on').stop().animate({bottom:'-4.8rem'}); 
                     if($('.simiMatch.on').length) $('.closeSimi').click();
                     $('#buoyPos').text(Math.round(Number(info.V22041)*100)/100 === 9999 ? '--' : getDirLevel(Math.round(Number(info.V22041)*100)/100).replace('风', ''));  //浮标方位
                     $('#aboveTem').text(Math.round(Number(info.V22042)*100)/100 === 9999 ? '--' : Math.round(Number(info.V22042)*100)/100 + '℃'); //海表温度
@@ -556,8 +568,7 @@ $('.warnModify').on('click', function() {
 
 //预警区域编辑框半径删除按钮
 $('.preWarnDetales_center').on('click', '.modifyDel', function(){
-    let $parent = $(this).parent('.radiusIn');
-    $parent.prev().remove();
+    let $parent = $(this).parents('.wrapperMod');
     $parent.remove();
 });
 
@@ -586,15 +597,19 @@ $('#preWarnConfirm').on('click', function(){
     _area.modifyTyphoonspot(lat, lon, radius, pointId)      //修改决策区域
     .then(data => {
         if(data.result === 'S_OK') {
-            _area.removeSingleArea(pointId);
             let radiusArr = radius.sort((a, b) => a < b);
             let radiusArrLen = radiusArr.length -1;
             let maxRadiu = radiusArr[0];
             let bool = judge(lat, lon, maxRadiu);         //判断是否受当前台风影响
             getInterpPoints(lon, lat).then(res => {
+                _area.removeSingleArea(pointId);
                 if(res.windPower >= 7) bool = true;       //判断风力是否大于7级
                 _area.addArea(lat, lon, radius, pointId, bool, res);
-            });
+            })
+            .catch(e => {
+                _area.removeSingleArea(pointId);
+                _area.addArea(lat, lon, radius, pointId, bool, {})
+            })
             spots_global[pointId] = { lat, lon, radius, typhoonspotid: pointId }
             $('.preWarn_cusWin').hide();
         }
@@ -622,8 +637,11 @@ $('.warnDel').on('click', function() {
 // 隐藏预警状态  (决策区详细信息)
 export const hidePreWarnPopup = () => {
     if($('.early_warn').hasClass('on') === false) return;
-    $('.early_warn').removeClass('on').show().stop().animate({bottom:'-4.4rem'});
-    $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({'bottom':  0.6667 +'rem'});
+    $('.early_warn').removeClass('on').show().stop().animate({bottom:'-4.8rem'});
+    if ($('.rainForecast').hasClass('on'))
+        $('.imgEx,.tyCl_list,.getLonLat,.cloudPopup').stop().animate({'bottom':  3.33 +'rem'});
+    else
+        $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({'bottom':  0.6667 +'rem'});
 }
 
 

@@ -108,7 +108,7 @@
                         </li>
                         <li class="susNav_liList buoyList" name="buoy">
                             <span class="nav_img"></span>
-                            <p class="nav_title">预警</p>
+                            <p class="nav_title">浮标</p>
                         </li>
                     </ul>
                 </div>
@@ -607,12 +607,26 @@
                 </div>
             </div>
             <div class="accredit_msg">数据由南油公司授权提供</div>
-            <div class="cloudPopup"><div class="wrapper"></div></div>
+            <div class="cloudPopup">
+                <ul class="radar_colourCode">
+                    <li><span></span>阴天</li>
+                    <li><span></span>小雨</li>
+                    <li><span></span>中雨</li>
+                    <li><span></span>大雨</li>
+                    <li><span></span>暴雨</li>
+                </ul>
+                <div class="wrapper"></div>
+            </div>
 
             
         </div>
         
         <script>
+            // window.locationInfo = {
+            //     lon: 113.23,
+            //     lat: 23.16,
+            //     userId: 'edb7a11bba764143b0f3c000d2bea5f1'
+            // }
              function getLocation(lon, lat, province, city, county, address, userId, isIphoneX) {
                 window.locationInfo = {
                     lon,

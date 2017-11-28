@@ -60,7 +60,7 @@
 
 	__webpack_require__(14);
 
-	__webpack_require__(28);
+	__webpack_require__(29);
 
 	__webpack_require__(20);
 
@@ -630,6 +630,32 @@
 	    }
 	}
 
+	var ninePolyline = [[[17, 109.5], [15, 110]], [[12, 110.5], [11, 110]], [[7.5, 105.2], [6, 105.5]], [[3, 112], [4, 113]], [[7.3, 115.8], [8, 116.8]], [[11, 118.5], [12, 119]], [[15, 119], [16, 119]], [[18, 119.5], [19, 120]], [[21, 121], [22, 122]]];
+	var _iteratorNormalCompletion2 = true;
+	var _didIteratorError2 = false;
+	var _iteratorError2 = undefined;
+
+	try {
+	    for (var _iterator2 = ninePolyline[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	        var _el = _step2.value;
+
+	        L.polyline(_el, { color: '#E74727', weight: 5 }).addTo(map);
+	    }
+	} catch (err) {
+	    _didIteratorError2 = true;
+	    _iteratorError2 = err;
+	} finally {
+	    try {
+	        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	            _iterator2.return();
+	        }
+	    } finally {
+	        if (_didIteratorError2) {
+	            throw _iteratorError2;
+	        }
+	    }
+	}
+
 /***/ }),
 /* 12 */
 /***/ (function(module, exports) {
@@ -762,7 +788,7 @@
 
 	var _typhoonDom = __webpack_require__(20);
 
-	var _newsTip = __webpack_require__(29);
+	var _newsTip = __webpack_require__(27);
 
 	var helper = null;
 	var tyUrl = '/MeteoSyncServer/typhoon/getmsg' + ('?cacheCtrl=' + Date.now()),
@@ -829,7 +855,7 @@
 	        var lon = lastReal.lon;
 	        if (moveView) map.setView([lat, lon], 4);
 	        var lastrealTime = new Date(lastReal.datetime.replace(/-/g, '/')).getTime() + 8 * 60 * 60 * 1000;
-	        (0, _newsTip.addNewsTip)(data[i].intlid, '北京时: ' + new Date(lastrealTime).Format('yyyy年MM月dd日 HH:00') + '台风' + data[i].tscname);
+
 
 	        if (!tyCenter[i]) tyCenter[i] = [lat, lon];
 	        (0, _alarmArea.addAreaInfo)(i);
@@ -1068,137 +1094,135 @@
 	};
 
 	var getlatTy = function getlatTy(currentTyIds) {
-	  $.ajax({ url: latestTyUrl }).then(function (data) {
-	    var _iteratorNormalCompletion6 = true;
-	    var _didIteratorError6 = false;
-	    var _iteratorError6 = undefined;
-
-	    try {
-	      for (var _iterator6 = data[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-	        var opt = _step6.value;
-
-	        if (!opt.tscname) opt.tscname = '未命名';
-	      }
-	    } catch (err) {
-	      _didIteratorError6 = true;
-	      _iteratorError6 = err;
-	    } finally {
-	      try {
-	        if (!_iteratorNormalCompletion6 && _iterator6.return) {
-	          _iterator6.return();
-	        }
-	      } finally {
-	        if (_didIteratorError6) {
-	          throw _iteratorError6;
-	        }
-	      }
-	    }
-
-	    if (!data.length) return;
-
-	    initHelper().then(function () {
-	      getTyphoon(data, currentTyIds);
-	    });
-	  });
-	};
-
-	$.get(tyUrl, function (data) {
-	  var _iteratorNormalCompletion7 = true;
-	  var _didIteratorError7 = false;
-	  var _iteratorError7 = undefined;
+	  var data = [{ "tsid": 538, "intlid": "1725", "tscname": "鸿雁", "tsename": "kirogi", "real": [{ "tsid": 538, "datetime": "2017-11-19 09:00:00", "level": "TD", "lon": 108.8, "lat": 11.6, "ps": 1004.0, "ws": 14.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-19 06:00:00", "level": "TD", "lon": 109.3, "lat": 11.4, "ps": 1003.0, "ws": 16.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-19 03:00:00", "level": "TS", "lon": 110.1, "lat": 10.8, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-19 00:00:00", "level": "TS", "lon": 110.8, "lat": 10.7, "ps": 1000.0, "ws": 20.0, "rr06": "300.0", "rr07": "190.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 21:00:00", "level": "TS", "lon": 111.0, "lat": 10.5, "ps": 1000.0, "ws": 20.0, "rr06": "300.0", "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 18:00:00", "level": "TS", "lon": 111.1, "lat": 11.2, "ps": 998.0, "ws": 20.0, "rr06": "300.0", "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 15:00:00", "level": "TS", "lon": 111.3, "lat": 11.8, "ps": 998.0, "ws": 20.0, "rr06": null, "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 12:00:00", "level": "TS", "lon": 112.0, "lat": 11.6, "ps": 998.0, "ws": 20.0, "rr06": "300.0", "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 09:00:00", "level": "TS", "lon": 112.4, "lat": 11.5, "ps": 998.0, "ws": 20.0, "rr06": "300.0", "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 06:00:00", "level": "TS", "lon": 113.3, "lat": 11.3, "ps": 998.0, "ws": 20.0, "rr06": "300.0", "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 03:00:00", "level": "TS", "lon": 114.0, "lat": 11.3, "ps": 998.0, "ws": 20.0, "rr06": null, "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 00:00:00", "level": "TS", "lon": 114.8, "lat": 10.9, "ps": 1000.0, "ws": 18.0, "rr06": "280.0", "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 21:00:00", "level": "TS", "lon": 115.6, "lat": 10.5, "ps": 1000.0, "ws": 18.0, "rr06": "280.0", "rr07": "170.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 18:00:00", "level": "TD", "lon": 116.4, "lat": 10.3, "ps": 1004.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 15:00:00", "level": "TD", "lon": 116.9, "lat": 10.2, "ps": 1004.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 12:00:00", "level": "TD", "lon": 117.0, "lat": 10.2, "ps": 1004.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 09:00:00", "level": "TD", "lon": 117.7, "lat": 10.1, "ps": 1006.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 06:00:00", "level": "TD", "lon": 118.2, "lat": 9.9, "ps": 1006.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 03:00:00", "level": "TD", "lon": 119.0, "lat": 9.2, "ps": 1006.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 00:00:00", "level": "TD", "lon": 119.4, "lat": 9.0, "ps": 1006.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-16 21:00:00", "level": "TD", "lon": 121.0, "lat": 7.9, "ps": 1006.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-16 18:00:00", "level": "TD", "lon": 122.5, "lat": 7.3, "ps": 1006.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-16 15:00:00", "level": "TD", "lon": 123.1, "lat": 7.3, "ps": 1007.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }], "fst": [{ "tsid": null, "datetime": "2017-11-19 09:00:00", "leadtime": 6, "level": "TD", "lon": 107.9, "lat": 12.0, "ps": 1006.0, "ws": 10.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }], "tan": [{ "leftlon": 107.80252676814716, "leftlat": 11.780685228331139, "rightlon": 107.99747323185282, "rightlat": 12.219314771668863 }] }, { "tsid": 537, "intlid": "1724", "tscname": "海葵", "tsename": "haikui", "real": [{ "tsid": 537, "datetime": "2017-11-12 09:00:00", "level": "TD", "lon": 111.9, "lat": 17.4, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 08:00:00", "level": "TS", "lon": 112.0, "lat": 17.5, "ps": 1002.0, "ws": 18.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 07:00:00", "level": "TS", "lon": 112.2, "lat": 17.5, "ps": 1002.0, "ws": 18.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 06:00:00", "level": "TS", "lon": 112.3, "lat": 17.5, "ps": 1000.0, "ws": 20.0, "rr06": "300.0", "rr07": "190.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 05:00:00", "level": "TS", "lon": 112.5, "lat": 17.6, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 04:00:00", "level": "TS", "lon": 112.6, "lat": 17.6, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 03:00:00", "level": "TS", "lon": 112.7, "lat": 17.7, "ps": 1000.0, "ws": 20.0, "rr06": "300.0", "rr07": "190.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 02:00:00", "level": "TS", "lon": 112.8, "lat": 17.8, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 01:00:00", "level": "TS", "lon": 113.0, "lat": 17.9, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 00:00:00", "level": "TS", "lon": 113.1, "lat": 17.8, "ps": 1000.0, "ws": 20.0, "rr06": "300.0", "rr07": "190.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 23:00:00", "level": "TS", "lon": 113.3, "lat": 17.8, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 22:00:00", "level": "TS", "lon": 113.4, "lat": 17.8, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 21:00:00", "level": "TS", "lon": 113.5, "lat": 17.7, "ps": 1000.0, "ws": 20.0, "rr06": "240.0", "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 20:00:00", "level": "TS", "lon": 113.5, "lat": 17.7, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 19:00:00", "level": "TS", "lon": 113.5, "lat": 17.7, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 18:00:00", "level": "TS", "lon": 113.5, "lat": 17.7, "ps": 1000.0, "ws": 20.0, "rr06": "240.0", "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 17:00:00", "level": "TS", "lon": 113.6, "lat": 17.7, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 16:00:00", "level": "TS", "lon": 113.7, "lat": 17.8, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 15:00:00", "level": "TS", "lon": 114.0, "lat": 17.8, "ps": 990.0, "ws": 23.0, "rr06": "260.0", "rr07": "120.0", "rr08": "40.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 14:00:00", "level": "TS", "lon": 114.4, "lat": 17.8, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 13:00:00", "level": "STS", "lon": 114.6, "lat": 17.8, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 12:00:00", "level": "STS", "lon": 114.8, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": "280.0", "rr07": "140.0", "rr08": "50.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 11:00:00", "level": "STS", "lon": 115.0, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 10:00:00", "level": "STS", "lon": 115.1, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 09:00:00", "level": "STS", "lon": 115.2, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": "280.0", "rr07": "140.0", "rr08": "50.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 08:00:00", "level": "STS", "lon": 115.2, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 07:00:00", "level": "STS", "lon": 115.3, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 06:00:00", "level": "STS", "lon": 115.3, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": "280.0", "rr07": "140.0", "rr08": "50.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 05:00:00", "level": "STS", "lon": 115.5, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 04:00:00", "level": "STS", "lon": 115.6, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 03:00:00", "level": "STS", "lon": 115.7, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": "280.0", "rr07": "140.0", "rr08": "50.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 02:00:00", "level": "STS", "lon": 115.7, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 01:00:00", "level": "STS", "lon": 115.8, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": "80.0" }, { "tsid": 537, "datetime": "2017-11-11 00:00:00", "level": "STS", "lon": 115.8, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": "280.0", "rr07": "130.0", "rr08": "50.0", "rr10": "80.0" }, { "tsid": 537, "datetime": "2017-11-10 23:00:00", "level": "TS", "lon": 115.9, "lat": 17.8, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "120.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 22:00:00", "level": "TS", "lon": 116.4, "lat": 17.5, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "120.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 21:00:00", "level": "TS", "lon": 116.5, "lat": 17.5, "ps": 990.0, "ws": 23.0, "rr06": "260.0", "rr07": "120.0", "rr08": "40.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 20:00:00", "level": "TS", "lon": 116.5, "lat": 17.4, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "120.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 19:00:00", "level": "TS", "lon": 116.7, "lat": 17.3, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "120.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 18:00:00", "level": "TS", "lon": 116.9, "lat": 17.2, "ps": 990.0, "ws": 23.0, "rr06": "260.0", "rr07": "120.0", "rr08": "40.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 17:00:00", "level": "TS", "lon": 117.1, "lat": 17.1, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "120.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 16:00:00", "level": "TS", "lon": 117.4, "lat": 17.1, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "120.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 15:00:00", "level": "TS", "lon": 117.6, "lat": 17.1, "ps": 990.0, "ws": 23.0, "rr06": "260.0", "rr07": "120.0", "rr08": "40.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 14:00:00", "level": "TS", "lon": 117.6, "lat": 17.0, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 13:00:00", "level": "TS", "lon": 117.6, "lat": 16.9, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 12:00:00", "level": "TS", "lon": 117.7, "lat": 16.9, "ps": 995.0, "ws": 20.0, "rr06": "240.0", "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 11:00:00", "level": "TS", "lon": 117.7, "lat": 16.8, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 10:00:00", "level": "TS", "lon": 117.8, "lat": 16.8, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 09:00:00", "level": "TS", "lon": 118.0, "lat": 16.5, "ps": 995.0, "ws": 20.0, "rr06": "240.0", "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 08:00:00", "level": "TS", "lon": 118.0, "lat": 16.4, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 07:00:00", "level": "TS", "lon": 118.1, "lat": 16.2, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 06:00:00", "level": "TS", "lon": 118.2, "lat": 16.0, "ps": 995.0, "ws": 20.0, "rr06": "240.0", "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 05:00:00", "level": "TS", "lon": 118.5, "lat": 15.6, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 04:00:00", "level": "TS", "lon": 118.7, "lat": 15.4, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 03:00:00", "level": "TS", "lon": 118.9, "lat": 15.2, "ps": 995.0, "ws": 20.0, "rr06": "280.0", "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 00:00:00", "level": "TS", "lon": 119.4, "lat": 15.0, "ps": 998.0, "ws": 18.0, "rr06": "260.0", "rr07": "80.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-09 21:00:00", "level": "TS", "lon": 119.8, "lat": 14.8, "ps": 998.0, "ws": 18.0, "rr06": "280.0", "rr07": "170.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-09 18:00:00", "level": "TS", "lon": 120.3, "lat": 14.2, "ps": 998.0, "ws": 18.0, "rr06": "280.0", "rr07": "170.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-09 15:00:00", "level": "TS", "lon": 121.0, "lat": 14.0, "ps": 998.0, "ws": 18.0, "rr06": "280.0", "rr07": "170.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-09 12:00:00", "level": "TD", "lon": 121.5, "lat": 13.8, "ps": 1000.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-09 09:00:00", "level": "TD", "lon": 122.2, "lat": 13.5, "ps": 1000.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-09 06:00:00", "level": "TD", "lon": 122.8, "lat": 13.0, "ps": 1000.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }], "fst": [{ "tsid": null, "datetime": "2017-11-12 09:00:00", "leadtime": 6, "level": "TD", "lon": 111.3, "lat": 17.2, "ps": 1008.0, "ws": 12.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }], "tan": [{ "leftlon": 111.37589466384405, "leftlat": 16.972316008467878, "rightlon": 111.22410533615597, "rightlat": 17.427683991532124 }] }, { "tsid": 534, "intlid": "1723", "tscname": "达维", "tsename": "damrey", "real": [{ "tsid": 534, "datetime": "2017-11-04 12:00:00", "level": "TD", "lon": 106.4, "lat": 12.5, "ps": 1005.0, "ws": 14.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-04 09:00:00", "level": "TS", "lon": 107.5, "lat": 12.5, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-04 06:00:00", "level": "STS", "lon": 108.0, "lat": 12.5, "ps": 982.0, "ws": 28.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-04 03:00:00", "level": "TY", "lon": 108.5, "lat": 12.5, "ps": 975.0, "ws": 33.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-04 00:00:00", "level": "TY", "lon": 109.1, "lat": 12.6, "ps": 965.0, "ws": 38.0, "rr06": "460.0", "rr07": "350.0", "rr08": "240.0", "rr10": "120.0" }, { "tsid": 534, "datetime": "2017-11-03 23:00:00", "level": "STY", "lon": 109.2, "lat": 12.7, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 22:00:00", "level": "STY", "lon": 109.6, "lat": 12.7, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 21:00:00", "level": "STY", "lon": 109.7, "lat": 12.7, "ps": 955.0, "ws": 42.0, "rr06": "500.0", "rr07": "380.0", "rr08": "280.0", "rr10": "120.0" }, { "tsid": 534, "datetime": "2017-11-03 20:00:00", "level": "STY", "lon": 110.0, "lat": 12.8, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 19:00:00", "level": "STY", "lon": 110.2, "lat": 12.8, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 18:00:00", "level": "STY", "lon": 110.3, "lat": 12.8, "ps": 955.0, "ws": 42.0, "rr06": "510.0", "rr07": "380.0", "rr08": "260.0", "rr10": "120.0" }, { "tsid": 534, "datetime": "2017-11-03 17:00:00", "level": "STY", "lon": 110.6, "lat": 12.8, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 16:00:00", "level": "STY", "lon": 110.8, "lat": 12.9, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 15:00:00", "level": "STY", "lon": 110.9, "lat": 12.9, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 14:00:00", "level": "TY", "lon": 111.2, "lat": 12.9, "ps": 960.0, "ws": 40.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 13:00:00", "level": "TY", "lon": 111.5, "lat": 12.9, "ps": 960.0, "ws": 40.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 12:00:00", "level": "TY", "lon": 111.6, "lat": 12.9, "ps": 960.0, "ws": 40.0, "rr06": "500.0", "rr07": "370.0", "rr08": "250.0", "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 11:00:00", "level": "TY", "lon": 111.8, "lat": 12.9, "ps": 960.0, "ws": 40.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 10:00:00", "level": "TY", "lon": 112.0, "lat": 12.9, "ps": 960.0, "ws": 40.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 09:00:00", "level": "TY", "lon": 112.2, "lat": 12.9, "ps": 965.0, "ws": 38.0, "rr06": "500.0", "rr07": "370.0", "rr08": "210.0", "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 08:00:00", "level": "TY", "lon": 112.4, "lat": 12.8, "ps": 970.0, "ws": 35.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 07:00:00", "level": "TY", "lon": 112.6, "lat": 12.8, "ps": 970.0, "ws": 35.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 06:00:00", "level": "TY", "lon": 112.7, "lat": 12.8, "ps": 970.0, "ws": 35.0, "rr06": "490.0", "rr07": "360.0", "rr08": "220.0", "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 05:00:00", "level": "TY", "lon": 112.8, "lat": 12.8, "ps": 975.0, "ws": 33.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 04:00:00", "level": "TY", "lon": 112.9, "lat": 12.8, "ps": 975.0, "ws": 33.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 03:00:00", "level": "TY", "lon": 113.1, "lat": 12.7, "ps": 975.0, "ws": 33.0, "rr06": "410.0", "rr07": "300.0", "rr08": "200.0", "rr10": "90.0" }, { "tsid": 534, "datetime": "2017-11-03 02:00:00", "level": "TY", "lon": 113.2, "lat": 12.7, "ps": 975.0, "ws": 33.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 01:00:00", "level": "STS", "lon": 113.3, "lat": 12.7, "ps": 980.0, "ws": 30.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": "50.0" }, { "tsid": 534, "datetime": "2017-11-03 00:00:00", "level": "STS", "lon": 113.5, "lat": 12.7, "ps": 980.0, "ws": 30.0, "rr06": "480.0", "rr07": "350.0", "rr08": "180.0", "rr10": "60.0" }, { "tsid": 534, "datetime": "2017-11-02 23:00:00", "level": "STS", "lon": 113.7, "lat": 12.6, "ps": 982.0, "ws": 28.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": "50.0" }, { "tsid": 534, "datetime": "2017-11-02 22:00:00", "level": "STS", "lon": 113.7, "lat": 12.6, "ps": 982.0, "ws": 28.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": "50.0" }, { "tsid": 534, "datetime": "2017-11-02 21:00:00", "level": "STS", "lon": 113.7, "lat": 12.6, "ps": 982.0, "ws": 28.0, "rr06": "400.0", "rr07": "350.0", "rr08": "200.0", "rr10": "50.0" }, { "tsid": 534, "datetime": "2017-11-02 20:00:00", "level": "STS", "lon": 113.8, "lat": 12.6, "ps": 982.0, "ws": 28.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": "50.0" }, { "tsid": 534, "datetime": "2017-11-02 19:00:00", "level": "STS", "lon": 113.9, "lat": 12.6, "ps": 982.0, "ws": 28.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": "50.0" }, { "tsid": 534, "datetime": "2017-11-02 18:00:00", "level": "STS", "lon": 114.0, "lat": 12.6, "ps": 985.0, "ws": 25.0, "rr06": "400.0", "rr07": "350.0", "rr08": "200.0", "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 17:00:00", "level": "STS", "lon": 114.1, "lat": 12.7, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 16:00:00", "level": "STS", "lon": 114.4, "lat": 12.7, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 15:00:00", "level": "STS", "lon": 114.7, "lat": 12.8, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 14:00:00", "level": "STS", "lon": 115.0, "lat": 12.8, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 13:00:00", "level": "STS", "lon": 115.3, "lat": 12.8, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 12:00:00", "level": "STS", "lon": 115.5, "lat": 12.9, "ps": 985.0, "ws": 25.0, "rr06": "400.0", "rr07": "350.0", "rr08": "200.0", "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 11:00:00", "level": "TS", "lon": 115.8, "lat": 13.1, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 10:00:00", "level": "TS", "lon": 116.0, "lat": 13.1, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 09:00:00", "level": "TS", "lon": 116.1, "lat": 13.1, "ps": 990.0, "ws": 23.0, "rr06": "400.0", "rr07": "350.0", "rr08": "200.0", "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 08:00:00", "level": "TS", "lon": 116.4, "lat": 13.0, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 07:00:00", "level": "TS", "lon": 116.7, "lat": 13.0, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "300.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 06:00:00", "level": "TS", "lon": 116.8, "lat": 13.0, "ps": 995.0, "ws": 20.0, "rr06": "300.0", "rr07": "190.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 05:00:00", "level": "TS", "lon": 116.9, "lat": 12.8, "ps": 998.0, "ws": 18.0, "rr06": null, "rr07": "300.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 04:00:00", "level": "TS", "lon": 117.0, "lat": 12.7, "ps": 998.0, "ws": 18.0, "rr06": null, "rr07": "300.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 03:00:00", "level": "TS", "lon": 117.1, "lat": 12.6, "ps": 998.0, "ws": 18.0, "rr06": null, "rr07": "300.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 02:00:00", "level": "TS", "lon": 117.2, "lat": 12.6, "ps": 998.0, "ws": 18.0, "rr06": null, "rr07": "300.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 01:00:00", "level": "TS", "lon": 117.4, "lat": 12.6, "ps": 999.0, "ws": 18.0, "rr06": null, "rr07": "300.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 00:00:00", "level": "TS", "lon": 117.5, "lat": 12.5, "ps": 999.0, "ws": 18.0, "rr06": "280.0", "rr07": "170.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 21:00:00", "level": "TD", "lon": 117.6, "lat": 12.1, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 18:00:00", "level": "TD", "lon": 117.8, "lat": 12.0, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 15:00:00", "level": "TD", "lon": 118.2, "lat": 12.0, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 12:00:00", "level": "TD", "lon": 119.0, "lat": 11.9, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 09:00:00", "level": "TD", "lon": 119.7, "lat": 11.8, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 06:00:00", "level": "TD", "lon": 120.1, "lat": 11.8, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 03:00:00", "level": "TD", "lon": 120.7, "lat": 11.6, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 00:00:00", "level": "TD", "lon": 120.8, "lat": 11.6, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-10-31 21:00:00", "level": "TD", "lon": 121.4, "lat": 11.5, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-10-31 18:00:00", "level": "TD", "lon": 122.2, "lat": 11.3, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-10-31 15:00:00", "level": "TD", "lon": 123.0, "lat": 11.2, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-10-31 12:00:00", "level": "TD", "lon": 123.9, "lat": 11.1, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-10-31 09:00:00", "level": "TD", "lon": 125.2, "lat": 11.0, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }], "fst": [{ "tsid": null, "datetime": "2017-11-04 00:00:00", "leadtime": 6, "level": "STS", "lon": 105.2, "lat": 12.4, "ps": 982.0, "ws": 28.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": null, "datetime": "2017-11-04 00:00:00", "leadtime": 12, "level": "TD", "lon": 103.6, "lat": 12.3, "ps": 1002.0, "ws": 16.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }], "tan": [{ "leftlon": 105.21993091516488, "leftlat": 12.16082901802123, "rightlon": 105.1800690848351, "rightlat": 12.63917098197877 }, { "leftlon": 103.62994157735449, "leftlat": 11.820934762328214, "rightlon": 103.57005842264552, "rightlat": 12.779065237671787 }] }];
+	  var _iteratorNormalCompletion6 = true;
+	  var _didIteratorError6 = false;
+	  var _iteratorError6 = undefined;
 
 	  try {
-	    for (var _iterator7 = data[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-	      var opt = _step7.value;
+	    for (var _iterator6 = data[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
+	      var opt = _step6.value;
 
 	      if (!opt.tscname) opt.tscname = '未命名';
 	    }
 	  } catch (err) {
-	    _didIteratorError7 = true;
-	    _iteratorError7 = err;
+	    _didIteratorError6 = true;
+	    _iteratorError6 = err;
 	  } finally {
 	    try {
-	      if (!_iteratorNormalCompletion7 && _iterator7.return) {
-	        _iterator7.return();
+	      if (!_iteratorNormalCompletion6 && _iterator6.return) {
+	        _iterator6.return();
 	      }
 	    } finally {
-	      if (_didIteratorError7) {
-	        throw _iteratorError7;
+	      if (_didIteratorError6) {
+	        throw _iteratorError6;
 	      }
 	    }
 	  }
 
-	  var num = data.length;
+	  if (!data.length) return;
 
-	  var currentTyIds = [];var _iteratorNormalCompletion8 = true;
-	  var _didIteratorError8 = false;
-	  var _iteratorError8 = undefined;
-
-	  try {
-	    for (var _iterator8 = data[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-	      var info = _step8.value;
-
-	      currentTyIds.push(info.tsid);
-	    }
-	  } catch (err) {
-	    _didIteratorError8 = true;
-	    _iteratorError8 = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion8 && _iterator8.return) {
-	        _iterator8.return();
-	      }
-	    } finally {
-	      if (_didIteratorError8) {
-	        throw _iteratorError8;
-	      }
-	    }
-	  }
-
-	  if (!data.length) window.fstAreas = false;
-	  window.currentTyNum = data.length;
-	  var text = num ? '当前有台风' : '当前无台风';
-
-	  currentTyphoon = data;
-	  var _iteratorNormalCompletion9 = true;
-	  var _didIteratorError9 = false;
-	  var _iteratorError9 = undefined;
-
-	  try {
-	    for (var _iterator9 = data[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-	      var _info = _step9.value;
-
-	      if (_info.fst.length) {
-	        _info.fst.map(function (item) {
-	          var time = new Date(item.datetime.replace(/\-/g, "/")).getTime();
-	          time += (8 + item.leadtime) * 60 * 60 * 1000;
-	          item.time = new Date(time).Format('yyyy/MM/dd HH:mm:ss');
-	        });
-	        $('.typhoonList').show();
-	      }
-	    }
-	  } catch (err) {
-	    _didIteratorError9 = true;
-	    _iteratorError9 = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion9 && _iterator9.return) {
-	        _iterator9.return();
-	      }
-	    } finally {
-	      if (_didIteratorError9) {
-	        throw _iteratorError9;
-	      }
-	    }
-	  }
-
-	  renderTyDOM();
-
-	  $('.hint-content').text(text).fadeIn(500, function () {
-	    $('.hint-content').fadeOut(2000);
+	  initHelper().then(function () {
+	    getTyphoon(data, currentTyIds);
 	  });
-	  getlatTy(currentTyIds);
+	};
+
+	var data = [];
+	var _iteratorNormalCompletion7 = true;
+	var _didIteratorError7 = false;
+	var _iteratorError7 = undefined;
+
+	try {
+	  for (var _iterator7 = data[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+	    var opt = _step7.value;
+
+	    if (!opt.tscname) opt.tscname = '未命名';
+	  }
+	} catch (err) {
+	  _didIteratorError7 = true;
+	  _iteratorError7 = err;
+	} finally {
+	  try {
+	    if (!_iteratorNormalCompletion7 && _iterator7.return) {
+	      _iterator7.return();
+	    }
+	  } finally {
+	    if (_didIteratorError7) {
+	      throw _iteratorError7;
+	    }
+	  }
+	}
+
+	var num = data.length;
+
+	var currentTyIds = [];var _iteratorNormalCompletion8 = true;
+	var _didIteratorError8 = false;
+	var _iteratorError8 = undefined;
+
+	try {
+	  for (var _iterator8 = data[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
+	    var info = _step8.value;
+
+	    currentTyIds.push(info.tsid);
+	  }
+	} catch (err) {
+	  _didIteratorError8 = true;
+	  _iteratorError8 = err;
+	} finally {
+	  try {
+	    if (!_iteratorNormalCompletion8 && _iterator8.return) {
+	      _iterator8.return();
+	    }
+	  } finally {
+	    if (_didIteratorError8) {
+	      throw _iteratorError8;
+	    }
+	  }
+	}
+
+	if (!data.length) window.fstAreas = false;
+	window.currentTyNum = data.length;
+	var text = num ? '当前有台风' : '当前无台风';
+
+	currentTyphoon = data;
+	var _iteratorNormalCompletion9 = true;
+	var _didIteratorError9 = false;
+	var _iteratorError9 = undefined;
+
+	try {
+	  for (var _iterator9 = data[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
+	    var _info = _step9.value;
+
+	    if (_info.fst.length) {
+	      _info.fst.map(function (item) {
+	        var time = new Date(item.datetime.replace(/\-/g, "/")).getTime();
+	        time += (8 + item.leadtime) * 60 * 60 * 1000;
+	        item.time = new Date(time).Format('yyyy/MM/dd HH:mm:ss');
+	      });
+	      $('.typhoonList').show();
+	    }
+	  }
+	} catch (err) {
+	  _didIteratorError9 = true;
+	  _iteratorError9 = err;
+	} finally {
+	  try {
+	    if (!_iteratorNormalCompletion9 && _iterator9.return) {
+	      _iterator9.return();
+	    }
+	  } finally {
+	    if (_didIteratorError9) {
+	      throw _iteratorError9;
+	    }
+	  }
+	}
+
+	renderTyDOM();
+
+	$('.hint-content').text(text).fadeIn(500, function () {
+	  $('.hint-content').fadeOut(2000);
 	});
+	getlatTy(currentTyIds);
 
 /***/ }),
 /* 15 */
@@ -2060,19 +2084,19 @@
 	  });
 	  var events = {
 	    click: function click(e) {
-	      $('#waveHeight').text(pData.waveHeight ? pData.waveHeight + 'm' : '');
-	      $('#waveDir').text(pData.waveDir ? pData.waveDir : '');
-	      $('#wavePeriod').text(pData.waveProid ? pData.waveProid + 's' : '');
-	      $('#windPowers').text(pData.windPower ? pData.windPower + '级' : '');
-	      $('#stormSurge').text(pData.windWater);
-	      $('#windDirs').text(pData.windDirection ? pData.windDirection : '');
+	      $('#waveHeight').text(pData.waveHeight ? pData.waveHeight + 'm' : '---');
+	      $('#waveDir').text(pData.waveDir ? pData.waveDir : '---');
+	      $('#wavePeriod').text(pData.waveProid ? pData.waveProid + 's' : '---');
+	      $('#windPowers').text(pData.windPower ? pData.windPower + '级' : '---');
+	      $('#stormSurge').text(pData.windWater ? pData.windWater : '---');
+	      $('#windDirs').text(pData.windDirection ? pData.windDirection : '---');
 
 
 	      if ($('.simiMatch.on').length) $('.closeSimi').click();
 	      $('.early_head').attr('pointid', pointId);
 	      map.addEventListener('movestart', _typhoonDom.hidePreWarnPopup);
 	      map.addEventListener('click', _typhoonDom.hidePreWarnPopup);
-	      $('.tycontener_bottSeawave').stop().animate({ 'bottom': '-4.93rem' });
+	      $('.tycontener_bottSeawave').stop().animate({ 'bottom': '-6rem' });
 	      $('.early_warn').addClass('on').stop().animate({ bottom: '0rem' });
 	      $('.imgEx,.tyCl_list,.cloudPopup').stop().animate({ 'bottom': 4.4 + 'rem' });
 	    }
@@ -2132,12 +2156,11 @@
 
 	var getTyphoonspot = exports.getTyphoonspot = function getTyphoonspot() {
 	  var userId = window.locationInfo.userId;
-
 	  var url = _url._tyUrl.obtain();
 	  return $.post({ url: url, dataType: 'json', data: { userId: userId } });
 	};
 	var addTyphoonspot = exports.addTyphoonspot = function addTyphoonspot(lat, lon, radius) {
-	  var userId = '8dd76bbcad114776beb80c8514eb898d';
+	  var userId = window.locationInfo.userId;
 	  var url = _url._tyUrl.add();
 	  var params = {
 	    userId: userId,
@@ -2149,7 +2172,6 @@
 	};
 	var modifyTyphoonspot = exports.modifyTyphoonspot = function modifyTyphoonspot(lat, lon, radius, typhoonid) {
 	  var userId = window.locationInfo.userId;
-
 	  var url = _url._tyUrl.modify();
 	  var params = {
 	    userId: userId,
@@ -2162,7 +2184,6 @@
 	};
 	var removeTyphoonpot = exports.removeTyphoonpot = function removeTyphoonpot(typhoonid) {
 	  var userId = window.locationInfo.userId;
-
 	  var url = _url._tyUrl.remove();
 	  var params = {
 	    userId: userId,
@@ -2464,7 +2485,7 @@
 
 	var _area = _interopRequireWildcard(_alarmArea);
 
-	var _judgeArea = __webpack_require__(27);
+	var _judgeArea = __webpack_require__(28);
 
 	var _wind = __webpack_require__(23);
 
@@ -2478,7 +2499,7 @@
 
 	var _boundary3 = _interopRequireDefault(_boundary2);
 
-	var _newsTip = __webpack_require__(29);
+	var _newsTip = __webpack_require__(27);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -2554,6 +2575,8 @@
 	                    getInterpPoints(lon, lat).then(function (res) {
 	                        if (res.windPower >= 7) bool = true;
 	                        _area.addArea(lat, lon, radius, typhoonspotid, bool, res);
+	                    }).catch(function (e) {
+	                        _area.addArea(lat, lon, radius, typhoonspotid, bool, {});
 	                    });
 	                };
 
@@ -2596,26 +2619,33 @@
 	    var stormUrl = 'http://119.29.102.103:8111/Alarm/getTideInterpPoints?datetime=' + date + '&leadtime=0&points[0][]=' + lon + '&points[0][]=' + lat + '&cacheCtrl=' + Date.now();
 	    var data = void 0;
 	    return new Promise(function (resolve, reject) {
-	        $.ajax({ url: url }).then(function (res) {
-	            if (/DB_ERROR/.test(res) || /null/.test(res) || !res.length) {
+	        $.ajax({
+	            url: url,
+	            timeout: 2000,
+	            success: function success(res) {
+	                if (/DB_ERROR/.test(res) || /null/.test(res) || !res.length) {
+	                    reject();
+	                    return;
+	                }
+	                data = res[0];
+	                for (var i in data) {
+	                    if (/null/.test(data[i]) || data[i] === -999.9) data[i] = '';
+	                }
+	                if (data.windPower) data.windPower = (0, _wind.getVelLevel)(data.windPower);
+	                if (data.windDirection) data.windDirection = (0, _wind.getDirLevel)(data.windDirection);
+	                if (data.waveHeight) data.waveHeight = data.waveHeight.toFixed(2);
+	                if (data.waveProid) data.waveProid = data.waveProid.toFixed(2);
+	                if (data.waveDir) data.waveDir = (0, _wind.getDirLevel)(data.waveDir).replace('风', '');
+	                $.ajax({ url: stormUrl, timeout: 5000 }).then(function (msg) {
+	                    if (!msg || /DB_ERROR/.test(msg) || /null/.test(msg) || !msg.length) data.windWater = 0;
+	                    data.windWater = msg[0];
+	                    if (data.windWater) data.windWater = data.windWater.toFixed(2);else data.windWater = 0;
+	                    resolve(data);
+	                });
+	            },
+	            error: function error(err) {
 	                reject();
-	                return;
 	            }
-	            data = res[0];
-	            for (var i in data) {
-	                if (/null/.test(data[i]) || data[i] === -999.9) data[i] = '';
-	            }
-	            if (data.windPower) data.windPower = (0, _wind.getVelLevel)(data.windPower);
-	            if (data.windDirection) data.windDirection = (0, _wind.getDirLevel)(data.windDirection);
-	            if (data.waveHeight) data.waveHeight = data.waveHeight.toFixed(2);
-	            if (data.waveProid) data.waveProid = data.waveProid.toFixed(2);
-	            if (data.waveDir) data.waveDir = (0, _wind.getDirLevel)(data.waveDir).replace('风', '');
-	            return $.ajax({ url: stormUrl });
-	        }).then(function (msg) {
-	            if (!msg || /DB_ERROR/.test(msg) || /null/.test(msg) || !msg.length) data.windWater = 0;
-	            data.windWater = msg[0];
-	            if (data.windWater) data.windWater = data.windWater.toFixed(2);else data.windWater = 0;
-	            resolve(data);
 	        });
 	    });
 	};
@@ -2702,7 +2732,7 @@
 	var deleteOcean = function deleteOcean() {
 	    (0, _seawaveDom.delBoundary)();
 	    if ($('.tycontener_bottSeawave').hasClass('on')) {
-	        $('.tycontener_bottSeawave').removeClass('on').stop().animate({ 'bottom': '-5.4rem' });
+	        $('.tycontener_bottSeawave').removeClass('on').stop().animate({ 'bottom': '-6rem' });
 	        $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({ 'bottom': '0.666667rem' });
 	    }
 	};
@@ -2820,7 +2850,7 @@
 	});
 
 	$('#makePolicy').on('click', function () {
-	    $('.early_warn').removeClass('on').show().stop().animate({ bottom: '-4.4rem' });
+	    $('.early_warn').removeClass('on').show().stop().animate({ bottom: '-4.8rem' });
 	    $('.rainProgressbar').stop().animate({ 'bottom': '-2.67rem' }).removeClass('on');
 	    $('.tyCl_list,.getLonLat,.imgEx,.cloudPopup').stop().animate({ 'bottom': '0.666667rem' });
 	    if ($('.simiMatch').hasClass('on')) $('.closeSimi').click();
@@ -2904,6 +2934,8 @@
 	        getInterpPoints(lon, lat).then(function (res) {
 	            if (res.windPower >= 7) bool = true;
 	            _area.addArea(lat, lon, radius, pointId, bool, res);
+	        }).catch(function (e) {
+	            _area.addArea(lat, lon, radius, pointId, bool, {});
 	        });
 	        spots_global[pointId] = res.tagObject;
 	    });
@@ -2963,7 +2995,7 @@
 	        });
 	        var buoyLabel = L.divIcon({
 	            className: 'ty-name-label',
-	            html: '<span class="buoyLabel">\u6D6E\u6807\u9884\u8B66\u70B9</span>'
+	            html: '<span class="buoyLabel">\u6D6E\u6807\u7AD9</span>'
 	        });
 
 	        data.map(function (info) {
@@ -2972,10 +3004,10 @@
 	                click: function click(e) {
 	                    $('.rainProgressbar').stop().animate({ 'bottom': '-2.67rem' }).removeClass('on');
 	                    if ($('.tycontener_bottSeawave').hasClass('on')) {
-	                        $('.tycontener_bottSeawave').removeClass('on').stop().animate({ bottom: '-5.4rem' });
+	                        $('.tycontener_bottSeawave').removeClass('on').stop().animate({ bottom: '-6rem' });
 	                        if ($('.buoy_bott').hasClass('on')) $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({ 'bottom': '6.466667rem' });else $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({ 'bottom': '0.666667rem' });
 	                    }
-	                    if ($('.early_warn').hasClass('on')) $('.early_warn').removeClass('on').stop().animate({ bottom: '-4.4rem' });
+	                    if ($('.early_warn').hasClass('on')) $('.early_warn').removeClass('on').stop().animate({ bottom: '-4.8rem' });
 	                    if ($('.simiMatch.on').length) $('.closeSimi').click();
 	                    $('#buoyPos').text(Math.round(Number(info.V22041) * 100) / 100 === 9999 ? '--' : (0, _wind.getDirLevel)(Math.round(Number(info.V22041) * 100) / 100).replace('风', ''));
 	                    $('#aboveTem').text(Math.round(Number(info.V22042) * 100) / 100 === 9999 ? '--' : Math.round(Number(info.V22042) * 100) / 100 + '℃');
@@ -3032,8 +3064,7 @@
 	});
 
 	$('.preWarnDetales_center').on('click', '.modifyDel', function () {
-	    var $parent = $(this).parent('.radiusIn');
-	    $parent.prev().remove();
+	    var $parent = $(this).parents('.wrapperMod');
 	    $parent.remove();
 	});
 
@@ -3062,7 +3093,6 @@
 	    _area.modifyTyphoonspot(lat, lon, radius, pointId).then(function (data) {
 	        if (data.result === 'S_OK') {
 	            (function () {
-	                _area.removeSingleArea(pointId);
 	                var radiusArr = radius.sort(function (a, b) {
 	                    return a < b;
 	                });
@@ -3070,8 +3100,12 @@
 	                var maxRadiu = radiusArr[0];
 	                var bool = (0, _judgeArea.judge)(lat, lon, maxRadiu);
 	                getInterpPoints(lon, lat).then(function (res) {
+	                    _area.removeSingleArea(pointId);
 	                    if (res.windPower >= 7) bool = true;
 	                    _area.addArea(lat, lon, radius, pointId, bool, res);
+	                }).catch(function (e) {
+	                    _area.removeSingleArea(pointId);
+	                    _area.addArea(lat, lon, radius, pointId, bool, {});
 	                });
 	                spots_global[pointId] = { lat: lat, lon: lon, radius: radius, typhoonspotid: pointId };
 	                $('.preWarn_cusWin').hide();
@@ -3098,8 +3132,8 @@
 	});
 	var hidePreWarnPopup = exports.hidePreWarnPopup = function hidePreWarnPopup() {
 	    if ($('.early_warn').hasClass('on') === false) return;
-	    $('.early_warn').removeClass('on').show().stop().animate({ bottom: '-4.4rem' });
-	    $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({ 'bottom': 0.6667 + 'rem' });
+	    $('.early_warn').removeClass('on').show().stop().animate({ bottom: '-4.8rem' });
+	    if ($('.rainForecast').hasClass('on')) $('.imgEx,.tyCl_list,.getLonLat,.cloudPopup').stop().animate({ 'bottom': 3.33 + 'rem' });else $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({ 'bottom': 0.6667 + 'rem' });
 	};
 
 	$('.cusDetales_center').on('click', '#addRadius', function () {
@@ -3273,7 +3307,7 @@
 
 	var _viewer = __webpack_require__(26);
 
-	var _newsTip = __webpack_require__(29);
+	var _newsTip = __webpack_require__(27);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -3307,24 +3341,23 @@
 	    }
 	    exports.hasData = hasData = true;
 	    getPoint(msg);
-	    (0, _newsTip.addNewsTip)('seawave', '北京时: ' + new Date(date).Format('yyyy年MM月dd日 HH:00') + '&nbsp;海浪预报');
+
 	    return false;
 	  }).then(function (msg) {
 	    if (!$('.swList').hasClass('on') || !msg) return;
 	    if (/DB_ERROR/.test(msg) || /null/.test(msg) || !msg.length) {
 	      (0, _tips.getNoDataTips)('.seaWave_noData');
 	      exports.hasData = hasData = false;
-	      (0, _newsTip.removeNewsTip)('seawave');
+
 	      return;
 	    }
 	    exports.hasData = hasData = true;
 	    getPoint(msg);
-	    (0, _newsTip.addNewsTip)('seawave', '北京时: ' + new Date(date).Format('yyyy年MM月dd日 HH:00') + '&nbsp;海浪预报');
 	  });
 	};
 
 	var mapEvent = function mapEvent() {
-	  $('.tycontener_bottSeawave').removeClass('on').stop().animate({ 'bottom': '-5.4rem' });
+	  $('.tycontener_bottSeawave').removeClass('on').stop().animate({ 'bottom': '-6rem' });
 	  if ($('.early_warn').hasClass('on')) return;
 	  if ($('.simiMatch').hasClass('on')) return;
 	  if ($('.rainProgressbar').hasClass('on')) return;
@@ -3366,7 +3399,7 @@
 	      $('#tyswNav>ul>li.a').click();
 	      $('.cloudMap ul li img.on').click();
 	      $('.typhoon_seaWave p').click();
-	      if ($('.early_warn').hasClass('on')) $('.early_warn').removeClass('on').stop().animate({ bottom: '-4.4rem' });
+	      if ($('.early_warn').hasClass('on')) $('.early_warn').removeClass('on').stop().animate({ bottom: '-4.8rem' });
 	      $('.tyCl_list,.imgEx,.cloudPopup').stop().animate({ 'bottom': 5.9 + 'rem' });
 	      $('.tycontener_bottSeawave').addClass('on').show().stop().animate({ bottom: '0rem' });
 	      $('.tycontener_bottSeawave').click(function (e) {
@@ -3411,8 +3444,10 @@
 	  $('.tySeawave_pre tr:eq(1) td:eq(1)').text(seaData[time].v2202105 + 'm');
 	  $('.tySeawave_pre tr:eq(2) td:eq(1)').text(seaData[time].v2202106 + 'm');
 	  $('.tySeawave_pre tr:eq(3) td:eq(1)').text(seaData[time].v20059 + '-' + seaData[time].v20058 + 'm');
-	  $('.tySeawave_pre tr:eq(1) td:eq(3)').text(seaData[time].v11041 + '级');
-	  $('.tySeawave_pre tr:eq(0) td:eq(3)').text(seaData[time].v11301 + '级');
+	  var text = seaData[time].v11041 === seaData[time].v1104101 ? seaData[time].v11041 + '级' : seaData[time].v11041 + '-' + seaData[time].v1104101 + '级';
+	  $('.tySeawave_pre tr:eq(1) td:eq(3)').text(text);
+	  var texts = seaData[time].v11301 === seaData[time].v1130101 ? seaData[time].v11301 + '级' : seaData[time].v11301 + '-' + seaData[time].v1130101 + '级';
+	  $('.tySeawave_pre tr:eq(0) td:eq(3)').text(texts);
 
 	  var windDer = void 0;
 	  if (seaData[time].v11001) {
@@ -3705,6 +3740,62 @@
 /* 27 */
 /***/ (function(module, exports) {
 
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var intervalHolder = null;
+	var playFn = function playFn() {
+	  var html = '<div class="same">' + $('.cloudPopup .wrapper').html() + '</div>';
+	  $('.cloudPopup .wrapper').append(html);
+	  var len = $('.cloudPopup .wrapper>p').length;
+	  var num = 1;
+	  intervalHolder = setInterval(function () {
+	    var top = -1 * 26 * num;
+	    $('.cloudPopup .wrapper').stop().animate({ marginTop: top + 'px' }, 1500, function () {
+	      if (num === len) {
+	        num = 1;
+	        $('.cloudPopup .wrapper').css({ marginTop: 0 });
+	      } else num++;
+	    });
+	  }, 3000);
+	};
+
+	var clearInt = function clearInt() {
+	  if (!intervalHolder) return;
+	  clearInterval(intervalHolder);
+	  intervalHolder = null;
+	  $('.cloudPopup .wrapper .same').remove();
+	  $('.cloudPopup .wrapper').stop().css({ marginTop: 0 });
+	};
+
+	var clickFn = function clickFn() {
+	  if ($('.cloudPopup .wrapper>p').length < 2) return;
+	  $('.cloudPopup .wrapper').toggleClass('on');
+	  if ($('.cloudPopup .wrapper').hasClass('on')) {
+	    clearInt();
+	    $('.cloudPopup').css({ height: $('.cloudPopup .wrapper>p').length * 26 + 'px' });
+	  } else {
+	    $('.cloudPopup').css({ height: '26px' });
+	    playFn();
+	  }
+	};
+
+	var addNewsTip = exports.addNewsTip = function addNewsTip(key, text) {
+	  $('.cloudPopup .wrapper').append('<p class="tip-' + key + '">' + text + '</p>');
+	  $('.cloudPopup').show();
+	};
+
+	var removeNewsTip = exports.removeNewsTip = function removeNewsTip(key) {
+	  $('.cloudPopup .wrapper .tip-' + key).remove();
+	  if (!$('.cloudPopup .wrapper>p').length) $('.cloudPopup').hide();
+	};
+
+/***/ }),
+/* 28 */
+/***/ (function(module, exports) {
+
 	"use strict";
 
 	Object.defineProperty(exports, "__esModule", {
@@ -3804,7 +3895,7 @@
 	};
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -3823,7 +3914,7 @@
 
 	var _Coder = __webpack_require__(18);
 
-	var _newsTip = __webpack_require__(29);
+	var _newsTip = __webpack_require__(27);
 
 	var _viewer = __webpack_require__(26);
 
@@ -3915,6 +4006,7 @@
 	  if ($(this).hasClass('on')) {
 	    overlay.removeOverlay('mcr');
 	    (0, _newsTip.removeNewsTip)('tgReflex');
+	    $('.radar_colourCode').hide();
 	  } else {
 	    getImgFn(0, 'dataMcr', $(this));
 	  }
@@ -3931,6 +4023,7 @@
 	    if ($btn.hasClass('on')) (0, _newsTip.addNewsTip)('tgReflex', '北京时: ' + new Date(time.replace(/-/g, '/')).Format('yyyy年MM月dd日 HH:00') + '&nbsp;雷达回波');
 	    $btn.hasClass('on') ? overlay.addImageOverlay('mcr', url, bounds) : overlay.removeOverlay('mcr');
 	    (0, _viewer.viewerCor)();
+	    $('.radar_colourCode').show();
 	  };
 	  img.onerror = function () {
 	    i++;
@@ -3940,7 +4033,10 @@
 	        getImgFn(i, 'mcr', $btn);
 	      }
 	    } else if (type === 'mcr') {
-	      if (i < 3) getImgFn(i, 'mcr', $btn);else (0, _tips.getNoDataTips)('.cloudNoData');
+	      if (i < 3) getImgFn(i, 'mcr', $btn);else {
+	        $('.radar_colourCode').hide();
+	        (0, _tips.getNoDataTips)('.cloudNoData');
+	      }
 	    }
 	  };
 	  img.src = url;
@@ -3951,7 +4047,6 @@
 	  if ($(this).hasClass('on')) {
 	    overlay.removeOverlay('rainStorm');
 	    map.off('moveend', updateMap);
-	    (0, _newsTip.removeNewsTip)('rainStorm');
 	  } else {
 	    getRsImg(0, $(this), function (flag) {
 	      if (!flag) {
@@ -3975,7 +4070,8 @@
 	      top = mapBound.getNorth();
 	  var rsbounds = [[top, left], [bottom, right]];
 	  var contSize = map.getSize();
-	  var url = 'http://119.29.102.103:8111/roa1080/grid/thunder/titan/' + date + '/json/png/' + left + ',' + right + ',' + top + ',' + bottom + ',' + contSize.x + ',' + contSize.y + '/color/cache?cacheCtrl=' + Date.now();
+
+	  var url = 'http://119.29.102.103:9022/dataunit/titan/renderTitan?datetime=' + date + '&top=' + top + '&bottom=' + bottom + '&left=' + left + '&right=' + right + '&width=' + contSize.x + '&height=' + contSize.y + '&cacheCtrl=' + Date.now();
 	  console.log(url);
 	  return {
 	    url: url,
@@ -3992,7 +4088,6 @@
 	  var img = new Image();
 	  fn = fn || $.noop();
 	  img.onload = function () {
-	    (0, _newsTip.addNewsTip)('rainStorm', '北京时: ' + new Date(ms).Format('yyyy年MM月dd日 HH:00') + '&nbsp;雷暴追踪');
 	    rsIndex = i;
 	    var rsbounds = getRsUrl(i).bounds;
 	    overlay.removeOverlay(id);
@@ -4035,13 +4130,12 @@
 	var isWindCompAlive = false;
 	var windMarker = [];
 	var getWindData = function getWindData() {
-	  var siteUrl = 'http://119.29.102.103:8111/roa1080/discrete/stationreal/s2/1,\u5E7F\u4E1C,,/JSON?cacheCtrl=' + Date.now();
+	  var siteUrl = 'http://10.148.83.228:8922/dataunit/station/findStationData_Latest?types[]=A&elements[]=wd2dd&elements[]=wd2df&elements[]=lat&elements[]=lon&provinces[]=\u5E7F\u4E1C&cacheCtrl=' + Date.now();
 	  var time = Date.now() - Date.now() % (5 * 60 * 1000) - 15 * 60 * 1000;
 	  var datetime = new Date(time).Format('yyyy-MM-dd HH:mm:00');
-	  var windUrl = 'http://119.29.102.103:8111/roa1080/discrete/stationreal/d3/1,wind,' + datetime + '/JSON?cacheCtrl=' + Date.now();
 	  $.ajax({ url: siteUrl }).then(function (data) {
 	    if (!isWindCompAlive) return;
-	    data = JSON.parse(data);
+
 	    if (/DB_ERROR/.test(data)) {
 	      (0, _tips.getNoDataTips)('.seaWave_noData');return;
 	    }
@@ -4054,70 +4148,49 @@
 	      icon: siteIcon,
 	      zIndexOffset: 1000
 	    };
-	    var windObj = {};
-	    data.map(function (info) {
-	      var center = [info.latitude, info.longitude];
-	      overlay.addMarker('sitePoint', center, options);
-	      windObj[info.stationid] = info;
-	    });
-	    (0, _viewer.viewerCor)();
+	    var icon = {
+	      iconUrl: 'assets/arrowhead@3x.png',
+	      iconSize: [10, 14],
+	      iconAnchor: [5, 14]
+	    };
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
 
-	    $.ajax({ url: windUrl }).then(function (msg) {
-	      if (!isWindCompAlive) return;
-	      (0, _newsTip.addNewsTip)('wind', '北京时: ' + new Date(time).Format('yyyy年MM月dd日 HH:00') + '&nbsp;实时风况');
-	      msg = JSON.parse(msg);
-	      if (/DB_ERROR/.test(msg)) {
-	        (0, _tips.getNoDataTips)('.seaWave_noData');return;
-	      }
-	      var _iteratorNormalCompletion = true;
-	      var _didIteratorError = false;
-	      var _iteratorError = undefined;
+	    try {
+	      for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	        var item = _step.value;
 
-	      try {
-	        for (var _iterator = msg[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	          var info = _step.value;
-
-	          if (windObj[info.stationid]) {
-	            windObj[info.stationid] = Object.assign(windObj[info.stationid], info);
-	          }
-	        }
-	      } catch (err) {
-	        _didIteratorError = true;
-	        _iteratorError = err;
-	      } finally {
-	        try {
-	          if (!_iteratorNormalCompletion && _iterator.return) {
-	            _iterator.return();
-	          }
-	        } finally {
-	          if (_didIteratorError) {
-	            throw _iteratorError;
-	          }
-	        }
-	      }
-
-	      var icon = {
-	        iconUrl: 'assets/arrowhead@3x.png',
-	        iconSize: [10, 14],
-	        iconAnchor: [5, 14]
-	      };
-	      for (var i in windObj) {
-	        var item = windObj[i];
-	        if (item.wind_dir) {
-	          var marker = L.angleMarker([item.latitude, item.longitude], { icon: new L.Icon(icon), iconAngle: item.wind_dir, iconOrigin: '50% 100%' });
+	        var center = [item.elems.lat, item.elems.lon];
+	        overlay.addMarker('sitePoint', center, options);
+	        if (item.elems.wd2dd) {
+	          var marker = L.angleMarker([item.elems.lat, item.elems.lon], { icon: new L.Icon(icon), iconAngle: item.elems.wd2dd, iconOrigin: '50% 100%' });
 	          windMarker.push(marker);
 	          marker.addTo(map);
 	        }
-	        if (item.wind_vel) {
+	        if (item.elems.wd2df) {
 	          var className = void 0;
-	          if (item.wind_dir < 90 || item.wind_dir > 270) className = 'wind_veltop';else className = 'wind_velbot';
+	          if (item.elems.wd2df < 90 || item.elems.wd2df > 270) className = 'wind_veltop';else className = 'wind_velbot';
 	          var opts = L.divIcon({
-	            html: '<div class="' + className + '">' + (Number(item.wind_vel) + 'm/s') + '</div>'
+	            html: '<div class="' + className + '">' + (Math.floor(item.elems.wd2df * 100) / 100 + 'm/s') + '</div>'
 	          });
-	          overlay.addMarker('windVel', [item.latitude, item.longitude], { icon: opts });
+	          overlay.addMarker('windVel', [item.elems.lat, item.elems.lon], { icon: opts });
 	        }
 	      }
-	    });
+	    } catch (err) {
+	      _didIteratorError = true;
+	      _iteratorError = err;
+	    } finally {
+	      try {
+	        if (!_iteratorNormalCompletion && _iterator.return) {
+	          _iterator.return();
+	        }
+	      } finally {
+	        if (_didIteratorError) {
+	          throw _iteratorError;
+	        }
+	      }
+	    }
 	  });
 	};
 
@@ -4162,34 +4235,25 @@
 	  $(this).toggleClass('on');
 	});
 
-	var getImageStringUrl = 'http://119.29.102.103:9002/nc/jsonp/bin/contour?binInfoArea.modelName=qpfacc&binInfoArea.datetime={date}&binInfoArea.varname=rain&binInfoArea.level=60&bounds.left=108.5&bounds.right=118.99&bounds.top=27&bounds.bottom=18.21&bounds.width=1050&bounds.height=880&shaderOn=true&contourOn=false&contourLabelOn=false&projName=equ';
+	var getImageStringUrl = 'http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime={date}&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=600&height=600';
 	var rainTimes = [];
 	var rainLayer = void 0;
 	var getRainTime = function getRainTime() {
 	  return new Promise(function (resolve, reject) {
-	    var url = 'http://119.29.102.103:18888/' + _Coder.Coder.encode('zxhcqpfimage/getpictime/user/post/,/');
+	    var url = 'http://10.148.83.228:8922/dataunit/temporary/findTemporaryDataHeader_Latest?type=swan&element=qpf&time=60&level=3';
 	    $.ajax({ url: url }).then(function (res) {
-	      if (res.result === 'S_OK') resolve(res.tagObject);else reject();
+	      console.log(res);
+	      resolve(res[0].datetime);
 	    });
 	  });
 	};
 
 	var getRainUrl = function getRainUrl(datetime) {
-	  return new Promise(function (resolve, reject) {
-	    console.log(datetime);
-	    var url = getImageStringUrl.replace('{date}', datetime) + ('&cacheCtrl=' + Date.now());
-	    $.ajax({ url: url, dataType: 'jsonp' }).then(function (res) {
-	      if (res == null) reject();else {
-	        console.log('http://119.29.102.103:9002/' + res);
-	        resolve('http://119.29.102.103:9002/' + res);
-	      }
-	    });
-	  });
+	  return 'http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime=' + datetime + '&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=800&height=800';
 	};
 
 	$('.rainForecast').click(function (e) {
 	  if ($(this).hasClass('on')) {
-	    (0, _newsTip.removeNewsTip)('rainForecast');
 	    $(this).removeClass('on');
 	    $('.rainProgressbar').stop().animate({ 'bottom': '-2.67rem' }, function () {
 	      if ($('.buttonPlay').hasClass('on')) $('.buttonPlay').click();
@@ -4200,60 +4264,36 @@
 	    removeRainLayer();
 	  } else {
 	    $(this).addClass('on');
-	    $('.early_warn').stop().animate({ bottom: '-4.4rem' });
+	    $('.early_warn').stop().animate({ bottom: '-4.8rem' });
 	    if (map.hasEventListeners('click', _typhoonDom.hidePreWarnPopup)) {
 	      map.removeEventListener('click', _typhoonDom.hidePreWarnPopup);
 	      map.removeEventListener('movestart', _typhoonDom.hidePreWarnPopup);
 	    }
 	    getRainTime().then(function (res) {
-	      var _iteratorNormalCompletion3 = true;
-	      var _didIteratorError3 = false;
-	      var _iteratorError3 = undefined;
-
-	      try {
-	        for (var _iterator3 = res[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-	          var opt = _step3.value;
-
-	          rainTimes.push(new Date(opt).Format('yyyy-MM-dd HH:mm:00'));
-	        }
-	      } catch (err) {
-	        _didIteratorError3 = true;
-	        _iteratorError3 = err;
-	      } finally {
-	        try {
-	          if (!_iteratorNormalCompletion3 && _iterator3.return) {
-	            _iterator3.return();
-	          }
-	        } finally {
-	          if (_didIteratorError3) {
-	            throw _iteratorError3;
-	          }
-	        }
+	      for (var i = 0; i < 10; i++) {
+	        var qpfTime = res - i * 6 * 60 * 1000;
+	        rainTimes.unshift(new Date(qpfTime).Format('yyyy-MM-dd HH:mm:00'));
 	      }
 
 	      var datetime = new Date(rainTimes[0].replace(/-/g, '/')).getTime() + 3600000;
 	      var date = new Date(datetime).Format('yyyy-MM-dd HH:mm:00');
 	      $('.rain_nowtime').text(date);
 
-	      getRainUrl(rainTimes[0]).then(function (url) {
-	        var img = new Image();
-	        img.onload = function () {
-	          (0, _newsTip.addNewsTip)('rainForecast', '北京时: ' + new Date(datetime).Format('yyyy年MM月dd日 HH:mm') + '&nbsp;降水预测');
+	      var url = getRainUrl(rainTimes[0]);
+	      var img = new Image();
+	      img.onload = function () {
 
-	          $('.rainProgressbar').stop().animate({ 'bottom': '0rem' }).addClass('on');
-	          $('.tyCl_list,.getLonLat,.imgEx,.cloudPopup').stop().animate({ 'bottom': '3.33rem' });
-	          addRainLayer(url);
-	          (0, _viewer.viewerCor)();
-	        };
-	        img.onerror = function () {
-	          $('.rainProgressbar').stop().animate({ 'bottom': '0rem' }).addClass('on');
-	          $('.tyCl_list,.getLonLat,.imgEx,.cloudPopup').stop().animate({ 'bottom': '3.33rem' });
-	          (0, _tips.getNoDataTips)('.cloudNoData');
-	        };
-	        img.src = url;
-	      }).catch(function (e) {
+	        $('.rainProgressbar').stop().animate({ 'bottom': '0rem' }).addClass('on');
+	        $('.tyCl_list,.getLonLat,.imgEx,.cloudPopup').stop().animate({ 'bottom': '3.33rem' });
+	        addRainLayer(url);
+	        (0, _viewer.viewerCor)();
+	      };
+	      img.onerror = function () {
+	        $('.rainProgressbar').stop().animate({ 'bottom': '0rem' }).addClass('on');
+	        $('.tyCl_list,.getLonLat,.imgEx,.cloudPopup').stop().animate({ 'bottom': '3.33rem' });
 	        (0, _tips.getNoDataTips)('.cloudNoData');
-	      });
+	      };
+	      img.src = url;
 	    }).catch(function (e) {
 	      (0, _tips.getNoDataTips)('.cloudNoData');
 	    });
@@ -4297,27 +4337,24 @@
 	  date = new Date(date).Format('yyyy-MM-dd HH:mm:00');
 	  $('.rain_nowtime').text(date);
 
-	  getRainUrl(rainTimes[num]).then(function (url) {
-	    var img = new Image();
-	    img.onload = function () {
+	  var url = getRainUrl(rainTimes[num]);
+	  var img = new Image();
+	  img.onload = function () {
 
-	      if ($('.rainForecast').hasClass('on') && $('.buttonPlay').hasClass('on')) {
-	        addRainLayer(url);
-	        timeout = setTimeout(intvEvent, 2000);
-	      } else {
-	        removeRainLayer();
-	      }
-	    };
-	    img.onerror = function () {
+	    if ($('.rainForecast').hasClass('on') && $('.buttonPlay').hasClass('on')) {
+	      addRainLayer(url);
+	      timeout = setTimeout(intvEvent, 2000);
+	    } else {
 	      removeRainLayer();
-	      if ($('.rainForecast').hasClass('on') && $('.buttonPlay').hasClass('on')) {
-	        timeout = setTimeout(intvEvent, 2000);
-	      }
-	    };
-	    img.src = url;
-	  }).catch(function (e) {
+	    }
+	  };
+	  img.onerror = function () {
 	    removeRainLayer();
-	  });
+	    if ($('.rainForecast').hasClass('on') && $('.buttonPlay').hasClass('on')) {
+	      timeout = setTimeout(intvEvent, 2000);
+	    }
+	  };
+	  img.src = url;
 	};
 
 	$('.grayPoint').click(function () {
@@ -4339,18 +4376,15 @@
 	  date = new Date(date).Format('yyyy-MM-dd HH:mm:00');
 	  $('.rain_nowtime').text(date);
 
-	  getRainUrl(rainTimes[num]).then(function (url) {
-	    var img = new Image();
-	    img.onload = function () {
-	      addRainLayer(url);
-	    };
-	    img.onerror = function () {
-	      removeRainLayer();
-	    };
-	    img.src = url;
-	  }).catch(function (e) {
+	  var url = getRainUrl(rainTimes[num]);
+	  var img = new Image();
+	  img.onload = function () {
+	    addRainLayer(url);
+	  };
+	  img.onerror = function () {
 	    removeRainLayer();
-	  });
+	  };
+	  img.src = url;
 	});
 
 	var addRainLayer = function addRainLayer(url) {
@@ -4367,76 +4401,6 @@
 	    map.removeLayer(rainLayer);
 	    rainLayer = null;
 	  }
-	};
-
-/***/ }),
-/* 29 */
-/***/ (function(module, exports) {
-
-	'use strict';
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var intervalHolder = null;
-	var playFn = function playFn() {
-	  var html = '<div class="same">' + $('.cloudPopup .wrapper').html() + '</div>';
-	  $('.cloudPopup .wrapper').append(html);
-	  var len = $('.cloudPopup .wrapper>p').length;
-	  var num = 1;
-	  intervalHolder = setInterval(function () {
-	    var top = -1 * 26 * num;
-	    $('.cloudPopup .wrapper').stop().animate({ marginTop: top + 'px' }, 1500, function () {
-	      if (num === len) {
-	        num = 1;
-	        $('.cloudPopup .wrapper').css({ marginTop: 0 });
-	      } else num++;
-	    });
-	  }, 3000);
-	};
-
-	var clearInt = function clearInt() {
-	  if (!intervalHolder) return;
-	  clearInterval(intervalHolder);
-	  intervalHolder = null;
-	  $('.cloudPopup .wrapper .same').remove();
-	  $('.cloudPopup .wrapper').stop().css({ marginTop: 0 });
-	};
-
-	var clickFn = function clickFn() {
-	  if ($('.cloudPopup .wrapper>p').length < 2) return;
-	  $('.cloudPopup .wrapper').toggleClass('on');
-	  if ($('.cloudPopup .wrapper').hasClass('on')) {
-	    clearInt();
-	    $('.cloudPopup').css({ height: $('.cloudPopup .wrapper>p').length * 26 + 'px' });
-	  } else {
-	    $('.cloudPopup').css({ height: '26px' });
-	    playFn();
-	  }
-	};
-
-	var addNewsTip = exports.addNewsTip = function addNewsTip(key, text) {
-	  clearInt();
-	  $('.cloudPopup').css({ height: '26px' });
-	  $('.cloudPopup .wrapper').removeClass('on');
-
-	  $('.cloudPopup .wrapper>p').off('click');
-	  $('.cloudPopup .wrapper').append('<p class="tip-' + key + '">' + text + '</p>');
-	  setTimeout(function () {
-	    $('.cloudPopup .wrapper>p').click(clickFn);
-	  }, 0);
-	  $('.cloudPopup').show();
-	  if ($('.cloudPopup .wrapper>p').length >= 2) playFn();
-	};
-
-	var removeNewsTip = exports.removeNewsTip = function removeNewsTip(key) {
-	  clearInt();
-	  $('.cloudPopup').css({ height: '26px' });
-	  $('.cloudPopup .wrapper').removeClass('on');
-
-	  $('.cloudPopup .wrapper .tip-' + key).remove();
-	  if ($('.cloudPopup .wrapper>p').length >= 2) playFn();
-	  if (!$('.cloudPopup .wrapper>p').length) $('.cloudPopup').hide();
 	};
 
 /***/ })
