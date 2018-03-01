@@ -12,7 +12,7 @@ export class ZmapHelper {
         const map = this.map;
         const tyName = tyData.tscname,
             tyId = tyData.tsid,
-            realPoints = tyData.real.reverse(),
+            realPoints = tyData.real,
             time = new Date(tyData.real[tyData.real.length - 1].datetime.replace(/\-/g, "/")),
 
             fstPoints = tyData.fst.sort((a, b) => Number(a.leadtime) - Number(b.leadtime)),
@@ -46,7 +46,7 @@ export class ZmapHelper {
         // 添加台风layer group
         tyLayerGroup.addTo(map);
         // 时间修正为北京时间
-        time.setHours(time.getHours() + 8);
+        // time.setHours(time.getHours() + 8);
         // 计算台风移动速度
         if (realPoints.length == 1) { // 只有一个实测点的情况
             let prePointDgrees = [realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat];
@@ -55,7 +55,7 @@ export class ZmapHelper {
             realSpeedHolder.push(Number(computeDistance(prePointDgrees[0], prePointDgrees[1], pointDgrees[0], pointDgrees[1]) / timeDiff).toFixed(1))
             if (fstPoints.length == 1) { //只有一个预测点的情况
                 fstSpeedHolder.push(Number(computeDistance(prePointDgrees[0], prePointDgrees[1], pointDgrees[0], pointDgrees[1]) / timeDiff).toFixed(1))
-            } else { //大于一个预测点的情况
+            } else if (fstPoints.length > 1) { //大于一个预测点的情况
                 fstSpeedHolder.push(Number(computeDistance(prePointDgrees[0], prePointDgrees[1], pointDgrees[0], pointDgrees[1]) / timeDiff).toFixed(1))
                 fstPoints.forEach((el, i, arr) => {
                     if (i == 0) return
@@ -78,7 +78,7 @@ export class ZmapHelper {
                 pointDgrees = [fstPoints[0].lon, fstPoints[0].lat];
                 timeDiff = Number(fstPoints[0].leadtime);
                 fstSpeedHolder.push(Number(computeDistance(prePointDgrees[0], prePointDgrees[1], pointDgrees[0], pointDgrees[1]) / timeDiff).toFixed(1))
-            } else { //大于一个预测点的情况
+            } else if (fstPoints.length > 1) { //大于一个预测点的情况
                 prePointDgrees = [realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat];
                 pointDgrees = [fstPoints[0].lon, fstPoints[0].lat];
                 timeDiff = Number(fstPoints[0].leadtime);
@@ -90,54 +90,56 @@ export class ZmapHelper {
                 })
             }
         }
-        // 获取所有边缘点
-        fstPoints.forEach((el, i, arr) => {
-            if (i == 0) {
-                fstSidePints.push(getSidePoints(realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat, el.lon, el.lat, getFstR(el.leadtime)))
+        if (fstPoints.length >= 1) {
+            // 获取所有边缘点
+            fstPoints.forEach((el, i, arr) => {
+                if (i == 0) {
+                    fstSidePints.push(getSidePoints(realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat, el.lon, el.lat, getFstR(el.leadtime)))
+                } else {
+                    fstSidePints.push(getSidePoints(arr[i - 1].lon, arr[i - 1].lat, el.lon, el.lat, getFstR(el.leadtime)))
+                }
+            });
+            // 判断最后一个预报点左点的纬度是否大于右点的纬度
+            let isLeftBigger = false;
+            if (fstSidePints[fstSidePints.length - 1].left.lat > fstSidePints[fstSidePints.length - 1].right.lat) {
+                isLeftBigger = true;
+            }
+            // 计算圆弧点
+            fstSemicilePoints = getHalfPoints(fstSidePints[fstSidePints.length - 1].right, fstSidePints[fstSidePints.length - 1].left, 45, isLeftBigger);
+            // 将预报的边界点按顺序推入数组中
+            fstSidePints.forEach((el) => {
+                fstAreaPointsHolder.push(el.left.lat, el.left.lon);
+            })
+            fstAreaPointsHolder = getCurvePoints(fstAreaPointsHolder, .5, 10, false);
+            for (let i = 0; i < fstAreaPointsHolder.length; i += 2) {
+                fstAreaPoints.push([fstAreaPointsHolder[i], fstAreaPointsHolder[i + 1]]);
+            }
+            fstAreaPointsHolder = [];
+            if (isLeftBigger == true) {
+                for (let i = 0; i < fstSemicilePoints.length; i += 2) {
+                    fstAreaPoints.push([fstSemicilePoints[i + 1], fstSemicilePoints[i]])
+                }
             } else {
-                fstSidePints.push(getSidePoints(arr[i - 1].lon, arr[i - 1].lat, el.lon, el.lat, getFstR(el.leadtime)))
+                for (let i = fstSemicilePoints.length - 1; i > 0; i -= 2) {
+                    fstAreaPoints.push([fstSemicilePoints[i], fstSemicilePoints[i - 1]])
+                }
             }
-        });
-        // 判断最后一个预报点左点的纬度是否大于右点的纬度
-        let isLeftBigger = false;
-        if (fstSidePints[fstSidePints.length - 1].left.lat > fstSidePints[fstSidePints.length - 1].right.lat) {
-            isLeftBigger = true;
-        }
-        // 计算圆弧点
-        fstSemicilePoints = getHalfPoints(fstSidePints[fstSidePints.length - 1].right, fstSidePints[fstSidePints.length - 1].left, 45, isLeftBigger);
-        // 将预报的边界点按顺序推入数组中
-        fstSidePints.forEach((el) => {
-            fstAreaPointsHolder.push(el.left.lat, el.left.lon);
-        })
-        fstAreaPointsHolder = getCurvePoints(fstAreaPointsHolder, .5, 10, false);
-        for (let i = 0; i < fstAreaPointsHolder.length; i += 2) {
-            fstAreaPoints.push([fstAreaPointsHolder[i], fstAreaPointsHolder[i + 1]]);
-        }
-        fstAreaPointsHolder = [];
-        if (isLeftBigger == true) {
-            for (let i = 0; i < fstSemicilePoints.length; i += 2) {
-                fstAreaPoints.push([fstSemicilePoints[i + 1], fstSemicilePoints[i]])
+            // 右边点顺序必须反转才能准确绘制
+            fstSidePints.reverse().forEach((el) => {
+                fstAreaPointsHolder.push(el.right.lat, el.right.lon);
+            })
+            fstAreaPointsHolder = getCurvePoints(fstAreaPointsHolder, .5, 10, false);
+            for (let i = 0; i < fstAreaPointsHolder.length; i += 2) {
+                fstAreaPoints.push([fstAreaPointsHolder[i], fstAreaPointsHolder[i + 1]]);
             }
-        } else {
-            for (let i = fstSemicilePoints.length - 1; i > 0; i -= 2) {
-                fstAreaPoints.push([fstSemicilePoints[i], fstSemicilePoints[i - 1]])
-            }
+            fstAreaPointsHolder = [];
+            // console.log(fstAreaPoints);
+            // for(let i=0; i<fstAreaPointsHolder.length; i+=2){
+            //     fstAreaPoints.push([fstAreaPointsHolder[i], fstAreaPointsHolder[i+1]]);
+            // }
+            // 恢复原数组
+            fstSidePints.reverse();
         }
-        // 右边点顺序必须反转才能准确绘制
-        fstSidePints.reverse().forEach((el) => {
-            fstAreaPointsHolder.push(el.right.lat, el.right.lon);
-        })
-        fstAreaPointsHolder = getCurvePoints(fstAreaPointsHolder, .5, 10, false);
-        for (let i = 0; i < fstAreaPointsHolder.length; i += 2) {
-            fstAreaPoints.push([fstAreaPointsHolder[i], fstAreaPointsHolder[i + 1]]);
-        }
-        fstAreaPointsHolder = [];
-        // console.log(fstAreaPoints);
-        // for(let i=0; i<fstAreaPointsHolder.length; i+=2){
-        //     fstAreaPoints.push([fstAreaPointsHolder[i], fstAreaPointsHolder[i+1]]);
-        // }
-        // 恢复原数组
-        fstSidePints.reverse();
 
         //在起点位置添加台风名称
 		if(realPoints.length) {
@@ -149,12 +151,12 @@ export class ZmapHelper {
 			tyLayerGroup.addLayer(L.marker([realPoints[0].lat, realPoints[0].lon], {icon: tyNameLabel}));
 		}
 		
-		// 台风名称自定义icon
+        // 台风名称自定义icon
 		const divIcon = L.divIcon({
 			className: 'ty-name',
 			bgPos: [105, 0],
-			html: `<div><span></span><span>${tyName ? tyName : '未命名'} ${time.getMonth() + 1}月${time.getDate()}日${time.getHours() < 10 ? "0" + time.getHours() : time.getHours()}时
-				<p>约离您${computeDistance(this.gps[0], this.gps[1], realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon)}公里</p>
+			html: `<div><span></span><span>${tyName ? tyName : '未命名'} ${time.getFullYear()}年${time.getMonth() + 1}月${time.getDate()}日${time.getHours() < 10 ? "0" + time.getHours() : time.getHours()}时
+				<p>约离您${computeDistance(this.gps[1], this.gps[0], realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat)}公里</p>
 				</span></div>`
 		})
 		let tipHolder = L.marker(realPoints[realPoints.length - 1], { icon: divIcon });
@@ -196,30 +198,9 @@ export class ZmapHelper {
             curPosMk.setLatLng([realPoints[realPoints.length - 1].lat,
                 realPoints[realPoints.length - 1].lon
             ])
-            // 台风名称自定义icon
-
-            // const divIcon = L.divIcon({
-            //     className: 'ty-name',
-            //     bgPos: [105, 0],
-            //     html: `<div><span></span><span>${tyName} ${time.getMonth() + 1}月${time.getDate()}日${time.getHours() < 10 ? "0" + time.getHours() : time.getHours()}时
-            //         <p>约离您${Math.floor(computeDistance(this.gps[0], this.gps[1], realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon) * 100) / 100}公里</p>
-            //         </span></div>`
-            // })
-            // layerHolder = L.marker(realPoints[realPoints.length - 1], {
-            //     icon: divIcon,
-            //     zIndexOffset: 2000,
-            // });
+            
             tyLayerGroup.addLayer(tipHolder);
 
-            // const typhNameDiv = L.divIcon({
-            //     className: 'tyName',
-            //     html: `<div>${tyName} ${tyData.tsename}</div>`
-            // })
-            // const nameHolder = L.marker(realPoints[0], {
-            //     icon: typhNameDiv,
-            //     zIndexOffset: 2000,
-            // });
-            // tyLayerGroup.addLayer(nameHolder);
 
             // 动画开始
             const realPointsInterval = setInterval(() => {
@@ -410,30 +391,8 @@ export class ZmapHelper {
                     curPosMk.setLatLng([realPoints[realPoints.length - 1].lat,
                         realPoints[realPoints.length - 1].lon
                     ])
-                    // 台风名称自定义icon
-                    // const divIcon = L.divIcon({
-
-                    //     className: 'ty-name',
-                    //     bgPos: [105, 0],
-                    //     html: `<div><span></span><span>${tyName} ${time.getMonth() + 1}月${time.getDate()}日${time.getHours() < 10 ? "0" + time.getHours() : time.getHours()}时
-                    // <p>约离您${Math.floor(computeDistance(this.gps[0], this.gps[1], realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon) * 100) / 100}公里</p>
-                    // </span></div>`
-                    // })
-                    // layerHolder = L.marker(realPoints[realPoints.length - 1], {
-                    //     icon: divIcon,
-                    //     zIndexOffset: 2000,
-                    // });
+                    
                     tyLayerGroup.addLayer(tipHolder);
-
-                    // const typhNameDiv = L.divIcon({
-                    //     className: 'tyName',
-                    //     html: `<div>${tyName}  ${tyData.tsename}</div>`
-                    // })
-                    // const nameHolder = L.marker(realPoints[0], {
-                    //     icon: typhNameDiv,
-                    //     zIndexOffset: 2000,
-                    // });
-                    // tyLayerGroup.addLayer(nameHolder);
                     // 实况点最后一条线段
                     layerHolder = L.polyline([
                         [realPoints[realPoints.length - 2].lat,
@@ -443,7 +402,7 @@ export class ZmapHelper {
                             realPoints[realPoints.length - 1].lon
                         ]
                     ], {
-                        color: getColorByLevel(fstPoints[fstPointCounter].level),
+                        color: getColorByLevel(realPoints[realPoints.length - 1].level),
                         weight: 3
                     });
                     tyLayerGroup.addLayer(layerHolder);
@@ -451,137 +410,145 @@ export class ZmapHelper {
                     layersGoesBack.push({
                         layer: layerHolder
                     });
-                    // 实况点与预报点之间的线段
-                    layerHolder = L.polyline([
-                        [realPoints[realPoints.length - 1].lat,
-                            realPoints[realPoints.length - 1].lon
-                        ],
-                        [fstPoints[fstPointCounter].lat,
-                            fstPoints[fstPointCounter].lon
-                        ]
-                    ], {
-                        dashArray: '15, 10',
-                        dashOffset: '8',
-                        color: getColorByLevel(fstPoints[fstPointCounter].level),
-                        weight: 1
-                    });
-                    tyLayerGroup.addLayer(layerHolder);
-                    layerHolder.bringToBack();
-                    layersGoesBack.push({
-                        layer: layerHolder
-                    });
-                    const fstPointsInterval = setInterval(() => {
-                        if (fstPointCounter != fstPoints.length - 1) {
-                            popupHolder = createTyPointPopup(fstPoints[fstPointCounter], false, fstPointCounter);
-                            tyLayerGroup.addLayer(L.circleMarker([fstPoints[fstPointCounter].lat,
+
+                    if (fstPoints.length >= 1) {
+                        // 实况点与预报点之间的线段
+                        layerHolder = L.polyline([
+                            [realPoints[realPoints.length - 1].lat,
+                                realPoints[realPoints.length - 1].lon
+                            ],
+                            [fstPoints[fstPointCounter].lat,
                                 fstPoints[fstPointCounter].lon
-                            ], {
-                                zIndexOffset: 2000,
-                                radius: 6,
-                                color: getColorByLevel(fstPoints[fstPointCounter].level, true),
-                                weight: 1,
-                                opacity: 1,
-                                fillOpacity: 1,
-                                fillColor: getColorByLevel(fstPoints[fstPointCounter].level)
-                            }).bindPopup(popupHolder));
-                            // 台风点之间的线段
-                            if (fstPointCounter > 0) {
-                                layerHolder = L.polyline([
-                                    [fstPoints[fstPointCounter - 1].lat,
-                                        fstPoints[fstPointCounter - 1].lon
-                                    ],
-                                    [fstPoints[fstPointCounter].lat,
-                                        fstPoints[fstPointCounter].lon
-                                    ]
+                            ]
+                        ], {
+                            dashArray: '15, 10',
+                            dashOffset: '8',
+                            color: getColorByLevel(fstPoints[fstPointCounter].level),
+                            weight: 1
+                        });
+                        tyLayerGroup.addLayer(layerHolder);
+                        layerHolder.bringToBack();
+                        layersGoesBack.push({
+                            layer: layerHolder
+                        });
+                        const fstPointsInterval = setInterval(() => {
+                            if (fstPointCounter != fstPoints.length - 1) {
+                                popupHolder = createTyPointPopup(fstPoints[fstPointCounter], false, fstPointCounter);
+                                tyLayerGroup.addLayer(L.circleMarker([fstPoints[fstPointCounter].lat,
+                                    fstPoints[fstPointCounter].lon
                                 ], {
-                                    dashArray: '8, 8',
-                                    dashOffset: '10',
-                                    color: getColorByLevel(fstPoints[fstPointCounter].level),
-                                    weight: 1
-                                });
-                                tyLayerGroup.addLayer(layerHolder);
-                                layerHolder.bringToBack();
-                                layersGoesBack.push({
-                                    layer: layerHolder
-                                });
-                            }
-                            fstPointCounter++;
-                        } else {
-                            clearInterval(fstPointsInterval);
-                            popupHolder = createTyPointPopup(fstPoints[fstPoints.length - 1], false, fstPoints.length - 1);
-                            tyLayerGroup.addLayer(L.circleMarker([fstPoints[fstPoints.length - 1].lat,
-                                fstPoints[fstPoints.length - 1].lon
-                            ], {
-                                zIndexOffset: 2000,
-                                radius: 6,
-                                color: getColorByLevel(fstPoints[fstPoints.length - 1].level, true),
-                                weight: 1,
-                                opacity: 1,
-                                fillOpacity: 1,
-                                fillColor: getColorByLevel(fstPoints[fstPoints.length - 1].level)
-                            }).bindPopup(popupHolder));
-                            // 最后一段线段
-                            if (fstPoints.length > 1) {
-                                layerHolder = L.polyline([
-                                    [fstPoints[fstPoints.length - 2].lat,
-                                        fstPoints[fstPoints.length - 2].lon
-                                    ],
-                                    [fstPoints[fstPoints.length - 1].lat,
-                                        fstPoints[fstPoints.length - 1].lon
-                                    ]
-                                ], {
-                                    dashArray: '8, 8',
-                                    dashOffset: '10',
-                                    color: getColorByLevel(fstPoints[fstPoints.length - 1].level),
-                                    weight: 1
-                                });
-                                tyLayerGroup.addLayer(layerHolder);
-                                layerHolder.bringToBack();
-                                layersGoesBack.push({
-                                    layer: layerHolder
-                                });
-                            }
-                            // 动画结束，绘制区域
-
-                            if(!window.fstAreas) window.fstAreas = [];
-                            if(window.fstAreas.length < window.currentTyNum)
-                                window.fstAreas.push(fstAreaPoints);
-                                
-
-                            layerHolder = L.polygon(fstAreaPoints, {
-                                color: 'red',
-                                weight: 1.5,
-                                opacity: 1,
-                                dashArray: '4, 5',
-                                dashOffset: '2',
-                                fillColor: 'red',
-                                fillOpacity: .3
-                            })
-                            tyLayerGroup.addLayer(layerHolder);
-                            layersGoesBack.push({
-                                layer: layerHolder
-                            });
-                            layerHolder.bringToBack();
-                            // 绘制风圈
-                            let lastPoint = realLastPoint,
-                                lastPointData = realPoints[realPoints.length - 1];
-                            // 判断是否纬度在前
-                            if (lastPoint[0] > lastPoint[1]) lastPoint.reverse()
-                            for (let i in windCircle) {
-                                tyLayerGroup.addLayer(L.circle(lastPoint, lastPointData[i] * 1000, {
                                     zIndexOffset: 2000,
-                                    color: getWindColor(i),
+                                    radius: 6,
+                                    color: getColorByLevel(fstPoints[fstPointCounter].level, true),
                                     weight: 1,
-                                    fill: false
-                                }))
-                            }
+                                    opacity: 1,
+                                    fillOpacity: 1,
+                                    fillColor: getColorByLevel(fstPoints[fstPointCounter].level)
+                                }).bindPopup(popupHolder));
+                                // 台风点之间的线段
+                                if (fstPointCounter > 0) {
+                                    layerHolder = L.polyline([
+                                        [fstPoints[fstPointCounter - 1].lat,
+                                            fstPoints[fstPointCounter - 1].lon
+                                        ],
+                                        [fstPoints[fstPointCounter].lat,
+                                            fstPoints[fstPointCounter].lon
+                                        ]
+                                    ], {
+                                        dashArray: '8, 8',
+                                        dashOffset: '10',
+                                        color: getColorByLevel(fstPoints[fstPointCounter].level),
+                                        weight: 1
+                                    });
+                                    tyLayerGroup.addLayer(layerHolder);
+                                    layerHolder.bringToBack();
+                                    layersGoesBack.push({
+                                        layer: layerHolder
+                                    });
+                                }
+                                fstPointCounter++;
+                            } else {
+                                clearInterval(fstPointsInterval);
+                                popupHolder = createTyPointPopup(fstPoints[fstPoints.length - 1], false, fstPoints.length - 1);
+                                tyLayerGroup.addLayer(L.circleMarker([fstPoints[fstPoints.length - 1].lat,
+                                    fstPoints[fstPoints.length - 1].lon
+                                ], {
+                                    zIndexOffset: 2000,
+                                    radius: 6,
+                                    color: getColorByLevel(fstPoints[fstPoints.length - 1].level, true),
+                                    weight: 1,
+                                    opacity: 1,
+                                    fillOpacity: 1,
+                                    fillColor: getColorByLevel(fstPoints[fstPoints.length - 1].level)
+                                }).bindPopup(popupHolder));
+                                // 最后一段线段
+                                if (fstPoints.length > 1) {
+                                    layerHolder = L.polyline([
+                                        [fstPoints[fstPoints.length - 2].lat,
+                                            fstPoints[fstPoints.length - 2].lon
+                                        ],
+                                        [fstPoints[fstPoints.length - 1].lat,
+                                            fstPoints[fstPoints.length - 1].lon
+                                        ]
+                                    ], {
+                                        dashArray: '8, 8',
+                                        dashOffset: '10',
+                                        color: getColorByLevel(fstPoints[fstPoints.length - 1].level),
+                                        weight: 1
+                                    });
+                                    tyLayerGroup.addLayer(layerHolder);
+                                    layerHolder.bringToBack();
+                                    layersGoesBack.push({
+                                        layer: layerHolder
+                                    });
+                                }
+                                // 动画结束，绘制区域
 
-                            //添加点击地图其他区域隐藏距离提示框
-                            this.map.on('click', () => {
-                                tipHolder.setOpacity(0);
-                            })
-                        }
-                    }, 1)
+                                if(!window.fstAreas) window.fstAreas = [];
+                                if(window.fstAreas.length < window.currentTyNum)
+                                    window.fstAreas.push(fstAreaPoints);
+                                    
+
+                                layerHolder = L.polygon(fstAreaPoints, {
+                                    color: 'red',
+                                    weight: 1.5,
+                                    opacity: 1,
+                                    dashArray: '4, 5',
+                                    dashOffset: '2',
+                                    fillColor: 'red',
+                                    fillOpacity: .3
+                                })
+                                tyLayerGroup.addLayer(layerHolder);
+                                layersGoesBack.push({
+                                    layer: layerHolder
+                                });
+                                layerHolder.bringToBack();
+                                // 绘制风圈
+                                let lastPoint = realLastPoint,
+                                    lastPointData = realPoints[realPoints.length - 1];
+                                // 判断是否纬度在前
+                                if (lastPoint[0] > lastPoint[1]) lastPoint.reverse()
+                                for (let i in windCircle) {
+                                    tyLayerGroup.addLayer(L.circle(lastPoint, lastPointData[i] * 1000, {
+                                        zIndexOffset: 2000,
+                                        color: getWindColor(i),
+                                        weight: 1,
+                                        fill: false
+                                    }))
+                                }
+
+                                //添加点击地图其他区域隐藏距离提示框
+                                this.map.on('click', () => {
+                                    tipHolder.setOpacity(0);
+                                })
+                            }
+                        }, 1)
+                    } else {
+                        if(!window.fstAreas) window.fstAreas = [];
+                        if(window.fstAreas.length < window.currentTyNum)
+                            window.fstAreas.push(fstAreaPoints);
+                    }
+                    
                 }
             }, 1)
         }
@@ -592,7 +559,7 @@ export class ZmapHelper {
                 // n = new Date(data.datetime);
                 n = new Date(data.datetime.replace(/\-/g, "/"));
                 // 修正为北京时间
-                n.setHours(n.getHours() + 8);
+                // n.setHours(n.getHours() + 8);
                 return L.popup({
                     className: 'ty-popup',
                     closeButton: false
@@ -601,9 +568,9 @@ export class ZmapHelper {
                 
                
                 <ul>
-                   <li><span>时间</span><span>${n.getDate()}日${n.getHours() < 10 ? "0" + n.getHours() : n.getHours()}时</span></li>
-                    <li><span>当前位置</span><span>${data.lon}/${data.lat}</span></li>             
-                    
+                    <li><span>年月份</span><span>${n.getFullYear()}年${n.getMonth() + 1}月</span></li>
+                    <li><span>时间</span><span>${n.getDate()}日${n.getHours() < 10 ? "0" + n.getHours() : n.getHours()}时</span></li>
+                    <li><span>当前位置</span><span>${data.lon}/${data.lat}</span></li> 
                     <li><span>风力</span><span>${getVelLevel(data.ws)}级</span></li>
                     <li><span>风速</span><span>${data.ws}m/s</span></li>
                     <li><span>中心气压</span><span>${data.ps}hpa</span></li>
@@ -618,12 +585,14 @@ export class ZmapHelper {
                 // n = new Date(data.datetime);
                 n = new Date(data.datetime.replace(/\-/g, "/"));
                 // 修正为北京时间并加上预报时间
-                n.setHours(n.getHours() + 8 + data.leadtime);
+                // n.setHours(n.getHours() + 8 + data.leadtime);
+                n.setHours(n.getHours() + data.leadtime);
                 return L.popup({
                     className: 'ty-popup',
                     closeButton: false
                 }).setContent(`<section>
                 <ul>
+                   <li><span>年月份</span><span>${n.getFullYear()}年${n.getMonth() + 1}月</span></li>
                    <li><span>时间</span><span>${n.getDate()}日${n.getHours() < 10 ? "0" + n.getHours() : n.getHours()}时</span></li>
                     <li><span>预计位置</span><span>${data.lon}/${data.lat}</span></li>             
                     
@@ -655,6 +624,8 @@ export class ZmapHelper {
                     return '强台风'
                 case 'SUPER':
                     return '超强台风'
+                default:
+                    return '热带低压'
             }
         }
 
@@ -694,7 +665,7 @@ export class ZmapHelper {
                     case 'SUPER':
                         return '#503009'
                     default:
-                    return '#5c7e4e'
+                        return '#5c7e4e'
                 }
             }
         }
@@ -827,15 +798,8 @@ export class ZmapHelper {
         }
 
         function computeDistance(lng1, lat1, lng2, lat2) {
-            var EARTH_RADIUS = 6378.137;
-            var radLat1 = lat1 * Math.PI / 180.0;
-            var radLat2 = lat2 * Math.PI / 180.0;
-            var a = radLat1 - radLat2;
-            var b = lng1 * Math.PI / 180.0 - lng2 * Math.PI / 180.0;
-            var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(b / 2), 2)));
-            s = EARTH_RADIUS * s;
-            s = Math.round(s * 10000) / 10000;
-            return s.toFixed(1);
+            return Math.floor(L.latLng(lat1, lng1).distanceTo(L.latLng(lat2, lng2)) / 100) / 10
+           
         };
 
         function getDateDiff(startTime, endTime, diffType) {

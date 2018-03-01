@@ -21,6 +21,7 @@ let areaCorrObj = {               //获取海洋预报数据时 转换中文名�
 export let hasData = false;
 export const getSeawaveData = () => {   //点击顶部导航栏 海浪按钮时调用
   let listUrl = `http://119.29.102.103:8111/SeaWaveForecast/listByDate?date={date}&cacheCtrl=${Date.now()}`;
+  // let listUrl = `https://www.fenglingzhixun.cn:9005/SeaWaveForecast/listByDate?date={date}&cacheCtrl=${Date.now()}`;
   
   let date = new Date()
   let url = listUrl.replace('{date}', new Date(date).Format('yyyy-MM-dd HH:00:00'));
@@ -262,6 +263,7 @@ $('.typhoon_seaWavepre p').on('click', function(){
     }
     console.log(date);
     let oceanUrl =  `http://119.29.102.103:8111/SeaForecast/listByDate?date=${date}&cacheCtrl=${Date.now()}`;
+    // let oceanUrl =  `https://www.fenglingzhixun.cn:9005/SeaForecast/listByDate?date=${date}&cacheCtrl=${Date.now()}`;
     $.ajax({type: 'get', url: oceanUrl})
     .then(data => {
       console.log(data)

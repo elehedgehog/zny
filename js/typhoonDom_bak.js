@@ -20,16 +20,11 @@ let tyInterval = setInterval(() => {
 }, 500);
 let spots_global = {};
 //获取后台数据  初始化用户决策区
-let hasLoadSpot = true         //判断决策区是否显示
 const initTySpot = () => {
-    hasLoadSpot = false
     _area.getTyphoonspot()  
     .then(res => {
         console.log(res)
-        if(res.result !== 'S_OK') {
-            hasLoadSpot = true
-            return
-        }
+        if(res.result !== 'S_OK') return;
         let spots = res.tagObject.spots;
 
         let hasSZPoint = false;     //判断是否添加过深圳蛇口
@@ -45,7 +40,6 @@ const initTySpot = () => {
                initTySpot();
             });
         } else {
-            let promiseList = []
             for(let spot of spots) {
                 spots_global[spot.typhoonspotid] = spot;
                 const lat = spot.lat,
@@ -56,17 +50,20 @@ const initTySpot = () => {
                 let radiusArr = radius.sort((a, b) => a < b);
                 let maxRadiu = radiusArr[0];
                 let bool = judge(lat, lon, maxRadiu);         //判断是否受当前台风影响
-                promiseList.push(getInterpPoints(lon, lat, radius, typhoonspotid, bool))
+                getInterpPoints(lon, lat).then(res => {
+                    if(res.windPower >= 7) bool = true;       //判断风力是否大于7级
+                    _area.addArea(lat, lon, radius, typhoonspotid, bool, res);
+                })
+                .catch(e => {
+                    _area.addArea(lat, lon, radius, typhoonspotid, bool, {})
+                })
             }
-            Promise.all(promiseList).then(() => {
-                hasLoadSpot = true
-            })
+            console.log(spots_global);  
         }
     });
 }
 $('.decisionArea').click(function(e) {      //决策区开关按钮
     e.stopPropagation()
-    if (!hasLoadSpot) return
     let el = $('.cloudMap li.tyListUl_com').eq(0)     // 添加决策区按钮
     if ($(this).hasClass('on')) {
         el.hide()
@@ -78,7 +75,7 @@ $('.decisionArea').click(function(e) {      //决策区开关按钮
     $(this).toggleClass('on')
 })
 
-const getInterpPoints = (lon, lat, radius, typhoonspotid, bool) => {         //获取决策区详细数据
+const getInterpPoints = (lon, lat) => {         //获取决策区详细数据
     let date = new Date().Format('yyyy/MM/dd 20:00:00');
     date = new Date(date).getTime();
     let nowTime = Date.now();
@@ -100,8 +97,7 @@ const getInterpPoints = (lon, lat, radius, typhoonspotid, bool) => {         //�
             timeout: 2000, 
             success: res => {
                 if(/DB_ERROR/.test(res) || /null/.test(res) || !res.length) {
-                    _area.addArea(lat, lon, radius, typhoonspotid, bool, {})
-                    resolve()
+                    reject();
                     return;
                 }
                 data = res[0];
@@ -123,14 +119,11 @@ const getInterpPoints = (lon, lat, radius, typhoonspotid, bool) => {         //�
                     data.windWater = msg[0];     //将风暴增水的msg数据添加到预警状态的data数据里
                     if(data.windWater) data.windWater = data.windWater.toFixed(2);
                     else data.windWater = 0;
-                    if(data.windPower >= 7) bool = true;
-                    _area.addArea(lat, lon, radius, typhoonspotid, bool, data)
-                    resolve();
+                    resolve(data);
                 })
             },
             error: err => {
-                _area.addArea(lat, lon, radius, typhoonspotid, bool, {})
-                resolve()
+                reject()
             }
         })
     });
@@ -295,14 +288,14 @@ $('.typhoon_close,.cusDetales_cancleTy').on('click' ,function() {
 $('.cusDetales_confirmTy').on('click', function() {
     hideSim('.typhoon_cusWin', 0);
     const tsid = $('.cusDetales_centerTy select').val(),
-        // lon = $('input[name="lon"]').val(),
-        // lat = $('input[name="lat"]').val(),
+        lon = $('input[name="lon"]').val(),
+        lat = $('input[name="lat"]').val(),
         angle = $('input[name="angle"]').val(),
         anglediff = $('input[name="anglediff"]').val(),
         speed = $('input[name="speed"]').val(),
         speeddiff = $('input[name="speeddiff"]').val(),
         strength = $('input[name="strength"]').val();
-    getSimilarTy(tsid,angle,anglediff,speed,speeddiff,strength);
+    getSimilarTy(tsid,lon,lat,angle,anglediff,speed,speeddiff,strength);
 });
 // 台风匹配 伸缩按钮
 $('.simiTyHide').on('click', function() {
@@ -440,7 +433,13 @@ const addTyphoonspot = (lat, lon, radius) => {
         let radiusArr = radius.sort((a, b) => a < b);
         let maxRadiu = radiusArr[0];
         let bool = judge(lat, lon, maxRadiu);         //判断是否受当前台风影响
-        getInterpPoints(lon, lat, radiusArr, pointId, bool)
+        getInterpPoints(lon, lat).then(res => {
+            if(res.windPower >= 7) bool = true;       //判断风力是否大于7级
+            _area.addArea(lat, lon, radius, pointId, bool, res);
+        })
+        .catch(e => {
+            _area.addArea(lat, lon, radius, pointId, bool, {})
+        })
         spots_global[pointId] = res.tagObject;
     });
     closeAreaPopup();
@@ -605,8 +604,15 @@ $('#preWarnConfirm').on('click', function(){
             let radiusArrLen = radiusArr.length -1;
             let maxRadiu = radiusArr[0];
             let bool = judge(lat, lon, maxRadiu);         //判断是否受当前台风影响
-            _area.removeSingleArea(pointId)
-            getInterpPoints(lon, lat, radiusArr, pointId, bool)
+            getInterpPoints(lon, lat).then(res => {
+                _area.removeSingleArea(pointId);
+                if(res.windPower >= 7) bool = true;       //判断风力是否大于7级
+                _area.addArea(lat, lon, radius, pointId, bool, res);
+            })
+            .catch(e => {
+                _area.removeSingleArea(pointId);
+                _area.addArea(lat, lon, radius, pointId, bool, {})
+            })
             spots_global[pointId] = { lat, lon, radius, typhoonspotid: pointId }
             $('.preWarn_cusWin').hide();
         }

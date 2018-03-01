@@ -1,0 +1,561 @@
+<div class="conteners">
+  <div id="zmap"></div>
+  <!-- 台风 -->
+  <div id="container">
+      <p class="hint-content"></p>
+      <p class="hint_noSimiTy">没有相似台风</p>
+      <p class="cloudNoData">当前时次暂无数据</p>
+      <div class="susNav" id="tyswNav">
+          <ul class="clearfix">
+              <li class="susNav_liList tyList" name='typhoon'>
+                  <span class="nav_img"></span>
+                  <p class="nav_title">台风</p>
+                  <div class="typhoonImg" id="tyChangeWraper">
+                      <ul class="layer-change" id="tyChange">
+                          <li class="ani-updown-in typhoonImg_one">
+                              <a></a>
+                          </li>
+                          <li class="ani-updown-in typhoonImg_two">
+                              <a></a>
+                          </li>
+                          <li class="ani-updown-in typhoonImg_three">
+                              <a></a>
+                          </li>
+                          <li class="decisionArea"><a>决策区</a></li>
+                          <li class="defenceArea"><a>防御区</a></li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="susNav_liList swList" name="seawave">
+                  <span class="nav_img"></span>
+                  <p class="nav_title">海浪</p>
+              </li>
+              <li class="susNav_liList rdList" name="cloud">
+                  <span class="nav_img"></span>
+                  <p class="nav_title">云图</p>
+                  <div class="cloudImg" id="cloudOverlay">
+                      <ul>
+                          <li class="cloudImg_two" id="InfraRed">
+                              <a>红外云图</a>
+                          </li>
+                          <li class="cloudImg_three" id="steam">
+                              <a>水汽云图</a>
+                          </li>
+                           <li class="cloudImg_one" id="visibleLight">
+                              <a>可见光云图</a>
+                          </li>
+                      </ul>
+                  </div>
+              </li>
+              <li class="susNav_liList tsList" name="thunder">
+                  <span class="nav_img"></span>
+                  <p class="nav_title">雷达</p>
+                  <div class="rainstormImg">
+                      <ul>
+                          <li class="rsFollow"><a>雷暴跟踪</a></li>
+                          <li class="tgReflex"><a>雷达回波</a></li>
+                          <li class="rainForecast"><a>降水预测</a></li>
+                      </ul>
+                  </div>
+              </li>
+              <!-- <li class="susNav_liList buoyList" name="buoy"> -->
+              <li class="susNav_liList buoyList" name="actual">
+                  <span class="nav_img"></span>
+                  <p class="nav_title">实况</p>
+                  <div class="actualImg">
+                      <ul>
+                          <li class="buoyStation"><a>浮标</a></li>
+                          <li class="actualWind"><a>实时风况</a></li>
+                      </ul>
+                  </div>
+              </li>
+          </ul>
+      </div>
+      <div class="buoy_bott">
+          <div class="buoy_bottTop">当前时间：<span class="now_time"></span></div>
+          <div class="buoy_bottBottom">
+              <table>
+                  <tr>
+                      <td width="34%">浮标方位</td>
+                      <td width="16%" id="buoyPos"></td>
+                      <td width="34%">表层水温</td>
+                      <td width="16%" id="aboveTem"></td>
+                  </tr>
+                  <tr>
+                      <td>最高水温</td>
+                      <td id="highTem"></td>
+                      <td>最低水温</td>
+                      <td id="lowTem"></td>
+                  </tr>
+                  <tr>
+                      <td>有效波高</td>
+                      <td id="effWaveHigh"></td>
+                      <td>有效波高周期</td>
+                      <td id="effWaveHighPriod"></td>
+                  </tr>
+                  <tr>
+                      <td>平均波高</td>
+                      <td id="aveWaveHigh"></td>
+                      <td>平均波周期</td>
+                      <td id="aveWaveHighPriod"></td>
+                      
+                  </tr>
+                  <tr>
+                      <td>最大波高</td>
+                      <td id="bigestWaveHigh"></td>
+                      <td>最大波高周期</td>
+                      <td id="bigestWaveHighPriod"></td>
+                      
+                  </tr>
+                  <tr>
+                      <td>流速</td>
+                      <td id="oceanFlowSpeed"></td>
+                      <td>波向</td>
+                      <td id="oceanWaveDir"></td>
+                  </tr>
+              </table>
+          </div>
+      </div>
+      <!--定量降水预测进度条-->
+      <div class="rainProgressbar">
+          <div class="rainfall_title">当前时间：<span class="rain_nowtime"></span></div>
+          <div class="progressFrame">
+              <div class="progressBar"><p></p></div>
+              <div class="grayPointOne point">
+                  <p class="grayPoint gpOne"></p>
+                  <p class="progressTime ptFir on"></p>
+              </div>
+              <div class="grayPointTwo point">
+                  <p class="grayPoint gpTwo"></p>
+                  <p class="progressTime ptTwe"></p>
+              </div>
+              <div class="grayPointThree point">
+                  <p class="grayPoint gpThree"></p>
+                  <p class="progressTime ptThi"></p>
+              </div>
+              <div class="grayPointFour point">
+                  <p class="grayPoint gpFour"></p>
+                  <p class="progressTime ptFor"></p>
+              </div>
+              <div class="grayPointFive point">
+                  <p class="grayPoint gpFive"></p>
+                  <p class="progressTime ptFif"></p>
+              </div>
+              <div class="grayPointSix point">
+                  <p class="grayPoint gpSix"></p>
+                  <p class="progressTime ptSix"></p>
+              </div>
+              <div class="grayPointSeven point">
+                  <p class="grayPoint gpSeven"></p>
+                  <p class="progressTime ptSev"></p>
+              </div>
+              <div class="grayPointEight point">
+                  <p class="grayPoint gpEight"></p>
+                  <p class="progressTime ptEig"></p>
+              </div>
+              <div class="grayPointNight point">
+                  <p class="grayPoint gpNight"></p>
+                  <p class="progressTime ptNig"></p>
+              </div>
+              <div class="grayPointTen point">
+                  <p class="grayPoint gpTen"></p>
+                  <p class="progressTime ptTen"></p>
+              </div>
+          </div>
+          <div class="buttonPlay"></div>
+          
+      </div>
+      <div class="tyCl_list">
+              <!--相似台风-->
+          <div class="simityList">
+               <div class="typhoonList">
+                  <ul class="clearfix">
+                      <li>
+                          <img src="./assets/typhone_list@3x.png" alt="">
+                      </li>
+                  </ul>
+              </div>
+              <div class="tySimilar">
+                  <ul class="clearfix">
+                      <li class="tyListUl_com" name="similar">
+                          <img data-class="mapImg" data-url="./assets/typhone_similar_pre@3x.png" src="./assets/typhone_similar@3x.png"/>
+                      </li>
+                      <li class="tyListUl_com" name="together" style="display:none">
+                          <img data-class="togetherImg" data-url="./assets/typhonePrediction_pre@3x.png" src="./assets/typhonePrediction@3x.png"/>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <!--/地图/相似台风 -->
+          <div class="cloudMap">
+              <ul class="clearfix">
+                  <li class="tyListUl_com" name="custom" id="makePolicy">
+                      <img data-class="customImg" data-url="./assets/typhone_custom_pre@3x.png" src="./assets/typhone_custom@3x.png"/>
+                  </li>
+                  <li class="tyListUl_com" name="map">
+                      <img data-class="mapImg" data-url="./assets/typhoon_map_pre@3x.png" src="./assets/typhoon_map@3x.png"/>
+                      <!-- 地图切片 -->
+                      <div class="mapImg">
+                      <span class="mapImg_two layer-selected" id="satLayer">
+                      </span>
+                      <span class="mapImg_one" id="terLayer">
+                      </span>
+                      <span class="mapImg_three" id="busLayer">
+                      </span>
+                  </div> 
+                  </li>  
+                  
+
+              </ul>
+          </div>
+      </div>
+      <div class="imgEx">
+          <div class="imgEx_titleOut">
+              <p class="imgEx_title">图例</p>
+              <div class="imgEx_details"> 
+                  <ul class="clearfix">
+                      <li>热带低压</li>
+                      <li>热带风暴</li>
+                      <li>强热带风暴</li>
+                      <li>台风</li>
+                      <li>强台风</li>
+                      <li>超强台风</li>
+                   </ul>
+              </div>
+          </div>
+      </div>
+      <div class="cloudMapIn">
+          <div class="simiMatch">
+              <div class="simiMatchHead">
+                  <span class="simiTyHide"></span>
+                  <p>相似台风匹配</p>
+                  <span class="closeSimi"></span>
+              </div>
+              <div class="simiMatchCon clearfix" id="simTyphoon">
+                  <ul></ul>
+              </div>
+          </div>
+          <!-- 台风匹配弹框 -->
+          <div class="typhoon_cusWin">
+              <div class="typhoon_cusDetales">
+                  <div class="cusDetales_topTy">
+                  <p>台风匹配</p><p class="typhoon_close"></p>
+              </div>
+              <div class="cusDetales_centerTy">
+                  <ul class="clearfix">
+                      <li>
+                        <p><span>选择台风</span>
+                        <span>
+                          <select style="background-color: #eaeef2"></select>
+                        </span></p>
+                        <p><span>强度权重</span><span><input type="number" name="strength" value="30"></span></p>
+                      </li>
+                      <!-- <li>
+                        <p><span>经度</span><span><input type="number" name="lon" value="2"></span></p>
+                        <p><span>纬度</span><span><input type="number" name="lat" value="2"></span></p>
+                      </li> -->
+                       <li>
+                          <p><span>角度权重</span><span><input type="number" name="angle" value="30"></span></p>
+                          <p><span>角度变化权重</span><span><input type="number" name="anglediff" value="30"></span></p>
+                      </li>
+                      <li>
+                          <p><span>移速权重</span><span><input type="number" name="speed" value="30"></span></p>
+                          <p><span>移速变化权重</span><span><input type="number" name="speeddiff" value="30"></span></p>
+                      </li>
+                  </ul>
+              </div>
+              <div class="cusDetales_bottomTy">
+                  <button class="cusDetales_cancleTy">取消</button>
+                  <button class="cusDetales_confirmTy">确定</button>
+              </div>
+              </div>
+          </div>
+          <!--台风列表-->
+          <div class="tylist_content">
+              <div class="tylist_header">
+                  <div class="tylistHeader_top">
+                      <span id="tylistReturn"></span>
+                  </div>
+                  <div class="tylistHeader_bottom" id="tylistName">
+                      <ul class="clearfix">
+                          <li class="on"><a>蝎虎</a></li>
+                          <li><a>洛坦</a></li>
+                          <li><a>马鞍</a></li>
+                      </ul>
+                  </div>
+                  
+              </div>
+              <div class="tylist_date">
+                  <ul class="clearfix scrollbar">
+                  </ul>
+              </div>
+              <div class="tylist_details">
+                  <ul class="clearfix">
+                      <li>
+                          <div>
+                              <p class="tyDetails_img"><img src="./assets/typhone_number2@3x.png" alt=""></p>
+                              <p class="tyDetails_title">台风编号</p>
+                              <p class="tyDetails_con" id="tyTsid"></p>
+                          </div>
+                          
+                          
+                      </li>
+                      <li>
+                          <div>
+                              <p class="tyDetails_img"><img src="./assets/typhone_longitude2@3x.png" alt=""></p>
+                              <p class="tyDetails_title">经度</p>
+                              <p class="tyDetails_con" id="tyLongitude"></p>
+                          </div>
+                         
+                          
+                      </li>
+                      <li>
+                          <div>
+                              <p class="tyDetails_img"><img src="./assets/typhone_latitude2@3x.png" alt=""></p>
+                              <p class="tyDetails_title">纬度</p>
+                              <p class="tyDetails_con" id="tyLatitude"></p>
+                          </div>
+                         
+                          
+                      </li>
+                      <li>
+                          <div>
+                              <p class="tyDetails_img"><img src="./assets/typhone_power2@3x.png" alt=""></p>
+                              <p class="tyDetails_title">风力</p>
+                              <p class="tyDetails_con" id="tyWindpower"></p>
+                          </div>
+                          
+                          
+                      </li>
+                      <li>
+                          <div>
+                              <p class="tyDetails_img"><img src="./assets/typhone_speed2@3x.png" alt=""></p>
+                              <p class="tyDetails_title">风速</p>
+                              <p class="tyDetails_con" id="tyWindspeed"></p>
+                          </div>
+                          
+                          
+                      </li>
+                      <li>
+                          <div>
+                              <p class="tyDetails_img"><img src="./assets/typhone_pressure2@3x.png" alt=""></p>
+                              <p class="tyDetails_title">中心气压</p>
+                              <p class="tyDetails_con" id="tyCenterpressure"></p>
+                          </div>
+                          
+                      </li>
+                      <li>
+                          <div>
+                              <p class="tyDetails_img"><img src="./assets/typhone_seven2@3x.png" alt=""></p>
+                              <p class="tyDetails_title">七级风圈</p>
+                              <p class="tyDetails_con" id="tySevencircle"></p>
+                          </div>
+                      </li>
+                      <li>
+                          <div>
+                              <p class="tyDetails_img"><img src="./assets/typhone_ten2@3x.png" alt=""></p>
+                              <p class="tyDetails_title">十级风圈</p>
+                              <p class="tyDetails_con" id="tyTencircle"></p>
+                          </div>
+                          
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <!-- 自定义添加决策区弹框 -->
+          <div class="cusLonLat_cusWin">
+                  <div class="cusLonLat_cusDetales ui-draggable">
+                      <div class="cusDetales_top ui-draggable-handle">
+                          <p>添加决策区</p><p class="cusLonLat_close"></p>
+                      </div>
+                      <div class="cusDetales_center">
+                              <dl id="cusDetalesCenterDl">
+                                  <dt>经度</dt>
+                                  <dd><input type="number" name="longitude"></dd>
+
+                                  <dt>纬度</dt>
+                                  <dd><input type="number" name="latitude"></dd>
+
+                                  <div class="wrapper">
+                                      <div class="wrapperDiv clearfix">
+                                          <dt>半径</dt>
+                                          <dd class="radiusIn"><input type="number" name="radius">海里<span class="del"></span></dd>
+                                      </div>
+                                      <div class="wrapperDiv clearfix">
+                                          <dt>半径</dt>
+                                          <dd class="radiusIn"><input type="number" name="radius">海里<span class="add" id="addRadius"></span></dd>
+                                      </div>
+                                  </div>
+                                  
+                              </dl>
+                      </div>
+                      <div class="cusDetales_bottom">
+                          <button class="cusDetales_get" id="customGet">拾取坐标</button>
+                          <button class="cusDetales_confirm" id="customConfirm">确定</button>
+                      </div>
+                  </div>
+                  <p class="hint_noNull">经度纬度半径不得为空！</p>
+          </div>
+          <!--预警状态编辑-->
+          <div class="preWarn_cusWin">
+                  <div class="preWarn_cusDetales">
+                      <div class="preWarnDetales_top">
+                          <p>编辑</p><p class="preWarnDetales_close"></p>
+                      </div>
+                      <div class="preWarnDetales_center">
+                              <dl>
+                                  <dt>经度</dt>
+                                  <dd><input type="number" name="longitude" id="modifyPointLon"></dd>
+
+                                  <dt>纬度</dt>
+                                  <dd><input type="number" name="latitude" id="modifyPointLat"></dd>
+
+                                  <div class="wrapper">
+                                  </div>
+                              </dl>
+                      </div>
+                      <div class="preWarnDetales_bottom">
+                          <button class="cusDetales_get" id="preWarnCancel">取消</button>
+                          <button class="cusDetales_confirm" id="preWarnConfirm">确定</button>
+                      </div>
+                  </div>
+                  <p class="hint_noNull">经度纬度半径不得为空！</p>
+          </div>
+  </div>
+  <!-- 海浪 -->
+  <div class="swcontent">   
+      <p class="seaWave_noData">当前无数据</p>
+      <div class="tycontener_bottSeawave" style="">
+          <div class='seaWave_head '>
+                  <ul>
+                      <li class="typhoon_seaWave"><p class="tycontent_head_active">海浪预报</p></li>
+                      <li class="typhoon_seaWavepre"><p>海洋预报</p></li>
+                      <div class="swiperLine"></div>
+                  </ul>
+          </div>
+          <div class="swcontentDetail">
+              <!-- 海浪预报 -->
+              <div class="seaWaveOcean_pre seawaveDetailLi" id="seaWaves">
+                  <div class="seaWaveOcean_date typeDate_seaWave">
+                      <ul id="seaWaveMsg">
+                          <li>
+                              <div class="typhoonSeawave_div typhoonDate_seaWave tydate_active"  data="0" id="seaWaveTwentyF">
+                                  <p>24H</p>
+                              </div>
+                          </li>
+                          <li>
+                              <div class="typhoonSeawave_div typhoonDate_seaWave "  data="1" id="seaWaveFortyE">
+                                  <p>48H</p>
+                              </div>
+                          </li>
+                      </ul>
+                  </div>
+                  <div class="tySeawave_detales tySeawave_pre">
+                      <table>
+                          <tr>
+                              <td width="20%">海域</td>
+                              <td width="40%"></td>
+                              <td width="15%">平均风</td>
+                              <td width="25%"></td>
+                          </tr>
+                          <tr>
+                              <td>最高浪高</td>
+                              <td></td>
+                              <td>阵风</td>
+                              <td></td>
+                          </tr>
+                          <tr>
+                              <td>最低浪高</td>
+                              <td></td>
+                              <td>风向</td>
+                              <td></td>
+                          </tr>
+                          <tr>
+                              <td class="sea_see"><i></i>能见度</td>
+                              <td class="sea_see" ></td>
+                          </tr>
+                      </table>
+                  </div>
+              </div>
+              <!-- 海洋预报 -->
+              <div class="seaWaveOcean_pre typhoon_live" id="seaOceans" style="display:none">
+                  <div class="seaWaveOcean_date typeDate_seaWave">
+                      <ul class="oceanPreUl clearfix"></ul>
+                  </div>
+                  <div class="tySeawave_detales oceanPre">
+                      <table>
+                          <tr>
+                              <td width="25%">天气</td>
+                              <td width="30%"></td>
+                              <td width="15%">风向</td>
+                              <td width="30%"></td>
+                          </tr>
+                          <tr>
+                              <td>风力</td>
+                              <td></td>
+                              <td>阵风</td>
+                              <td></td>
+                          </tr>
+                          <tr>
+                              <td>能见度</td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                          </tr>
+                      </table>
+                  </div>
+              </div> 
+             
+          </div>
+      </div>
+  </div>
+  <!--预警状态-->
+  <div class="early_warn">
+      <div class="early_head">
+          <p class="warn_title" id="preWarn">预警状态</p>
+          <p class="warn_btn_nd">
+              <button class="warnModify">编辑</button>
+              <button class="warnDel">删除</button>
+          </p>
+      </div>
+      <div class="early_details">
+          <table>
+              <tbody>
+                  <tr>
+                      <td width="20%">浪高</td>
+                      <td width="30%" id="waveHeight"></td>
+                      <td width="20%">浪方向</td>
+                      <td width="30%" id="waveDir"></td>
+                  </tr>
+                  <tr>
+                      <td>浪周期</td>
+                      <td id="wavePeriod"></td>
+                      <td>风力</td>
+                      <td id="windPowers"></td>
+                  </tr>
+                   <tr>
+                      <td>风暴增水</td>
+                      <td id="stormSurge"></td>
+                      <td>风向</td>
+                      <td id="windDirs"></td>
+                  </tr>
+                  
+              </tbody>
+          </table>
+      </div>
+  </div>
+  <div class="accredit_msg">数据由南油公司授权提供</div>
+  <div class="cloudPopup">
+      <ul class="radar_colourCode">
+          <li><span></span>阴天</li>
+          <li><span></span>小雨</li>
+          <li><span></span>中雨</li>
+          <li><span></span>大雨</li>
+          <li><span></span>暴雨</li>
+      </ul>
+      <div class="wrapper"></div>
+  </div>
+
+</div>
+
+<script src="./bundle.js?t=2212"></script>

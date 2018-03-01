@@ -62,7 +62,7 @@
 
 .bgLeft {
     width: 5.0789rem;
-    height: 4.48;
+    height: 5rem;
     position: absolute;
     top: 0;
     left: 0;
@@ -72,7 +72,7 @@
 
 .bgLeftInt {
     width: 2.6842rem;
-    height: 4.48rem;
+    height: 5rem;
     background: linear-gradient(left, #4bcfab, #5bc1da);
     background: -webkit-linear-gradient(left, #4bcfab, #5bc1da);
     background: -o-linear-gradient(left, #4bcfab, #5bc1da);

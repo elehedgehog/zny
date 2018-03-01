@@ -233,3 +233,9 @@ export const removeAllArea = () => {        //删除所有决策区距离信息 
     _areas[key].layers.divIcon = [];
   }
 }
+
+export const clearAllInfo = () => {
+  for (let id in _areas) {
+    removeSingleArea(id)
+  }
+}

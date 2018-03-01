@@ -480,7 +480,7 @@
 
 
 	// module
-	exports.push([module.id, ".ty-name {\r\n    width: auto !important;\r\n    height: auto !important;\r\n    z-index: 1000 !important;\r\n}\r\n\r\n.ty-name div {\r\n    background: rgba(255, 255, 255, .6);\r\n    border: solid black 1px;\r\n    text-align: center;\r\n    font-size: 14px;\r\n    white-space: nowrap;\r\n    position: relative;\r\n    border-radius: 3px;\r\n    left: 20px;\r\n    padding: 0 .5rem;\r\n    margin-top: -7px;\r\n}\r\n\r\n.ty-name p {\r\n    padding: 0;\r\n    margin: 0 !important;\r\n}\r\n\r\n.ty-name span:first-of-type {\r\n    position: absolute;\r\n    left: -6px;\r\n    top: 7px;\r\n    background: rgba(255, 255, 255, .6);\r\n    width: 10px;\r\n    height: 10px;\r\n    border: solid 1px black;\r\n    border-top: transparent;\r\n    border-right: transparent;\r\n    transform: rotate(45deg);\r\n    -webkit-transform: rotate(45deg);\r\n    -moz-transform: rotate(45deg);\r\n    -o-transform: rotate(45deg);\r\n    -ms-transform: rotate(45deg);\r\n}\r\n\r\n.ty-name span:last-of-type {\r\n    width: 100%;\r\n    display: block;\r\n    padding: .1rem 0;\r\n    white-space: nowrap;\r\n}\r\n\r\n.ty-popup {\r\n    padding: .5rem;\r\n    z-index: 0 !important;\r\n}\r\n\r\n.ty-popup section {\r\n    border-radius: 4px;\r\n    overflow: hidden;\r\n    /*font-size: 14px;*/\r\n    position: relative;\r\n    text-align: center;\r\n    right: 0.6rem;\r\n}\r\n\r\n.bgLeft {\r\n    width: 5.0789rem;\r\n    height: 4.48;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    background: #fff;\r\n    border-radius: 6px;\r\n}\r\n\r\n.bgLeftInt {\r\n    width: 2.6842rem;\r\n    height: 4.48rem;\r\n    background: linear-gradient(left, #4bcfab, #5bc1da);\r\n    background: -webkit-linear-gradient(left, #4bcfab, #5bc1da);\r\n    background: -o-linear-gradient(left, #4bcfab, #5bc1da);\r\n    background: -moz-linear-gradient(left, #4bcfab, #5bc1da);\r\n    background: -ms-linear-gradient(left, #4bcfab, #5bc1da);\r\n    \r\n    /* 标准的语法 */\r\n}\r\n\r\n.ty-popup ul {\r\n    margin: 0;\r\n    padding: 0;\r\n    list-style: none;\r\n    position: relative;\r\n    z-index: 2;\r\n}\r\n\r\n.ty-popup header {\r\n    text-align: center;\r\n    background: #17b4a0;\r\n    padding: .5rem 0;\r\n    color: white;\r\n    font-weight: bolder;\r\n    letter-spacing: 1px;\r\n}\r\n\r\n.ty-popup ul li {\r\n    text-align: center;\r\n    white-space: nowrap;\r\n}\r\n\r\n.ty-popup ul li span {\r\n    width: 60%;\r\n    padding-left: 0.266667rem;\r\n    display: inline-block;\r\n    white-space: nowrap;\r\n}\r\n\r\n.ty-popup ul li span:first-of-type {\r\n    height: 0.56rem;\r\n    line-height: 0.56rem;\r\n    width: 2.47rem;\r\n    display: inline-block;\r\n    color: #f2f3f8;\r\n    font-size: 0.373333rem;\r\n    text-align: left;\r\n    /*background:-webkit-linear-gradient(left,#4bcfab, #5bc1da); \r\n    background: -o-linear-gradient(left,#4bcfab, #5bc1da); \r\n    background: -moz-linear-gradient(left,#4bcfab, #5bc1da); \r\n    background: linear-gradient(left,#4bcfab, #5bc1da); */\r\n}\r\n\r\n.ty-popup ul li:first-of-type span:first-of-type {\r\n    padding-top: 0.266667rem;\r\n}\r\n\r\n.ty-popup ul li:first-of-type span:nth-child(2) {\r\n    padding-top: 0.266667rem;\r\n}\r\n\r\n.ty-popup ul li:last-of-type span:first-of-type {\r\n    padding-bottom: 0.266667rem;\r\n}\r\n\r\n.ty-popup ul li:last-of-type span:nth-child(2) {\r\n    padding-bottom: 0.266667rem;\r\n}\r\n\r\n.ty-popup ul li span:nth-child(2) {\r\n    height: 0.56rem;\r\n    line-height: 0.56rem;\r\n    width: 2.47rem;\r\n    display: inline-block;\r\n    color: #1c1c1c;\r\n    /*background-color:#fff;*/\r\n    font-size: 0.373333rem;\r\n    text-align: left;\r\n}\r\n\r\n.ty-popup .leaflet-popup-content-wrapper {\r\n    margin: 0 !important;\r\n    background: transparent;\r\n    box-shadow: none;\r\n}\r\n\r\n.ty-popup .leaflet-popup-content-wrapper .leaflet-popup-content {\r\n    margin: 0 !important;\r\n    background: transparent;\r\n    position: relative;\r\n}\r\n\r\n.ty-popup .leaflet-popup-tip-container {\r\n    position: relative;\r\n    top: -2px;\r\n}\r\n\r\n.rain-popup p {\r\n    margin: .25rem 0;\r\n    text-align: center;\r\n}\r\n\r\n.rain-popup .leaflet-popup-content {\r\n    margin: 0 .25rem;\r\n}", ""]);
+	exports.push([module.id, ".ty-name {\r\n    width: auto !important;\r\n    height: auto !important;\r\n    z-index: 1000 !important;\r\n}\r\n\r\n.ty-name div {\r\n    background: rgba(255, 255, 255, .6);\r\n    border: solid black 1px;\r\n    text-align: center;\r\n    font-size: 14px;\r\n    white-space: nowrap;\r\n    position: relative;\r\n    border-radius: 3px;\r\n    left: 20px;\r\n    padding: 0 .5rem;\r\n    margin-top: -7px;\r\n}\r\n\r\n.ty-name p {\r\n    padding: 0;\r\n    margin: 0 !important;\r\n}\r\n\r\n.ty-name span:first-of-type {\r\n    position: absolute;\r\n    left: -6px;\r\n    top: 7px;\r\n    background: rgba(255, 255, 255, .6);\r\n    width: 10px;\r\n    height: 10px;\r\n    border: solid 1px black;\r\n    border-top: transparent;\r\n    border-right: transparent;\r\n    transform: rotate(45deg);\r\n    -webkit-transform: rotate(45deg);\r\n    -moz-transform: rotate(45deg);\r\n    -o-transform: rotate(45deg);\r\n    -ms-transform: rotate(45deg);\r\n}\r\n\r\n.ty-name span:last-of-type {\r\n    width: 100%;\r\n    display: block;\r\n    padding: .1rem 0;\r\n    white-space: nowrap;\r\n}\r\n\r\n.ty-popup {\r\n    padding: .5rem;\r\n    z-index: 0 !important;\r\n}\r\n\r\n.ty-popup section {\r\n    border-radius: 4px;\r\n    overflow: hidden;\r\n    /*font-size: 14px;*/\r\n    position: relative;\r\n    text-align: center;\r\n    right: 0.6rem;\r\n}\r\n\r\n.bgLeft {\r\n    width: 5.0789rem;\r\n    height: 5rem;\r\n    position: absolute;\r\n    top: 0;\r\n    left: 0;\r\n    background: #fff;\r\n    border-radius: 6px;\r\n}\r\n\r\n.bgLeftInt {\r\n    width: 2.6842rem;\r\n    height: 5rem;\r\n    background: linear-gradient(left, #4bcfab, #5bc1da);\r\n    background: -webkit-linear-gradient(left, #4bcfab, #5bc1da);\r\n    background: -o-linear-gradient(left, #4bcfab, #5bc1da);\r\n    background: -moz-linear-gradient(left, #4bcfab, #5bc1da);\r\n    background: -ms-linear-gradient(left, #4bcfab, #5bc1da);\r\n    \r\n    /* 标准的语法 */\r\n}\r\n\r\n.ty-popup ul {\r\n    margin: 0;\r\n    padding: 0;\r\n    list-style: none;\r\n    position: relative;\r\n    z-index: 2;\r\n}\r\n\r\n.ty-popup header {\r\n    text-align: center;\r\n    background: #17b4a0;\r\n    padding: .5rem 0;\r\n    color: white;\r\n    font-weight: bolder;\r\n    letter-spacing: 1px;\r\n}\r\n\r\n.ty-popup ul li {\r\n    text-align: center;\r\n    white-space: nowrap;\r\n}\r\n\r\n.ty-popup ul li span {\r\n    width: 60%;\r\n    padding-left: 0.266667rem;\r\n    display: inline-block;\r\n    white-space: nowrap;\r\n}\r\n\r\n.ty-popup ul li span:first-of-type {\r\n    height: 0.56rem;\r\n    line-height: 0.56rem;\r\n    width: 2.47rem;\r\n    display: inline-block;\r\n    color: #f2f3f8;\r\n    font-size: 0.373333rem;\r\n    text-align: left;\r\n    /*background:-webkit-linear-gradient(left,#4bcfab, #5bc1da); \r\n    background: -o-linear-gradient(left,#4bcfab, #5bc1da); \r\n    background: -moz-linear-gradient(left,#4bcfab, #5bc1da); \r\n    background: linear-gradient(left,#4bcfab, #5bc1da); */\r\n}\r\n\r\n.ty-popup ul li:first-of-type span:first-of-type {\r\n    padding-top: 0.266667rem;\r\n}\r\n\r\n.ty-popup ul li:first-of-type span:nth-child(2) {\r\n    padding-top: 0.266667rem;\r\n}\r\n\r\n.ty-popup ul li:last-of-type span:first-of-type {\r\n    padding-bottom: 0.266667rem;\r\n}\r\n\r\n.ty-popup ul li:last-of-type span:nth-child(2) {\r\n    padding-bottom: 0.266667rem;\r\n}\r\n\r\n.ty-popup ul li span:nth-child(2) {\r\n    height: 0.56rem;\r\n    line-height: 0.56rem;\r\n    width: 2.47rem;\r\n    display: inline-block;\r\n    color: #1c1c1c;\r\n    /*background-color:#fff;*/\r\n    font-size: 0.373333rem;\r\n    text-align: left;\r\n}\r\n\r\n.ty-popup .leaflet-popup-content-wrapper {\r\n    margin: 0 !important;\r\n    background: transparent;\r\n    box-shadow: none;\r\n}\r\n\r\n.ty-popup .leaflet-popup-content-wrapper .leaflet-popup-content {\r\n    margin: 0 !important;\r\n    background: transparent;\r\n    position: relative;\r\n}\r\n\r\n.ty-popup .leaflet-popup-tip-container {\r\n    position: relative;\r\n    top: -2px;\r\n}\r\n\r\n.rain-popup p {\r\n    margin: .25rem 0;\r\n    text-align: center;\r\n}\r\n\r\n.rain-popup .leaflet-popup-content {\r\n    margin: 0 .25rem;\r\n}", ""]);
 
 	// exports
 
@@ -598,60 +598,99 @@
 	};
 	initOceanTIme();
 
-	L.polyline([[35, 120], [35, 150], [0, 150], [0, 140]], {
-	    color: 'red',
-	    dashArray: [5, 10],
-	    weight: 2
-	}).addTo(map);
+	var polyline = null,
+	    polylineArr = [];
+	$('.defenceArea').click(function (e) {
+	    e.stopPropagation();
+	    if ($(this).hasClass('on')) {
+	        map.removeLayer(polyline);
+	        polyline = null;
+	        var _iteratorNormalCompletion = true;
+	        var _didIteratorError = false;
+	        var _iteratorError = undefined;
 
-	var alarmPolyline = [[[25, 119], [25, 125], [15, 125], [15, 110], [22, 110]], [[25, 125], [25, 135], [0, 135]], [[25, 135], [25, 140], [0, 140], [0, 105], [10.5, 105]]];
-	var _iteratorNormalCompletion = true;
-	var _didIteratorError = false;
-	var _iteratorError = undefined;
+	        try {
+	            for (var _iterator = polylineArr[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	                var el = _step.value;
 
-	try {
-	    for (var _iterator = alarmPolyline[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	        var el = _step.value;
-
-	        L.polyline(el, { color: 'red', weight: 2 }).addTo(map);
-	    }
-	} catch (err) {
-	    _didIteratorError = true;
-	    _iteratorError = err;
-	} finally {
-	    try {
-	        if (!_iteratorNormalCompletion && _iterator.return) {
-	            _iterator.return();
+	                map.removeLayer(el);
+	            }
+	        } catch (err) {
+	            _didIteratorError = true;
+	            _iteratorError = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion && _iterator.return) {
+	                    _iterator.return();
+	                }
+	            } finally {
+	                if (_didIteratorError) {
+	                    throw _iteratorError;
+	                }
+	            }
 	        }
-	    } finally {
-	        if (_didIteratorError) {
-	            throw _iteratorError;
+
+	        polylineArr = [];
+	    } else {
+	        polyline = L.polyline([[35, 120], [35, 150], [0, 150], [0, 140]], {
+	            color: 'red',
+	            dashArray: [5, 10],
+	            weight: 2
+	        }).addTo(map);
+
+	        var alarmPolyline = [[[25, 119], [25, 125], [15, 125], [15, 110], [22, 110]], [[25, 125], [25, 135], [0, 135]], [[25, 135], [25, 140], [0, 140], [0, 105], [10.5, 105]]];
+	        var _iteratorNormalCompletion2 = true;
+	        var _didIteratorError2 = false;
+	        var _iteratorError2 = undefined;
+
+	        try {
+	            for (var _iterator2 = alarmPolyline[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	                var _el = _step2.value;
+
+	                var line = L.polyline(_el, { color: 'red', weight: 2 }).addTo(map);
+	                polylineArr.push(line);
+	            }
+	        } catch (err) {
+	            _didIteratorError2 = true;
+	            _iteratorError2 = err;
+	        } finally {
+	            try {
+	                if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	                    _iterator2.return();
+	                }
+	            } finally {
+	                if (_didIteratorError2) {
+	                    throw _iteratorError2;
+	                }
+	            }
 	        }
 	    }
-	}
+	    $(this).toggleClass('on');
+	});
+	$('.defenceArea').click();
 
 	var ninePolyline = [[[17, 109.5], [15, 110]], [[12, 110.5], [11, 110]], [[7.5, 105.2], [6, 105.5]], [[3, 112], [4, 113]], [[7.3, 115.8], [8, 116.8]], [[11, 118.5], [12, 119]], [[15, 119], [16, 119]], [[18, 119.5], [19, 120]], [[21, 121], [22, 122]]];
-	var _iteratorNormalCompletion2 = true;
-	var _didIteratorError2 = false;
-	var _iteratorError2 = undefined;
+	var _iteratorNormalCompletion3 = true;
+	var _didIteratorError3 = false;
+	var _iteratorError3 = undefined;
 
 	try {
-	    for (var _iterator2 = ninePolyline[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	        var _el = _step2.value;
+	    for (var _iterator3 = ninePolyline[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	        var el = _step3.value;
 
-	        L.polyline(_el, { color: '#E74727', weight: 5 }).addTo(map);
+	        L.polyline(el, { color: '#aaa', weight: 1 }).addTo(map);
 	    }
 	} catch (err) {
-	    _didIteratorError2 = true;
-	    _iteratorError2 = err;
+	    _didIteratorError3 = true;
+	    _iteratorError3 = err;
 	} finally {
 	    try {
-	        if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	            _iterator2.return();
+	        if (!_iteratorNormalCompletion3 && _iterator3.return) {
+	            _iterator3.return();
 	        }
 	    } finally {
-	        if (_didIteratorError2) {
-	            throw _iteratorError2;
+	        if (_didIteratorError3) {
+	            throw _iteratorError3;
 	        }
 	    }
 	}
@@ -792,19 +831,286 @@
 
 	var helper = null;
 	var tyUrl = '/MeteoSyncServer/typhoon/getmsg' + ('?cacheCtrl=' + Date.now()),
-	    latestTyUrl = '/MeteoSyncServer/typhoon/getlatest?num=3' + ('&cacheCtrl=' + Date.now());
+	    latestTyUrl = 'http://119.29.102.103:9021/typhoon/info/find_Latest_ByMaxtime?fcid=BCGZ&limit=3';
 	var tyLayerGroup = [],
 	    layersGoesBack = [],
 	    isTyDisplay = [];
 
-	var tyCenter = exports.tyCenter = {
+	var currentTyIds = [];
+	var typhoonInfo = {};var tyCenter = exports.tyCenter = {
 	  0: null,
 	  1: null,
 	  2: null
 	};
 	var moveView = true;
 
-	var getTyphoon = function getTyphoon(data, currentTyIds) {
+	var renderTyDOM = function renderTyDOM() {
+	  var html = '';
+	  var _iteratorNormalCompletion = true;
+	  var _didIteratorError = false;
+	  var _iteratorError = undefined;
+
+	  try {
+	    for (var _iterator = currentTyIds[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	      var tsid = _step.value;
+
+	      html += '<li tsid="' + tsid + '"><a>' + typhoonInfo[tsid].tscname + '</a></li>';
+	    }
+	  } catch (err) {
+	    _didIteratorError = true;
+	    _iteratorError = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion && _iterator.return) {
+	        _iterator.return();
+	      }
+	    } finally {
+	      if (_didIteratorError) {
+	        throw _iteratorError;
+	      }
+	    }
+	  }
+
+	  $('#tylistName ul').html(html);
+	  $('#tylistName ul li').eq(0).click();
+	};
+
+	$('#tylistName').on('click', 'li', function () {
+	  $(this).addClass('on').siblings('li').removeClass('on');
+	  var tsid = Number($(this).attr('tsid'));
+	  getTyForecast(tsid);
+	});
+	var getTyForecast = function getTyForecast(tsid) {
+	  if (typhoonInfo[tsid].fst.length == 0) {
+	    $('.tylist_date ul').html('');
+	    $('#tyTsid').text('');
+	    $('#tyLongitude').text('');
+	    $('#tyLatitude').text('');
+	    $('#tyWindpower').text('');
+	    $('#tyWindspeed').text('');
+	    $('#tyCenterpressure').text('');
+	    $('#tySevencircle').text('');
+	    $('#tyTencircle').text('');
+	  } else {
+	    var html = '';
+	    var _iteratorNormalCompletion2 = true;
+	    var _didIteratorError2 = false;
+	    var _iteratorError2 = undefined;
+
+	    try {
+	      for (var _iterator2 = typhoonInfo[tsid].fst[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	        var item = _step2.value;
+
+	        var time = item.time + item.leadtime * 60 * 60 * 1000;
+	        html += '<li time="' + time + '">\n                <div class="tylistDate_div">\n                  <p>' + new Date(time).Format('dd') + '\u65E5</p>\n                  <p>' + new Date(time).Format('HH') + '\u65F6</p>\n                </div>\n              </li>';
+	      }
+	    } catch (err) {
+	      _didIteratorError2 = true;
+	      _iteratorError2 = err;
+	    } finally {
+	      try {
+	        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	          _iterator2.return();
+	        }
+	      } finally {
+	        if (_didIteratorError2) {
+	          throw _iteratorError2;
+	        }
+	      }
+	    }
+
+	    $('.tylist_date ul').html(html);
+	    $('.tylist_date ul li').eq(0).click();
+	  }
+	};
+	$('.tylist_date ul').scroll(function () {
+	  var visibleWidth = $(this).width();
+	  var totalWidth = document.querySelector('.tylist_date ul').scrollWidth;
+	  var maxLeft = totalWidth - visibleWidth;
+	  var left = $(this).scrollLeft();
+	  var lengthOfLi = $(this).find('li').length;
+	  var oneOfLi = maxLeft / lengthOfLi;
+	  var n = Math.ceil(left / oneOfLi);
+	  $('.tylist_date ul li').eq(n).click();
+	});
+	$('.tylist_date').on('click', 'li', function () {
+	  $(this).addClass('on').siblings('li').removeClass('on');
+	  var tsid = Number($('#tylistName li.on').attr('tsid'));
+	  var time = $(this).attr('time');
+	  var _iteratorNormalCompletion3 = true;
+	  var _didIteratorError3 = false;
+	  var _iteratorError3 = undefined;
+
+	  try {
+	    for (var _iterator3 = typhoonInfo[tsid].fst[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	      var item = _step3.value;
+
+	      if (item.time + item.leadtime * 60 * 60 * 1000 == time) {
+	        $('#tyTsid').text(tsid);
+	        $('#tyLongitude').text(item.lon);
+	        $('#tyLatitude').text(item.lat);
+	        $('#tyWindpower').text((0, _wind.getVelLevel)(item.ws) + '级');
+	        $('#tyWindspeed').text(item.ws + '(m/s)');
+	        $('#tyCenterpressure').text(item.ps + '(hpa)');
+	        $('#tySevencircle').text(item.rr07 === null ? '无' : item.rr07 + 'km');
+	        $('#tyTencircle').text(item.rr10 === null ? '无' : item.rr10 + 'km');
+	        break;
+	      }
+	    }
+	  } catch (err) {
+	    _didIteratorError3 = true;
+	    _iteratorError3 = err;
+	  } finally {
+	    try {
+	      if (!_iteratorNormalCompletion3 && _iterator3.return) {
+	        _iterator3.return();
+	      }
+	    } finally {
+	      if (_didIteratorError3) {
+	        throw _iteratorError3;
+	      }
+	    }
+	  }
+	});
+
+	$('.typhoonList, #tylistReturn').on('click', function () {
+	  $('.tylist_content').toggle();
+	});
+	$('.typhoonList').click(function () {
+	  $('#tylistName ul li').eq(0).click();
+	  $('.tylist_date ul li').eq(0).click();
+	  if ($('.simiMatch').hasClass('on')) $('.closeSimi').click();
+	  if ($('.early_warn').hasClass('on')) (0, _typhoonDom.hidePreWarnPopup)();
+	  if ($('.cloudMap ul li:nth-child(1).on').length) $('.cloudMap ul li.on').eq(0).click();
+	  if ($('.imgEx').hasClass('on')) $('.imgEx.on').click();
+	  if ($('.cloudMap ul li:nth-child(2) img').hasClass('on')) $('.cloudMap ul li:nth-child(2) img.on').click();
+	  var $target = $('.cloudMap ul li').eq(0);
+	  if ($target.hasClass('on')) {
+	    $target.removeClass('on');
+	    $target.find('img').removeClass('on');
+	    var url = $target.find('img').data('url').replace('_pre', '');
+	    $target.find('img').attr('src', url);
+	  }
+	  $('.scrollbar').scrollLeft(0);
+	});
+
+	var initHelper = function initHelper() {
+	  return new Promise(function (resolve, reject) {
+	    if (!window.positionCenter.length) {
+	      var int = setInterval(function () {
+	        if (window.positionCenter.length) {
+	          helper = new _ZmapHelper.ZmapHelper(map, window.positionCenter);
+	          clearInterval(int);
+	          resolve();
+	        }
+	      }, 100);
+	    } else {
+	      helper = new _ZmapHelper.ZmapHelper(map, window.positionCenter);
+	      resolve();
+	    }
+	  });
+	};
+
+	function formartTyphData(opt) {
+	  return {
+	    time: opt.datetime,
+	    datetime: new Date(opt.datetime).Format('yyyy-MM-dd HH:mm:ss'),
+	    leadtime: opt.leadtime || null,
+	    level: opt.elements.tcrank,
+	    lon: opt.location.lon,
+	    lat: opt.location.lat,
+	    ps: opt.elements.pressure,
+	    ws: opt.elements.windspeed,
+	    rr06: opt.elements.rr06 || null,
+	    rr07: opt.elements.rr07 || null,
+	    rr08: opt.elements.rr08 || null,
+	    rr10: opt.elements.rr10 || null
+	  };
+	}
+
+	var getTyphData = function getTyphData(tsid) {
+	  return new Promise(function (resolve, reject) {
+	    $.ajax({ url: 'http://119.29.102.103:9021/typhoon/findForecastReal?tsid=' + tsid + '&_=' + Date.now() }).then(function (res) {
+	      res = JSON.parse(res);
+	      var json = {
+	        tsid: tsid,
+	        intlid: res.info && res.info[0] ? res.info[0].intlid : null,
+	        tscname: res.info && res.info[0] && res.info[0].info && res.info[0].info.cname ? res.info[0].info.cname : null,
+	        tsename: res.info && res.info[0] && res.info[0].info && res.info[0].info.ename ? res.info[0].info.ename : null,
+	        real: [],
+	        fst: []
+	      };
+
+	      if (res.real && Array.isArray(res.real)) {
+	        res.real.sort(function (a, b) {
+	          return a.datetime - b.datetime;
+	        });
+	        var _iteratorNormalCompletion4 = true;
+	        var _didIteratorError4 = false;
+	        var _iteratorError4 = undefined;
+
+	        try {
+	          for (var _iterator4 = res.real[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
+	            var el = _step4.value;
+
+	            var real = formartTyphData(el);
+	            json.real.push(real);
+	          }
+	        } catch (err) {
+	          _didIteratorError4 = true;
+	          _iteratorError4 = err;
+	        } finally {
+	          try {
+	            if (!_iteratorNormalCompletion4 && _iterator4.return) {
+	              _iterator4.return();
+	            }
+	          } finally {
+	            if (_didIteratorError4) {
+	              throw _iteratorError4;
+	            }
+	          }
+	        }
+	      }
+
+	      if (res.forecast && Array.isArray(res.forecast)) {
+	        res.forecast.sort(function (a, b) {
+	          return a.leadtime - b.leadtime;
+	        });
+	        var _iteratorNormalCompletion5 = true;
+	        var _didIteratorError5 = false;
+	        var _iteratorError5 = undefined;
+
+	        try {
+	          for (var _iterator5 = res.forecast[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
+	            var opt = _step5.value;
+
+	            if (!opt.location.lon || !opt.location.lat) continue;
+	            var fst = formartTyphData(opt);
+	            json.fst.push(fst);
+	          }
+	        } catch (err) {
+	          _didIteratorError5 = true;
+	          _iteratorError5 = err;
+	        } finally {
+	          try {
+	            if (!_iteratorNormalCompletion5 && _iterator5.return) {
+	              _iterator5.return();
+	            }
+	          } finally {
+	            if (_didIteratorError5) {
+	              throw _iteratorError5;
+	            }
+	          }
+	        }
+	      }
+
+	      typhoonInfo[tsid] = json;
+	      resolve();
+	    });
+	  });
+	};
+
+	var getTyphoon = function getTyphoon(data) {
 	  var len = data.length;
 
 	  var _loop = function _loop(i) {
@@ -815,7 +1121,7 @@
 	    var tyLength = tyLayerGroup.length;
 	    var target = $('#tyChange li:nth-child(' + tyLength + ')'),
 	        targetChild = $('#tyChange li:nth-child(' + tyLength + ') a');
-	    targetChild.text(data[i].tscname).attr('tsid', data[i].tsid);
+	    targetChild.text(data[i].info.cname).attr('tsid', data[i].tsid);
 
 	    target.on('click', function (e) {
 	      e.stopPropagation();
@@ -838,7 +1144,7 @@
 	      } else {
 	        if (!isTyDisplay[i]) {
 	          isTyDisplay[i] = true;
-	          var lyGp = helper.drawTy(data[i]);
+	          var lyGp = helper.drawTy(typhoonInfo[data[i].tsid]);
 	          tyLayerGroup[i] = lyGp.tyLayerGroup;
 	          layersGoesBack[i] = lyGp.layersGoesBack;
 	        } else {
@@ -848,7 +1154,7 @@
 	          });
 	        }
 
-	        var tyReal = data[i].real,
+	        var tyReal = typhoonInfo[data[i].tsid].real,
 	            realLen = tyReal.length;
 	        var lastReal = tyReal[realLen - 1];
 	        var lat = lastReal.lat;
@@ -883,227 +1189,19 @@
 	  }
 	};
 
-	var currentTyphoon = [];
-	var renderTyDOM = function renderTyDOM() {
-	  var html = '';
-	  var _iteratorNormalCompletion = true;
-	  var _didIteratorError = false;
-	  var _iteratorError = undefined;
+	$.ajax({ url: latestTyUrl }).then(function (data) {
+	  data = JSON.parse(data);
 
-	  try {
-	    for (var _iterator = currentTyphoon[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	      var info = _step.value;
-
-	      html += '<li tsid="' + info.tsid + '"><a>' + info.tscname + '</a></li>';
-	    }
-	  } catch (err) {
-	    _didIteratorError = true;
-	    _iteratorError = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion && _iterator.return) {
-	        _iterator.return();
-	      }
-	    } finally {
-	      if (_didIteratorError) {
-	        throw _iteratorError;
-	      }
-	    }
-	  }
-
-	  $('#tylistName ul').html(html);
-	  $('#tylistName ul li').eq(0).click();
-	};
-
-	$('#tylistName').on('click', 'li', function () {
-	  $(this).addClass('on').siblings('li').removeClass('on');
-	  var tsid = Number($(this).attr('tsid'));
-	  getTyForecast(tsid);
-	});
-	var getTyForecast = function getTyForecast(tsid) {
-	  var _iteratorNormalCompletion2 = true;
-	  var _didIteratorError2 = false;
-	  var _iteratorError2 = undefined;
-
-	  try {
-	    for (var _iterator2 = currentTyphoon[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	      var info = _step2.value;
-
-	      if (info.tsid === tsid) {
-	        var html = '';
-	        var _iteratorNormalCompletion3 = true;
-	        var _didIteratorError3 = false;
-	        var _iteratorError3 = undefined;
-
-	        try {
-	          for (var _iterator3 = info.fst[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-	            var item = _step3.value;
-
-	            var time = new Date(item.time);
-	            html += '<li time="' + item.time + '">\n                  <div class="tylistDate_div">\n                    <p>' + time.Format('dd') + '\u65E5</p>\n                    <p>' + time.Format('HH') + '\u65F6</p>\n                  </div>\n                </li>';
-	          }
-	        } catch (err) {
-	          _didIteratorError3 = true;
-	          _iteratorError3 = err;
-	        } finally {
-	          try {
-	            if (!_iteratorNormalCompletion3 && _iterator3.return) {
-	              _iterator3.return();
-	            }
-	          } finally {
-	            if (_didIteratorError3) {
-	              throw _iteratorError3;
-	            }
-	          }
-	        }
-
-	        $('.tylist_date ul').html(html);
-	        $('.tylist_date ul li').eq(0).click();
-	        break;
-	      }
-	    }
-	  } catch (err) {
-	    _didIteratorError2 = true;
-	    _iteratorError2 = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion2 && _iterator2.return) {
-	        _iterator2.return();
-	      }
-	    } finally {
-	      if (_didIteratorError2) {
-	        throw _iteratorError2;
-	      }
-	    }
-	  }
-	};
-	$('.tylist_date ul').scroll(function () {
-	  var visibleWidth = $(this).width();
-	  var totalWidth = document.querySelector('.tylist_date ul').scrollWidth;
-	  var maxLeft = totalWidth - visibleWidth;
-	  var left = $(this).scrollLeft();
-	  var lengthOfLi = $(this).find('li').length;
-	  var oneOfLi = maxLeft / lengthOfLi;
-	  var n = Math.ceil(left / oneOfLi);
-	  $('.tylist_date ul li').eq(n).click();
-	});
-	$('.tylist_date').on('click', 'li', function () {
-	  $(this).addClass('on').siblings('li').removeClass('on');
-	  var tsid = Number($('#tylistName li.on').attr('tsid'));
-	  var time = $(this).attr('time');
-	  var _iteratorNormalCompletion4 = true;
-	  var _didIteratorError4 = false;
-	  var _iteratorError4 = undefined;
-
-	  try {
-	    for (var _iterator4 = currentTyphoon[Symbol.iterator](), _step4; !(_iteratorNormalCompletion4 = (_step4 = _iterator4.next()).done); _iteratorNormalCompletion4 = true) {
-	      var info = _step4.value;
-
-	      if (info.tsid === tsid) {
-	        var _iteratorNormalCompletion5 = true;
-	        var _didIteratorError5 = false;
-	        var _iteratorError5 = undefined;
-
-	        try {
-	          for (var _iterator5 = info.fst[Symbol.iterator](), _step5; !(_iteratorNormalCompletion5 = (_step5 = _iterator5.next()).done); _iteratorNormalCompletion5 = true) {
-	            var item = _step5.value;
-
-	            if (item.time === time) {
-	              $('#tyTsid').text(tsid);
-	              $('#tyLongitude').text(item.lon);
-	              $('#tyLatitude').text(item.lat);
-	              $('#tyWindpower').text((0, _wind.getVelLevel)(item.ws) + '级');
-	              $('#tyWindspeed').text(item.ws + '(m/s)');
-	              $('#tyCenterpressure').text(item.ps + '(hpa)');
-	              $('#tySevencircle').text(item.rr07 === null ? '无' : item.rr07 + 'km');
-	              $('#tyTencircle').text(item.rr10 === null ? '无' : item.rr10 + 'km');
-	              break;
-	            }
-	          }
-	        } catch (err) {
-	          _didIteratorError5 = true;
-	          _iteratorError5 = err;
-	        } finally {
-	          try {
-	            if (!_iteratorNormalCompletion5 && _iterator5.return) {
-	              _iterator5.return();
-	            }
-	          } finally {
-	            if (_didIteratorError5) {
-	              throw _iteratorError5;
-	            }
-	          }
-	        }
-
-	        break;
-	      }
-	    }
-	  } catch (err) {
-	    _didIteratorError4 = true;
-	    _iteratorError4 = err;
-	  } finally {
-	    try {
-	      if (!_iteratorNormalCompletion4 && _iterator4.return) {
-	        _iterator4.return();
-	      }
-	    } finally {
-	      if (_didIteratorError4) {
-	        throw _iteratorError4;
-	      }
-	    }
-	  }
-	});
-
-	$('.typhoonList, #tylistReturn').on('click', function () {
-	  $('.tylist_content').toggle();
-	});
-	$('.typhoonList').click(function () {
-	  $('.tylist_date ul li').eq(0).click();
-	  if ($('.simiMatch').hasClass('on')) $('.closeSimi').click();
-	  if ($('.early_warn').hasClass('on')) (0, _typhoonDom.hidePreWarnPopup)();
-	  if ($('.cloudMap ul li:nth-child(1).on').length) $('.cloudMap ul li.on').eq(0).click();
-	  if ($('.imgEx').hasClass('on')) $('.imgEx.on').click();
-	  if ($('.cloudMap ul li:nth-child(2) img').hasClass('on')) $('.cloudMap ul li:nth-child(2) img.on').click();
-	  var $target = $('.cloudMap ul li').eq(0);
-	  if ($target.hasClass('on')) {
-	    $target.removeClass('on');
-	    $target.find('img').removeClass('on');
-	    var url = $target.find('img').data('url').replace('_pre', '');
-	    $target.find('img').attr('src', url);
-	  }
-	  $('.scrollbar').scrollLeft(0);
-	});
-
-	var initHelper = function initHelper() {
-	  return new Promise(function (resolve, reject) {
-	    if (!window.positionCenter.length) {
-	      (function () {
-	        var int = setInterval(function () {
-	          if (window.positionCenter.length) {
-	            helper = new _ZmapHelper.ZmapHelper(map, window.positionCenter);
-	            clearInterval(int);
-	            resolve();
-	          }
-	        }, 100);
-	      })();
-	    } else {
-	      helper = new _ZmapHelper.ZmapHelper(map, window.positionCenter);
-	      resolve();
-	    }
-	  });
-	};
-
-	var getlatTy = function getlatTy(currentTyIds) {
-	  var data = [{ "tsid": 538, "intlid": "1725", "tscname": "鸿雁", "tsename": "kirogi", "real": [{ "tsid": 538, "datetime": "2017-11-19 09:00:00", "level": "TD", "lon": 108.8, "lat": 11.6, "ps": 1004.0, "ws": 14.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-19 06:00:00", "level": "TD", "lon": 109.3, "lat": 11.4, "ps": 1003.0, "ws": 16.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-19 03:00:00", "level": "TS", "lon": 110.1, "lat": 10.8, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-19 00:00:00", "level": "TS", "lon": 110.8, "lat": 10.7, "ps": 1000.0, "ws": 20.0, "rr06": "300.0", "rr07": "190.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 21:00:00", "level": "TS", "lon": 111.0, "lat": 10.5, "ps": 1000.0, "ws": 20.0, "rr06": "300.0", "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 18:00:00", "level": "TS", "lon": 111.1, "lat": 11.2, "ps": 998.0, "ws": 20.0, "rr06": "300.0", "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 15:00:00", "level": "TS", "lon": 111.3, "lat": 11.8, "ps": 998.0, "ws": 20.0, "rr06": null, "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 12:00:00", "level": "TS", "lon": 112.0, "lat": 11.6, "ps": 998.0, "ws": 20.0, "rr06": "300.0", "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 09:00:00", "level": "TS", "lon": 112.4, "lat": 11.5, "ps": 998.0, "ws": 20.0, "rr06": "300.0", "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 06:00:00", "level": "TS", "lon": 113.3, "lat": 11.3, "ps": 998.0, "ws": 20.0, "rr06": "300.0", "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 03:00:00", "level": "TS", "lon": 114.0, "lat": 11.3, "ps": 998.0, "ws": 20.0, "rr06": null, "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-18 00:00:00", "level": "TS", "lon": 114.8, "lat": 10.9, "ps": 1000.0, "ws": 18.0, "rr06": "280.0", "rr07": "150.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 21:00:00", "level": "TS", "lon": 115.6, "lat": 10.5, "ps": 1000.0, "ws": 18.0, "rr06": "280.0", "rr07": "170.0", "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 18:00:00", "level": "TD", "lon": 116.4, "lat": 10.3, "ps": 1004.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 15:00:00", "level": "TD", "lon": 116.9, "lat": 10.2, "ps": 1004.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 12:00:00", "level": "TD", "lon": 117.0, "lat": 10.2, "ps": 1004.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 09:00:00", "level": "TD", "lon": 117.7, "lat": 10.1, "ps": 1006.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 06:00:00", "level": "TD", "lon": 118.2, "lat": 9.9, "ps": 1006.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 03:00:00", "level": "TD", "lon": 119.0, "lat": 9.2, "ps": 1006.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-17 00:00:00", "level": "TD", "lon": 119.4, "lat": 9.0, "ps": 1006.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-16 21:00:00", "level": "TD", "lon": 121.0, "lat": 7.9, "ps": 1006.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-16 18:00:00", "level": "TD", "lon": 122.5, "lat": 7.3, "ps": 1006.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 538, "datetime": "2017-11-16 15:00:00", "level": "TD", "lon": 123.1, "lat": 7.3, "ps": 1007.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }], "fst": [{ "tsid": null, "datetime": "2017-11-19 09:00:00", "leadtime": 6, "level": "TD", "lon": 107.9, "lat": 12.0, "ps": 1006.0, "ws": 10.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }], "tan": [{ "leftlon": 107.80252676814716, "leftlat": 11.780685228331139, "rightlon": 107.99747323185282, "rightlat": 12.219314771668863 }] }, { "tsid": 537, "intlid": "1724", "tscname": "海葵", "tsename": "haikui", "real": [{ "tsid": 537, "datetime": "2017-11-12 09:00:00", "level": "TD", "lon": 111.9, "lat": 17.4, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 08:00:00", "level": "TS", "lon": 112.0, "lat": 17.5, "ps": 1002.0, "ws": 18.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 07:00:00", "level": "TS", "lon": 112.2, "lat": 17.5, "ps": 1002.0, "ws": 18.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 06:00:00", "level": "TS", "lon": 112.3, "lat": 17.5, "ps": 1000.0, "ws": 20.0, "rr06": "300.0", "rr07": "190.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 05:00:00", "level": "TS", "lon": 112.5, "lat": 17.6, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 04:00:00", "level": "TS", "lon": 112.6, "lat": 17.6, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 03:00:00", "level": "TS", "lon": 112.7, "lat": 17.7, "ps": 1000.0, "ws": 20.0, "rr06": "300.0", "rr07": "190.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 02:00:00", "level": "TS", "lon": 112.8, "lat": 17.8, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 01:00:00", "level": "TS", "lon": 113.0, "lat": 17.9, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-12 00:00:00", "level": "TS", "lon": 113.1, "lat": 17.8, "ps": 1000.0, "ws": 20.0, "rr06": "300.0", "rr07": "190.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 23:00:00", "level": "TS", "lon": 113.3, "lat": 17.8, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 22:00:00", "level": "TS", "lon": 113.4, "lat": 17.8, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 21:00:00", "level": "TS", "lon": 113.5, "lat": 17.7, "ps": 1000.0, "ws": 20.0, "rr06": "240.0", "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 20:00:00", "level": "TS", "lon": 113.5, "lat": 17.7, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 19:00:00", "level": "TS", "lon": 113.5, "lat": 17.7, "ps": 1000.0, "ws": 20.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 18:00:00", "level": "TS", "lon": 113.5, "lat": 17.7, "ps": 1000.0, "ws": 20.0, "rr06": "240.0", "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 17:00:00", "level": "TS", "lon": 113.6, "lat": 17.7, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 16:00:00", "level": "TS", "lon": 113.7, "lat": 17.8, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 15:00:00", "level": "TS", "lon": 114.0, "lat": 17.8, "ps": 990.0, "ws": 23.0, "rr06": "260.0", "rr07": "120.0", "rr08": "40.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 14:00:00", "level": "TS", "lon": 114.4, "lat": 17.8, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 13:00:00", "level": "STS", "lon": 114.6, "lat": 17.8, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 12:00:00", "level": "STS", "lon": 114.8, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": "280.0", "rr07": "140.0", "rr08": "50.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 11:00:00", "level": "STS", "lon": 115.0, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 10:00:00", "level": "STS", "lon": 115.1, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 09:00:00", "level": "STS", "lon": 115.2, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": "280.0", "rr07": "140.0", "rr08": "50.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 08:00:00", "level": "STS", "lon": 115.2, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 07:00:00", "level": "STS", "lon": 115.3, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 06:00:00", "level": "STS", "lon": 115.3, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": "280.0", "rr07": "140.0", "rr08": "50.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 05:00:00", "level": "STS", "lon": 115.5, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 04:00:00", "level": "STS", "lon": 115.6, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 03:00:00", "level": "STS", "lon": 115.7, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": "280.0", "rr07": "140.0", "rr08": "50.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 02:00:00", "level": "STS", "lon": 115.7, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-11 01:00:00", "level": "STS", "lon": 115.8, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "130.0", "rr08": null, "rr10": "80.0" }, { "tsid": 537, "datetime": "2017-11-11 00:00:00", "level": "STS", "lon": 115.8, "lat": 17.9, "ps": 985.0, "ws": 25.0, "rr06": "280.0", "rr07": "130.0", "rr08": "50.0", "rr10": "80.0" }, { "tsid": 537, "datetime": "2017-11-10 23:00:00", "level": "TS", "lon": 115.9, "lat": 17.8, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "120.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 22:00:00", "level": "TS", "lon": 116.4, "lat": 17.5, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "120.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 21:00:00", "level": "TS", "lon": 116.5, "lat": 17.5, "ps": 990.0, "ws": 23.0, "rr06": "260.0", "rr07": "120.0", "rr08": "40.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 20:00:00", "level": "TS", "lon": 116.5, "lat": 17.4, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "120.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 19:00:00", "level": "TS", "lon": 116.7, "lat": 17.3, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "120.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 18:00:00", "level": "TS", "lon": 116.9, "lat": 17.2, "ps": 990.0, "ws": 23.0, "rr06": "260.0", "rr07": "120.0", "rr08": "40.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 17:00:00", "level": "TS", "lon": 117.1, "lat": 17.1, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "120.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 16:00:00", "level": "TS", "lon": 117.4, "lat": 17.1, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "120.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 15:00:00", "level": "TS", "lon": 117.6, "lat": 17.1, "ps": 990.0, "ws": 23.0, "rr06": "260.0", "rr07": "120.0", "rr08": "40.0", "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 14:00:00", "level": "TS", "lon": 117.6, "lat": 17.0, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 13:00:00", "level": "TS", "lon": 117.6, "lat": 16.9, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 12:00:00", "level": "TS", "lon": 117.7, "lat": 16.9, "ps": 995.0, "ws": 20.0, "rr06": "240.0", "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 11:00:00", "level": "TS", "lon": 117.7, "lat": 16.8, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 10:00:00", "level": "TS", "lon": 117.8, "lat": 16.8, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 09:00:00", "level": "TS", "lon": 118.0, "lat": 16.5, "ps": 995.0, "ws": 20.0, "rr06": "240.0", "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 08:00:00", "level": "TS", "lon": 118.0, "lat": 16.4, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 07:00:00", "level": "TS", "lon": 118.1, "lat": 16.2, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 06:00:00", "level": "TS", "lon": 118.2, "lat": 16.0, "ps": 995.0, "ws": 20.0, "rr06": "240.0", "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 05:00:00", "level": "TS", "lon": 118.5, "lat": 15.6, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 04:00:00", "level": "TS", "lon": 118.7, "lat": 15.4, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 03:00:00", "level": "TS", "lon": 118.9, "lat": 15.2, "ps": 995.0, "ws": 20.0, "rr06": "280.0", "rr07": "100.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-10 00:00:00", "level": "TS", "lon": 119.4, "lat": 15.0, "ps": 998.0, "ws": 18.0, "rr06": "260.0", "rr07": "80.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-09 21:00:00", "level": "TS", "lon": 119.8, "lat": 14.8, "ps": 998.0, "ws": 18.0, "rr06": "280.0", "rr07": "170.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-09 18:00:00", "level": "TS", "lon": 120.3, "lat": 14.2, "ps": 998.0, "ws": 18.0, "rr06": "280.0", "rr07": "170.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-09 15:00:00", "level": "TS", "lon": 121.0, "lat": 14.0, "ps": 998.0, "ws": 18.0, "rr06": "280.0", "rr07": "170.0", "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-09 12:00:00", "level": "TD", "lon": 121.5, "lat": 13.8, "ps": 1000.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-09 09:00:00", "level": "TD", "lon": 122.2, "lat": 13.5, "ps": 1000.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 537, "datetime": "2017-11-09 06:00:00", "level": "TD", "lon": 122.8, "lat": 13.0, "ps": 1000.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }], "fst": [{ "tsid": null, "datetime": "2017-11-12 09:00:00", "leadtime": 6, "level": "TD", "lon": 111.3, "lat": 17.2, "ps": 1008.0, "ws": 12.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }], "tan": [{ "leftlon": 111.37589466384405, "leftlat": 16.972316008467878, "rightlon": 111.22410533615597, "rightlat": 17.427683991532124 }] }, { "tsid": 534, "intlid": "1723", "tscname": "达维", "tsename": "damrey", "real": [{ "tsid": 534, "datetime": "2017-11-04 12:00:00", "level": "TD", "lon": 106.4, "lat": 12.5, "ps": 1005.0, "ws": 14.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-04 09:00:00", "level": "TS", "lon": 107.5, "lat": 12.5, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-04 06:00:00", "level": "STS", "lon": 108.0, "lat": 12.5, "ps": 982.0, "ws": 28.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-04 03:00:00", "level": "TY", "lon": 108.5, "lat": 12.5, "ps": 975.0, "ws": 33.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-04 00:00:00", "level": "TY", "lon": 109.1, "lat": 12.6, "ps": 965.0, "ws": 38.0, "rr06": "460.0", "rr07": "350.0", "rr08": "240.0", "rr10": "120.0" }, { "tsid": 534, "datetime": "2017-11-03 23:00:00", "level": "STY", "lon": 109.2, "lat": 12.7, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 22:00:00", "level": "STY", "lon": 109.6, "lat": 12.7, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 21:00:00", "level": "STY", "lon": 109.7, "lat": 12.7, "ps": 955.0, "ws": 42.0, "rr06": "500.0", "rr07": "380.0", "rr08": "280.0", "rr10": "120.0" }, { "tsid": 534, "datetime": "2017-11-03 20:00:00", "level": "STY", "lon": 110.0, "lat": 12.8, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 19:00:00", "level": "STY", "lon": 110.2, "lat": 12.8, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 18:00:00", "level": "STY", "lon": 110.3, "lat": 12.8, "ps": 955.0, "ws": 42.0, "rr06": "510.0", "rr07": "380.0", "rr08": "260.0", "rr10": "120.0" }, { "tsid": 534, "datetime": "2017-11-03 17:00:00", "level": "STY", "lon": 110.6, "lat": 12.8, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 16:00:00", "level": "STY", "lon": 110.8, "lat": 12.9, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 15:00:00", "level": "STY", "lon": 110.9, "lat": 12.9, "ps": 955.0, "ws": 42.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 14:00:00", "level": "TY", "lon": 111.2, "lat": 12.9, "ps": 960.0, "ws": 40.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 13:00:00", "level": "TY", "lon": 111.5, "lat": 12.9, "ps": 960.0, "ws": 40.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 12:00:00", "level": "TY", "lon": 111.6, "lat": 12.9, "ps": 960.0, "ws": 40.0, "rr06": "500.0", "rr07": "370.0", "rr08": "250.0", "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 11:00:00", "level": "TY", "lon": 111.8, "lat": 12.9, "ps": 960.0, "ws": 40.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 10:00:00", "level": "TY", "lon": 112.0, "lat": 12.9, "ps": 960.0, "ws": 40.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 09:00:00", "level": "TY", "lon": 112.2, "lat": 12.9, "ps": 965.0, "ws": 38.0, "rr06": "500.0", "rr07": "370.0", "rr08": "210.0", "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 08:00:00", "level": "TY", "lon": 112.4, "lat": 12.8, "ps": 970.0, "ws": 35.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 07:00:00", "level": "TY", "lon": 112.6, "lat": 12.8, "ps": 970.0, "ws": 35.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 06:00:00", "level": "TY", "lon": 112.7, "lat": 12.8, "ps": 970.0, "ws": 35.0, "rr06": "490.0", "rr07": "360.0", "rr08": "220.0", "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 05:00:00", "level": "TY", "lon": 112.8, "lat": 12.8, "ps": 975.0, "ws": 33.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 04:00:00", "level": "TY", "lon": 112.9, "lat": 12.8, "ps": 975.0, "ws": 33.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 03:00:00", "level": "TY", "lon": 113.1, "lat": 12.7, "ps": 975.0, "ws": 33.0, "rr06": "410.0", "rr07": "300.0", "rr08": "200.0", "rr10": "90.0" }, { "tsid": 534, "datetime": "2017-11-03 02:00:00", "level": "TY", "lon": 113.2, "lat": 12.7, "ps": 975.0, "ws": 33.0, "rr06": null, "rr07": "450.0", "rr08": null, "rr10": "100.0" }, { "tsid": 534, "datetime": "2017-11-03 01:00:00", "level": "STS", "lon": 113.3, "lat": 12.7, "ps": 980.0, "ws": 30.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": "50.0" }, { "tsid": 534, "datetime": "2017-11-03 00:00:00", "level": "STS", "lon": 113.5, "lat": 12.7, "ps": 980.0, "ws": 30.0, "rr06": "480.0", "rr07": "350.0", "rr08": "180.0", "rr10": "60.0" }, { "tsid": 534, "datetime": "2017-11-02 23:00:00", "level": "STS", "lon": 113.7, "lat": 12.6, "ps": 982.0, "ws": 28.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": "50.0" }, { "tsid": 534, "datetime": "2017-11-02 22:00:00", "level": "STS", "lon": 113.7, "lat": 12.6, "ps": 982.0, "ws": 28.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": "50.0" }, { "tsid": 534, "datetime": "2017-11-02 21:00:00", "level": "STS", "lon": 113.7, "lat": 12.6, "ps": 982.0, "ws": 28.0, "rr06": "400.0", "rr07": "350.0", "rr08": "200.0", "rr10": "50.0" }, { "tsid": 534, "datetime": "2017-11-02 20:00:00", "level": "STS", "lon": 113.8, "lat": 12.6, "ps": 982.0, "ws": 28.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": "50.0" }, { "tsid": 534, "datetime": "2017-11-02 19:00:00", "level": "STS", "lon": 113.9, "lat": 12.6, "ps": 982.0, "ws": 28.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": "50.0" }, { "tsid": 534, "datetime": "2017-11-02 18:00:00", "level": "STS", "lon": 114.0, "lat": 12.6, "ps": 985.0, "ws": 25.0, "rr06": "400.0", "rr07": "350.0", "rr08": "200.0", "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 17:00:00", "level": "STS", "lon": 114.1, "lat": 12.7, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 16:00:00", "level": "STS", "lon": 114.4, "lat": 12.7, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 15:00:00", "level": "STS", "lon": 114.7, "lat": 12.8, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 14:00:00", "level": "STS", "lon": 115.0, "lat": 12.8, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 13:00:00", "level": "STS", "lon": 115.3, "lat": 12.8, "ps": 985.0, "ws": 25.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 12:00:00", "level": "STS", "lon": 115.5, "lat": 12.9, "ps": 985.0, "ws": 25.0, "rr06": "400.0", "rr07": "350.0", "rr08": "200.0", "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 11:00:00", "level": "TS", "lon": 115.8, "lat": 13.1, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 10:00:00", "level": "TS", "lon": 116.0, "lat": 13.1, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 09:00:00", "level": "TS", "lon": 116.1, "lat": 13.1, "ps": 990.0, "ws": 23.0, "rr06": "400.0", "rr07": "350.0", "rr08": "200.0", "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 08:00:00", "level": "TS", "lon": 116.4, "lat": 13.0, "ps": 990.0, "ws": 23.0, "rr06": null, "rr07": "400.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 07:00:00", "level": "TS", "lon": 116.7, "lat": 13.0, "ps": 995.0, "ws": 20.0, "rr06": null, "rr07": "300.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 06:00:00", "level": "TS", "lon": 116.8, "lat": 13.0, "ps": 995.0, "ws": 20.0, "rr06": "300.0", "rr07": "190.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 05:00:00", "level": "TS", "lon": 116.9, "lat": 12.8, "ps": 998.0, "ws": 18.0, "rr06": null, "rr07": "300.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 04:00:00", "level": "TS", "lon": 117.0, "lat": 12.7, "ps": 998.0, "ws": 18.0, "rr06": null, "rr07": "300.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 03:00:00", "level": "TS", "lon": 117.1, "lat": 12.6, "ps": 998.0, "ws": 18.0, "rr06": null, "rr07": "300.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 02:00:00", "level": "TS", "lon": 117.2, "lat": 12.6, "ps": 998.0, "ws": 18.0, "rr06": null, "rr07": "300.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 01:00:00", "level": "TS", "lon": 117.4, "lat": 12.6, "ps": 999.0, "ws": 18.0, "rr06": null, "rr07": "300.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-02 00:00:00", "level": "TS", "lon": 117.5, "lat": 12.5, "ps": 999.0, "ws": 18.0, "rr06": "280.0", "rr07": "170.0", "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 21:00:00", "level": "TD", "lon": 117.6, "lat": 12.1, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 18:00:00", "level": "TD", "lon": 117.8, "lat": 12.0, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 15:00:00", "level": "TD", "lon": 118.2, "lat": 12.0, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 12:00:00", "level": "TD", "lon": 119.0, "lat": 11.9, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 09:00:00", "level": "TD", "lon": 119.7, "lat": 11.8, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 06:00:00", "level": "TD", "lon": 120.1, "lat": 11.8, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 03:00:00", "level": "TD", "lon": 120.7, "lat": 11.6, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-11-01 00:00:00", "level": "TD", "lon": 120.8, "lat": 11.6, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-10-31 21:00:00", "level": "TD", "lon": 121.4, "lat": 11.5, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-10-31 18:00:00", "level": "TD", "lon": 122.2, "lat": 11.3, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-10-31 15:00:00", "level": "TD", "lon": 123.0, "lat": 11.2, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-10-31 12:00:00", "level": "TD", "lon": 123.9, "lat": 11.1, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": 534, "datetime": "2017-10-31 09:00:00", "level": "TD", "lon": 125.2, "lat": 11.0, "ps": 1005.0, "ws": 15.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }], "fst": [{ "tsid": null, "datetime": "2017-11-04 00:00:00", "leadtime": 6, "level": "STS", "lon": 105.2, "lat": 12.4, "ps": 982.0, "ws": 28.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }, { "tsid": null, "datetime": "2017-11-04 00:00:00", "leadtime": 12, "level": "TD", "lon": 103.6, "lat": 12.3, "ps": 1002.0, "ws": 16.0, "rr06": null, "rr07": null, "rr08": null, "rr10": null }], "tan": [{ "leftlon": 105.21993091516488, "leftlat": 12.16082901802123, "rightlon": 105.1800690848351, "rightlat": 12.63917098197877 }, { "leftlon": 103.62994157735449, "leftlat": 11.820934762328214, "rightlon": 103.57005842264552, "rightlat": 12.779065237671787 }] }];
+	  var time = Date.now() - 12 * 60 * 60 * 1000;
 	  var _iteratorNormalCompletion6 = true;
 	  var _didIteratorError6 = false;
 	  var _iteratorError6 = undefined;
 
 	  try {
 	    for (var _iterator6 = data[Symbol.iterator](), _step6; !(_iteratorNormalCompletion6 = (_step6 = _iterator6.next()).done); _iteratorNormalCompletion6 = true) {
-	      var opt = _step6.value;
+	      var info = _step6.value;
 
-	      if (!opt.tscname) opt.tscname = '未命名';
+	      if (info.maxtime > time) currentTyIds.push(info.tsid);
 	    }
 	  } catch (err) {
 	    _didIteratorError6 = true;
@@ -1120,109 +1218,51 @@
 	    }
 	  }
 
-	  if (!data.length) return;
+	  if (!currentTyIds.length) window.fstAreas = false;
+	  window.currentTyNum = currentTyIds.length;
+	  var promiseArr = [];
+	  var _iteratorNormalCompletion7 = true;
+	  var _didIteratorError7 = false;
+	  var _iteratorError7 = undefined;
 
-	  initHelper().then(function () {
-	    getTyphoon(data, currentTyIds);
-	  });
-	};
-
-	var data = [];
-	var _iteratorNormalCompletion7 = true;
-	var _didIteratorError7 = false;
-	var _iteratorError7 = undefined;
-
-	try {
-	  for (var _iterator7 = data[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
-	    var opt = _step7.value;
-
-	    if (!opt.tscname) opt.tscname = '未命名';
-	  }
-	} catch (err) {
-	  _didIteratorError7 = true;
-	  _iteratorError7 = err;
-	} finally {
 	  try {
-	    if (!_iteratorNormalCompletion7 && _iterator7.return) {
-	      _iterator7.return();
+	    for (var _iterator7 = data[Symbol.iterator](), _step7; !(_iteratorNormalCompletion7 = (_step7 = _iterator7.next()).done); _iteratorNormalCompletion7 = true) {
+	      var el = _step7.value;
+
+	      promiseArr.push(getTyphData(el.tsid));
 	    }
+	  } catch (err) {
+	    _didIteratorError7 = true;
+	    _iteratorError7 = err;
 	  } finally {
-	    if (_didIteratorError7) {
-	      throw _iteratorError7;
+	    try {
+	      if (!_iteratorNormalCompletion7 && _iterator7.return) {
+	        _iterator7.return();
+	      }
+	    } finally {
+	      if (_didIteratorError7) {
+	        throw _iteratorError7;
+	      }
 	    }
 	  }
-	}
 
-	var num = data.length;
+	  Promise.all(promiseArr).then(function () {
+	    console.log(typhoonInfo);
 
-	var currentTyIds = [];var _iteratorNormalCompletion8 = true;
-	var _didIteratorError8 = false;
-	var _iteratorError8 = undefined;
+	    $('.hint-content').text(currentTyIds.length ? '当前有台风' : '当前无台风').fadeIn(500, function () {
+	      $('.hint-content').fadeOut(2000);
+	    });
 
-	try {
-	  for (var _iterator8 = data[Symbol.iterator](), _step8; !(_iteratorNormalCompletion8 = (_step8 = _iterator8.next()).done); _iteratorNormalCompletion8 = true) {
-	    var info = _step8.value;
+	    initHelper().then(function () {
+	      getTyphoon(data);
+	    });
 
-	    currentTyIds.push(info.tsid);
-	  }
-	} catch (err) {
-	  _didIteratorError8 = true;
-	  _iteratorError8 = err;
-	} finally {
-	  try {
-	    if (!_iteratorNormalCompletion8 && _iterator8.return) {
-	      _iterator8.return();
-	    }
-	  } finally {
-	    if (_didIteratorError8) {
-	      throw _iteratorError8;
-	    }
-	  }
-	}
-
-	if (!data.length) window.fstAreas = false;
-	window.currentTyNum = data.length;
-	var text = num ? '当前有台风' : '当前无台风';
-
-	currentTyphoon = data;
-	var _iteratorNormalCompletion9 = true;
-	var _didIteratorError9 = false;
-	var _iteratorError9 = undefined;
-
-	try {
-	  for (var _iterator9 = data[Symbol.iterator](), _step9; !(_iteratorNormalCompletion9 = (_step9 = _iterator9.next()).done); _iteratorNormalCompletion9 = true) {
-	    var _info = _step9.value;
-
-	    if (_info.fst.length) {
-	      _info.fst.map(function (item) {
-	        var time = new Date(item.datetime.replace(/\-/g, "/")).getTime();
-	        time += (8 + item.leadtime) * 60 * 60 * 1000;
-	        item.time = new Date(time).Format('yyyy/MM/dd HH:mm:ss');
-	      });
+	    if (currentTyIds.length) {
 	      $('.typhoonList').show();
+	      renderTyDOM();
 	    }
-	  }
-	} catch (err) {
-	  _didIteratorError9 = true;
-	  _iteratorError9 = err;
-	} finally {
-	  try {
-	    if (!_iteratorNormalCompletion9 && _iterator9.return) {
-	      _iterator9.return();
-	    }
-	  } finally {
-	    if (_didIteratorError9) {
-	      throw _iteratorError9;
-	    }
-	  }
-	}
-
-	renderTyDOM();
-
-	$('.hint-content').text(text).fadeIn(500, function () {
-	  $('.hint-content').fadeOut(2000);
+	  });
 	});
-	getlatTy(currentTyIds);
 
 /***/ }),
 /* 15 */
@@ -1257,7 +1297,7 @@
 	        var map = _this.map;
 	        var tyName = tyData.tscname,
 	            tyId = tyData.tsid,
-	            realPoints = tyData.real.reverse(),
+	            realPoints = tyData.real,
 	            time = new Date(tyData.real[tyData.real.length - 1].datetime.replace(/\-/g, "/")),
 	            fstPoints = tyData.fst.sort(function (a, b) {
 	            return Number(a.leadtime) - Number(b.leadtime);
@@ -1281,8 +1321,6 @@
 	            fstAreaPoints = [[realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon]];
 	        tyLayerGroup.addTo(map);
 
-	        time.setHours(time.getHours() + 8);
-
 	        if (realPoints.length == 1) {
 	            var prePointDgrees = [realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat];
 	            pointDgrees = [fstPoints[0].lon, fstPoints[0].lat];
@@ -1290,7 +1328,7 @@
 	            realSpeedHolder.push(Number(computeDistance(prePointDgrees[0], prePointDgrees[1], pointDgrees[0], pointDgrees[1]) / timeDiff).toFixed(1));
 	            if (fstPoints.length == 1) {
 	                fstSpeedHolder.push(Number(computeDistance(prePointDgrees[0], prePointDgrees[1], pointDgrees[0], pointDgrees[1]) / timeDiff).toFixed(1));
-	            } else {
+	            } else if (fstPoints.length > 1) {
 	                fstSpeedHolder.push(Number(computeDistance(prePointDgrees[0], prePointDgrees[1], pointDgrees[0], pointDgrees[1]) / timeDiff).toFixed(1));
 	                fstPoints.forEach(function (el, i, arr) {
 	                    if (i == 0) return;
@@ -1299,78 +1337,77 @@
 	                });
 	            }
 	        } else {
-	            (function () {
-	                var prePointDgrees = [realPoints[0].lon, realPoints[0].lat],
-	                    pointDgrees = [realPoints[1].lon, realPoints[1].lat],
-	                    timeDiff = getDateDiff(realPoints[0].datetime, realPoints[1].datetime, 'h');
-	                realSpeedHolder.push(Number(computeDistance(prePointDgrees[0], prePointDgrees[1], pointDgrees[0], pointDgrees[1]) / timeDiff).toFixed(1));
-	                realPoints.forEach(function (el, i, arr) {
+	            var _prePointDgrees = [realPoints[0].lon, realPoints[0].lat],
+	                _pointDgrees = [realPoints[1].lon, realPoints[1].lat],
+	                _timeDiff = getDateDiff(realPoints[0].datetime, realPoints[1].datetime, 'h');
+	            realSpeedHolder.push(Number(computeDistance(_prePointDgrees[0], _prePointDgrees[1], _pointDgrees[0], _pointDgrees[1]) / _timeDiff).toFixed(1));
+	            realPoints.forEach(function (el, i, arr) {
+	                if (i == 0) return;
+	                _timeDiff = getDateDiff(arr[i - 1].datetime, arr[i].datetime, 'h');
+	                realSpeedHolder.push(Number(computeDistance(arr[i - 1].lon, arr[i - 1].lat, arr[i].lon, arr[i].lat) / _timeDiff).toFixed(1));
+	            });
+	            if (fstPoints.length == 1) {
+	                _prePointDgrees = [realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat];
+	                _pointDgrees = [fstPoints[0].lon, fstPoints[0].lat];
+	                _timeDiff = Number(fstPoints[0].leadtime);
+	                fstSpeedHolder.push(Number(computeDistance(_prePointDgrees[0], _prePointDgrees[1], _pointDgrees[0], _pointDgrees[1]) / _timeDiff).toFixed(1));
+	            } else if (fstPoints.length > 1) {
+	                _prePointDgrees = [realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat];
+	                _pointDgrees = [fstPoints[0].lon, fstPoints[0].lat];
+	                _timeDiff = Number(fstPoints[0].leadtime);
+	                fstSpeedHolder.push(Number(computeDistance(_prePointDgrees[0], _prePointDgrees[1], _pointDgrees[0], _pointDgrees[1]) / _timeDiff).toFixed(1));
+	                fstPoints.forEach(function (el, i, arr) {
 	                    if (i == 0) return;
-	                    timeDiff = getDateDiff(arr[i - 1].datetime, arr[i].datetime, 'h');
-	                    realSpeedHolder.push(Number(computeDistance(arr[i - 1].lon, arr[i - 1].lat, arr[i].lon, arr[i].lat) / timeDiff).toFixed(1));
+	                    _timeDiff = arr[i].leadtime - arr[i - 1].leadtime;
+	                    fstSpeedHolder.push(Number(computeDistance(arr[i - 1].lon, arr[i - 1].lat, arr[i].lon, arr[i].lat) / _timeDiff).toFixed(1));
 	                });
-	                if (fstPoints.length == 1) {
-	                    prePointDgrees = [realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat];
-	                    pointDgrees = [fstPoints[0].lon, fstPoints[0].lat];
-	                    timeDiff = Number(fstPoints[0].leadtime);
-	                    fstSpeedHolder.push(Number(computeDistance(prePointDgrees[0], prePointDgrees[1], pointDgrees[0], pointDgrees[1]) / timeDiff).toFixed(1));
+	            }
+	        }
+	        if (fstPoints.length >= 1) {
+	            fstPoints.forEach(function (el, i, arr) {
+	                if (i == 0) {
+	                    fstSidePints.push(getSidePoints(realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat, el.lon, el.lat, getFstR(el.leadtime)));
 	                } else {
-	                    prePointDgrees = [realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat];
-	                    pointDgrees = [fstPoints[0].lon, fstPoints[0].lat];
-	                    timeDiff = Number(fstPoints[0].leadtime);
-	                    fstSpeedHolder.push(Number(computeDistance(prePointDgrees[0], prePointDgrees[1], pointDgrees[0], pointDgrees[1]) / timeDiff).toFixed(1));
-	                    fstPoints.forEach(function (el, i, arr) {
-	                        if (i == 0) return;
-	                        timeDiff = arr[i].leadtime - arr[i - 1].leadtime;
-	                        fstSpeedHolder.push(Number(computeDistance(arr[i - 1].lon, arr[i - 1].lat, arr[i].lon, arr[i].lat) / timeDiff).toFixed(1));
-	                    });
+	                    fstSidePints.push(getSidePoints(arr[i - 1].lon, arr[i - 1].lat, el.lon, el.lat, getFstR(el.leadtime)));
 	                }
-	            })();
-	        }
+	            });
 
-	        fstPoints.forEach(function (el, i, arr) {
-	            if (i == 0) {
-	                fstSidePints.push(getSidePoints(realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat, el.lon, el.lat, getFstR(el.leadtime)));
+	            var isLeftBigger = false;
+	            if (fstSidePints[fstSidePints.length - 1].left.lat > fstSidePints[fstSidePints.length - 1].right.lat) {
+	                isLeftBigger = true;
+	            }
+
+	            fstSemicilePoints = getHalfPoints(fstSidePints[fstSidePints.length - 1].right, fstSidePints[fstSidePints.length - 1].left, 45, isLeftBigger);
+
+	            fstSidePints.forEach(function (el) {
+	                fstAreaPointsHolder.push(el.left.lat, el.left.lon);
+	            });
+	            fstAreaPointsHolder = getCurvePoints(fstAreaPointsHolder, .5, 10, false);
+	            for (var i = 0; i < fstAreaPointsHolder.length; i += 2) {
+	                fstAreaPoints.push([fstAreaPointsHolder[i], fstAreaPointsHolder[i + 1]]);
+	            }
+	            fstAreaPointsHolder = [];
+	            if (isLeftBigger == true) {
+	                for (var _i = 0; _i < fstSemicilePoints.length; _i += 2) {
+	                    fstAreaPoints.push([fstSemicilePoints[_i + 1], fstSemicilePoints[_i]]);
+	                }
 	            } else {
-	                fstSidePints.push(getSidePoints(arr[i - 1].lon, arr[i - 1].lat, el.lon, el.lat, getFstR(el.leadtime)));
+	                for (var _i2 = fstSemicilePoints.length - 1; _i2 > 0; _i2 -= 2) {
+	                    fstAreaPoints.push([fstSemicilePoints[_i2], fstSemicilePoints[_i2 - 1]]);
+	                }
 	            }
-	        });
 
-	        var isLeftBigger = false;
-	        if (fstSidePints[fstSidePints.length - 1].left.lat > fstSidePints[fstSidePints.length - 1].right.lat) {
-	            isLeftBigger = true;
-	        }
-
-	        fstSemicilePoints = getHalfPoints(fstSidePints[fstSidePints.length - 1].right, fstSidePints[fstSidePints.length - 1].left, 45, isLeftBigger);
-
-	        fstSidePints.forEach(function (el) {
-	            fstAreaPointsHolder.push(el.left.lat, el.left.lon);
-	        });
-	        fstAreaPointsHolder = getCurvePoints(fstAreaPointsHolder, .5, 10, false);
-	        for (var i = 0; i < fstAreaPointsHolder.length; i += 2) {
-	            fstAreaPoints.push([fstAreaPointsHolder[i], fstAreaPointsHolder[i + 1]]);
-	        }
-	        fstAreaPointsHolder = [];
-	        if (isLeftBigger == true) {
-	            for (var _i = 0; _i < fstSemicilePoints.length; _i += 2) {
-	                fstAreaPoints.push([fstSemicilePoints[_i + 1], fstSemicilePoints[_i]]);
+	            fstSidePints.reverse().forEach(function (el) {
+	                fstAreaPointsHolder.push(el.right.lat, el.right.lon);
+	            });
+	            fstAreaPointsHolder = getCurvePoints(fstAreaPointsHolder, .5, 10, false);
+	            for (var _i3 = 0; _i3 < fstAreaPointsHolder.length; _i3 += 2) {
+	                fstAreaPoints.push([fstAreaPointsHolder[_i3], fstAreaPointsHolder[_i3 + 1]]);
 	            }
-	        } else {
-	            for (var _i2 = fstSemicilePoints.length - 1; _i2 > 0; _i2 -= 2) {
-	                fstAreaPoints.push([fstSemicilePoints[_i2], fstSemicilePoints[_i2 - 1]]);
-	            }
-	        }
+	            fstAreaPointsHolder = [];
 
-	        fstSidePints.reverse().forEach(function (el) {
-	            fstAreaPointsHolder.push(el.right.lat, el.right.lon);
-	        });
-	        fstAreaPointsHolder = getCurvePoints(fstAreaPointsHolder, .5, 10, false);
-	        for (var _i3 = 0; _i3 < fstAreaPointsHolder.length; _i3 += 2) {
-	            fstAreaPoints.push([fstAreaPointsHolder[_i3], fstAreaPointsHolder[_i3 + 1]]);
+	            fstSidePints.reverse();
 	        }
-	        fstAreaPointsHolder = [];
-
-	        fstSidePints.reverse();
 
 	        if (realPoints.length) {
 	            var tyNameLabel = L.divIcon({
@@ -1384,7 +1421,7 @@
 	        var divIcon = L.divIcon({
 	            className: 'ty-name',
 	            bgPos: [105, 0],
-	            html: "<div><span></span><span>" + (tyName ? tyName : '未命名') + " " + (time.getMonth() + 1) + "\u6708" + time.getDate() + "\u65E5" + (time.getHours() < 10 ? "0" + time.getHours() : time.getHours()) + "\u65F6\n\t\t\t\t<p>\u7EA6\u79BB\u60A8" + computeDistance(_this.gps[0], _this.gps[1], realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon) + "\u516C\u91CC</p>\n\t\t\t\t</span></div>"
+	            html: "<div><span></span><span>" + (tyName ? tyName : '未命名') + " " + time.getFullYear() + "\u5E74" + (time.getMonth() + 1) + "\u6708" + time.getDate() + "\u65E5" + (time.getHours() < 10 ? "0" + time.getHours() : time.getHours()) + "\u65F6\n\t\t\t\t<p>\u7EA6\u79BB\u60A8" + computeDistance(_this.gps[1], _this.gps[0], realPoints[realPoints.length - 1].lon, realPoints[realPoints.length - 1].lat) + "\u516C\u91CC</p>\n\t\t\t\t</span></div>"
 	        });
 	        var tipHolder = L.marker(realPoints[realPoints.length - 1], { icon: divIcon });
 
@@ -1405,188 +1442,52 @@
 	        tyLayerGroup.addLayer(curPosMk);
 
 	        if (realPoints.length == 1) {
-	            (function () {
-	                curPosMk.setLatLng([realPoints[realPointCounter].lat, realPoints[realPointCounter].lon]);
+	            curPosMk.setLatLng([realPoints[realPointCounter].lat, realPoints[realPointCounter].lon]);
 
-	                popupHolder = createTyPointPopup(realPoints[realPointCounter], true);
-	                tyLayerGroup.addLayer(L.circleMarker([realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon], {
-	                    zIndexOffset: 2000,
-	                    radius: 6,
-	                    weight: 1.5,
-	                    color: getColorByLevel(realPoints[realPointCounter].level, true),
-	                    opacity: 1,
-	                    fillOpacity: 1,
-	                    fillColor: getColorByLevel(realPoints[realPointCounter].level)
-	                }).bindPopup(popupHolder));
-	                curPosMk.setLatLng([realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon]);
+	            popupHolder = createTyPointPopup(realPoints[realPointCounter], true);
+	            tyLayerGroup.addLayer(L.circleMarker([realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon], {
+	                zIndexOffset: 2000,
+	                radius: 6,
+	                weight: 1.5,
+	                color: getColorByLevel(realPoints[realPointCounter].level, true),
+	                opacity: 1,
+	                fillOpacity: 1,
+	                fillColor: getColorByLevel(realPoints[realPointCounter].level)
+	            }).bindPopup(popupHolder));
+	            curPosMk.setLatLng([realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon]);
 
-	                tyLayerGroup.addLayer(tipHolder);
+	            tyLayerGroup.addLayer(tipHolder);
 
-	                var realPointsInterval = setInterval(function () {
-	                    layerHolder = L.polyline([[realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon], [fstPoints[fstPointCounter].lat, fstPoints[fstPointCounter].lon]], {
-	                        dashArray: '15, 10',
-	                        dashOffset: '8',
-	                        color: getColorByLevel(fstPoints[fstPointCounter].level),
-	                        weight: 1
-	                    });
-	                    tyLayerGroup.addLayer(layerHolder);
-	                    layerHolder.bringToBack();
-	                    layersGoesBack.push({
-	                        layer: layerHolder
-	                    });
-	                    clearInterval(realPointsInterval);
-	                    var fstPointsInterval = setInterval(function () {
-	                        if (fstPointCounter != fstPoints.length - 1) {
-	                            popupHolder = createTyPointPopup(fstPoints[fstPointCounter]);
-	                            tyLayerGroup.addLayer(L.circleMarker([fstPoints[fstPointCounter].lat, fstPoints[fstPointCounter].lon], {
-	                                zIndexOffset: 2000,
-	                                radius: 6,
-	                                color: getColorByLevel(fstPoints[fstPointCounter].level, true),
-	                                weight: 1,
-	                                opacity: 1,
-	                                fillOpacity: 1,
-	                                fillColor: getColorByLevel(fstPoints[fstPointCounter].level)
-	                            }).bindPopup(popupHolder));
-
-	                            if (fstPointCounter > 0) {
-	                                layerHolder = L.polyline([[fstPoints[fstPointCounter - 1].lat, fstPoints[fstPointCounter - 1].lon], [fstPoints[fstPointCounter].lat, fstPoints[fstPointCounter].lon]], {
-	                                    dashArray: '8, 8',
-	                                    dashOffset: '10',
-	                                    color: getColorByLevel(fstPoints[fstPointCounter].level),
-	                                    weight: 1
-	                                });
-	                                tyLayerGroup.addLayer(layerHolder);
-	                                layerHolder.bringToBack();
-	                                layersGoesBack.push({
-	                                    layer: layerHolder
-	                                });
-	                            }
-	                            fstPointCounter++;
-	                        } else {
-	                            clearInterval(fstPointsInterval);
-	                            popupHolder = createTyPointPopup(fstPoints[fstPoints.length - 1]);
-	                            tyLayerGroup.addLayer(L.circleMarker([fstPoints[fstPoints.length - 1].lat, fstPoints[fstPoints.length - 1].lon], {
-	                                zIndexOffset: 2000,
-	                                radius: 6,
-	                                color: getColorByLevel(fstPoints[fstPoints.length - 1].level, true),
-	                                weight: 1,
-	                                opacity: 1,
-	                                fillOpacity: 1,
-	                                fillColor: getColorByLevel(fstPoints[fstPoints.length - 1].level)
-	                            }).bindPopup(popupHolder));
-
-	                            if (fstPoints.length > 1) {
-	                                layerHolder = L.polyline([[fstPoints[fstPoints.length - 2].lat, fstPoints[fstPoints.length - 2].lon], [fstPoints[fstPoints.length - 1].lat, fstPoints[fstPoints.length - 1].lon]], {
-	                                    dashArray: '8, 8',
-	                                    dashOffset: '10',
-	                                    color: getColorByLevel(fstPoints[fstPoints.length - 1].level),
-	                                    weight: 1
-	                                });
-	                                tyLayerGroup.addLayer(layerHolder);
-	                                layerHolder.bringToBack();
-	                                layersGoesBack.push({
-	                                    layer: layerHolder
-	                                });
-	                            }
-
-	                            layerHolder = L.polygon(fstAreaPoints, {
-	                                color: 'red',
-	                                weight: 1.5,
-	                                opacity: 1,
-	                                dashArray: '4, 5',
-	                                dashOffset: '2',
-	                                fillColor: 'red',
-	                                fillOpacity: .3
-	                            });
-	                            tyLayerGroup.addLayer(layerHolder);
-	                            layersGoesBack.push({
-	                                layer: layerHolder
-	                            });
-	                            layerHolder.bringToBack();
-
-	                            var lastPoint = realLastPoint,
-	                                lastPointData = realPoints[realPoints.length - 1];
-
-	                            if (lastPoint[0] > lastPoint[1]) lastPoint.reverse();
-	                            for (var _i4 in windCircle) {
-	                                tyLayerGroup.addLayer(L.circle(lastPoint, lastPointData[_i4] * 1000, {
-	                                    zIndexOffset: 2000,
-	                                    color: getWindColor(_i4),
-	                                    weight: 1,
-	                                    fill: false
-	                                }));
-	                            }
-
-	                            _this.map.on('click', function () {
-	                                tipHolder.setOpacity(0);
-	                            });
-	                        }
-	                    }, 1);
-	                }, 1);
-	            })();
-	        }
-
-	        if (realPoints.length > 1) {
-	            (function () {
-	                var realPointsInterval = setInterval(function () {
-	                    if (realPointCounter != realPoints.length - 1) {
-	                        if (!map.hasLayer(tyLayerGroup)) {
-	                            return;
-	                        }
-
-	                        if (realPointCounter > 0) {
-	                            layerHolder = L.polyline([[realPoints[realPointCounter - 1].lat, realPoints[realPointCounter - 1].lon], [realPoints[realPointCounter].lat, realPoints[realPointCounter].lon]], {
-	                                color: getColorByLevel(realPoints[realPointCounter].level),
-	                                weight: 3
-	                            });
-	                            tyLayerGroup.addLayer(layerHolder);
-	                            layerHolder.bringToBack();
-	                            layersGoesBack.push({
-	                                layer: layerHolder
-	                            });
-	                        }
-	                        popupHolder = createTyPointPopup(realPoints[realPointCounter], true, realPointCounter);
-	                        tyLayerGroup.addLayer(L.circleMarker([realPoints[realPointCounter].lat, realPoints[realPointCounter].lon], {
+	            var realPointsInterval = setInterval(function () {
+	                layerHolder = L.polyline([[realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon], [fstPoints[fstPointCounter].lat, fstPoints[fstPointCounter].lon]], {
+	                    dashArray: '15, 10',
+	                    dashOffset: '8',
+	                    color: getColorByLevel(fstPoints[fstPointCounter].level),
+	                    weight: 1
+	                });
+	                tyLayerGroup.addLayer(layerHolder);
+	                layerHolder.bringToBack();
+	                layersGoesBack.push({
+	                    layer: layerHolder
+	                });
+	                clearInterval(realPointsInterval);
+	                var fstPointsInterval = setInterval(function () {
+	                    if (fstPointCounter != fstPoints.length - 1) {
+	                        popupHolder = createTyPointPopup(fstPoints[fstPointCounter]);
+	                        tyLayerGroup.addLayer(L.circleMarker([fstPoints[fstPointCounter].lat, fstPoints[fstPointCounter].lon], {
 	                            zIndexOffset: 2000,
 	                            radius: 6,
+	                            color: getColorByLevel(fstPoints[fstPointCounter].level, true),
 	                            weight: 1,
-	                            color: getColorByLevel(realPoints[realPointCounter].level, true),
 	                            opacity: 1,
 	                            fillOpacity: 1,
-	                            fillColor: getColorByLevel(realPoints[realPointCounter].level)
+	                            fillColor: getColorByLevel(fstPoints[fstPointCounter].level)
 	                        }).bindPopup(popupHolder));
-	                        realPointCounter++;
-	                        curPosMk.setLatLng([realPoints[realPointCounter].lat, realPoints[realPointCounter].lon]);
-	                    } else {
-	                        (function () {
-	                            clearInterval(realPointsInterval);
 
-	                            popupHolder = createTyPointPopup(realPoints[realPointCounter], true, realPoints.length - 1);
-	                            tyLayerGroup.addLayer(L.circleMarker([realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon], {
-	                                radius: 6,
-	                                weight: 1.5,
-	                                color: getColorByLevel(realPoints[realPointCounter].level, true),
-	                                opacity: 1,
-	                                fillOpacity: 1,
-	                                fillColor: getColorByLevel(realPoints[realPointCounter].level)
-	                            }).bindPopup(popupHolder));
-	                            curPosMk.setLatLng([realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon]);
-
-	                            tyLayerGroup.addLayer(tipHolder);
-
-	                            layerHolder = L.polyline([[realPoints[realPoints.length - 2].lat, realPoints[realPoints.length - 2].lon], [realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon]], {
-	                                color: getColorByLevel(fstPoints[fstPointCounter].level),
-	                                weight: 3
-	                            });
-	                            tyLayerGroup.addLayer(layerHolder);
-	                            layerHolder.bringToBack();
-	                            layersGoesBack.push({
-	                                layer: layerHolder
-	                            });
-
-	                            layerHolder = L.polyline([[realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon], [fstPoints[fstPointCounter].lat, fstPoints[fstPointCounter].lon]], {
-	                                dashArray: '15, 10',
-	                                dashOffset: '8',
+	                        if (fstPointCounter > 0) {
+	                            layerHolder = L.polyline([[fstPoints[fstPointCounter - 1].lat, fstPoints[fstPointCounter - 1].lon], [fstPoints[fstPointCounter].lat, fstPoints[fstPointCounter].lon]], {
+	                                dashArray: '8, 8',
+	                                dashOffset: '10',
 	                                color: getColorByLevel(fstPoints[fstPointCounter].level),
 	                                weight: 1
 	                            });
@@ -1595,101 +1496,236 @@
 	                            layersGoesBack.push({
 	                                layer: layerHolder
 	                            });
-	                            var fstPointsInterval = setInterval(function () {
-	                                if (fstPointCounter != fstPoints.length - 1) {
-	                                    popupHolder = createTyPointPopup(fstPoints[fstPointCounter], false, fstPointCounter);
-	                                    tyLayerGroup.addLayer(L.circleMarker([fstPoints[fstPointCounter].lat, fstPoints[fstPointCounter].lon], {
-	                                        zIndexOffset: 2000,
-	                                        radius: 6,
-	                                        color: getColorByLevel(fstPoints[fstPointCounter].level, true),
-	                                        weight: 1,
-	                                        opacity: 1,
-	                                        fillOpacity: 1,
-	                                        fillColor: getColorByLevel(fstPoints[fstPointCounter].level)
-	                                    }).bindPopup(popupHolder));
+	                        }
+	                        fstPointCounter++;
+	                    } else {
+	                        clearInterval(fstPointsInterval);
+	                        popupHolder = createTyPointPopup(fstPoints[fstPoints.length - 1]);
+	                        tyLayerGroup.addLayer(L.circleMarker([fstPoints[fstPoints.length - 1].lat, fstPoints[fstPoints.length - 1].lon], {
+	                            zIndexOffset: 2000,
+	                            radius: 6,
+	                            color: getColorByLevel(fstPoints[fstPoints.length - 1].level, true),
+	                            weight: 1,
+	                            opacity: 1,
+	                            fillOpacity: 1,
+	                            fillColor: getColorByLevel(fstPoints[fstPoints.length - 1].level)
+	                        }).bindPopup(popupHolder));
 
-	                                    if (fstPointCounter > 0) {
-	                                        layerHolder = L.polyline([[fstPoints[fstPointCounter - 1].lat, fstPoints[fstPointCounter - 1].lon], [fstPoints[fstPointCounter].lat, fstPoints[fstPointCounter].lon]], {
-	                                            dashArray: '8, 8',
-	                                            dashOffset: '10',
-	                                            color: getColorByLevel(fstPoints[fstPointCounter].level),
-	                                            weight: 1
-	                                        });
-	                                        tyLayerGroup.addLayer(layerHolder);
-	                                        layerHolder.bringToBack();
-	                                        layersGoesBack.push({
-	                                            layer: layerHolder
-	                                        });
-	                                    }
-	                                    fstPointCounter++;
-	                                } else {
-	                                    clearInterval(fstPointsInterval);
-	                                    popupHolder = createTyPointPopup(fstPoints[fstPoints.length - 1], false, fstPoints.length - 1);
-	                                    tyLayerGroup.addLayer(L.circleMarker([fstPoints[fstPoints.length - 1].lat, fstPoints[fstPoints.length - 1].lon], {
-	                                        zIndexOffset: 2000,
-	                                        radius: 6,
-	                                        color: getColorByLevel(fstPoints[fstPoints.length - 1].level, true),
-	                                        weight: 1,
-	                                        opacity: 1,
-	                                        fillOpacity: 1,
-	                                        fillColor: getColorByLevel(fstPoints[fstPoints.length - 1].level)
-	                                    }).bindPopup(popupHolder));
+	                        if (fstPoints.length > 1) {
+	                            layerHolder = L.polyline([[fstPoints[fstPoints.length - 2].lat, fstPoints[fstPoints.length - 2].lon], [fstPoints[fstPoints.length - 1].lat, fstPoints[fstPoints.length - 1].lon]], {
+	                                dashArray: '8, 8',
+	                                dashOffset: '10',
+	                                color: getColorByLevel(fstPoints[fstPoints.length - 1].level),
+	                                weight: 1
+	                            });
+	                            tyLayerGroup.addLayer(layerHolder);
+	                            layerHolder.bringToBack();
+	                            layersGoesBack.push({
+	                                layer: layerHolder
+	                            });
+	                        }
 
-	                                    if (fstPoints.length > 1) {
-	                                        layerHolder = L.polyline([[fstPoints[fstPoints.length - 2].lat, fstPoints[fstPoints.length - 2].lon], [fstPoints[fstPoints.length - 1].lat, fstPoints[fstPoints.length - 1].lon]], {
-	                                            dashArray: '8, 8',
-	                                            dashOffset: '10',
-	                                            color: getColorByLevel(fstPoints[fstPoints.length - 1].level),
-	                                            weight: 1
-	                                        });
-	                                        tyLayerGroup.addLayer(layerHolder);
-	                                        layerHolder.bringToBack();
-	                                        layersGoesBack.push({
-	                                            layer: layerHolder
-	                                        });
-	                                    }
+	                        layerHolder = L.polygon(fstAreaPoints, {
+	                            color: 'red',
+	                            weight: 1.5,
+	                            opacity: 1,
+	                            dashArray: '4, 5',
+	                            dashOffset: '2',
+	                            fillColor: 'red',
+	                            fillOpacity: .3
+	                        });
+	                        tyLayerGroup.addLayer(layerHolder);
+	                        layersGoesBack.push({
+	                            layer: layerHolder
+	                        });
+	                        layerHolder.bringToBack();
 
+	                        var lastPoint = realLastPoint,
+	                            lastPointData = realPoints[realPoints.length - 1];
 
-	                                    if (!window.fstAreas) window.fstAreas = [];
-	                                    if (window.fstAreas.length < window.currentTyNum) window.fstAreas.push(fstAreaPoints);
+	                        if (lastPoint[0] > lastPoint[1]) lastPoint.reverse();
+	                        for (var _i4 in windCircle) {
+	                            tyLayerGroup.addLayer(L.circle(lastPoint, lastPointData[_i4] * 1000, {
+	                                zIndexOffset: 2000,
+	                                color: getWindColor(_i4),
+	                                weight: 1,
+	                                fill: false
+	                            }));
+	                        }
 
-	                                    layerHolder = L.polygon(fstAreaPoints, {
-	                                        color: 'red',
-	                                        weight: 1.5,
-	                                        opacity: 1,
-	                                        dashArray: '4, 5',
-	                                        dashOffset: '2',
-	                                        fillColor: 'red',
-	                                        fillOpacity: .3
+	                        _this.map.on('click', function () {
+	                            tipHolder.setOpacity(0);
+	                        });
+	                    }
+	                }, 1);
+	            }, 1);
+	        }
+
+	        if (realPoints.length > 1) {
+	            var _realPointsInterval = setInterval(function () {
+	                if (realPointCounter != realPoints.length - 1) {
+	                    if (!map.hasLayer(tyLayerGroup)) {
+	                        return;
+	                    }
+
+	                    if (realPointCounter > 0) {
+	                        layerHolder = L.polyline([[realPoints[realPointCounter - 1].lat, realPoints[realPointCounter - 1].lon], [realPoints[realPointCounter].lat, realPoints[realPointCounter].lon]], {
+	                            color: getColorByLevel(realPoints[realPointCounter].level),
+	                            weight: 3
+	                        });
+	                        tyLayerGroup.addLayer(layerHolder);
+	                        layerHolder.bringToBack();
+	                        layersGoesBack.push({
+	                            layer: layerHolder
+	                        });
+	                    }
+	                    popupHolder = createTyPointPopup(realPoints[realPointCounter], true, realPointCounter);
+	                    tyLayerGroup.addLayer(L.circleMarker([realPoints[realPointCounter].lat, realPoints[realPointCounter].lon], {
+	                        zIndexOffset: 2000,
+	                        radius: 6,
+	                        weight: 1,
+	                        color: getColorByLevel(realPoints[realPointCounter].level, true),
+	                        opacity: 1,
+	                        fillOpacity: 1,
+	                        fillColor: getColorByLevel(realPoints[realPointCounter].level)
+	                    }).bindPopup(popupHolder));
+	                    realPointCounter++;
+	                    curPosMk.setLatLng([realPoints[realPointCounter].lat, realPoints[realPointCounter].lon]);
+	                } else {
+	                    clearInterval(_realPointsInterval);
+
+	                    popupHolder = createTyPointPopup(realPoints[realPointCounter], true, realPoints.length - 1);
+	                    tyLayerGroup.addLayer(L.circleMarker([realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon], {
+	                        radius: 6,
+	                        weight: 1.5,
+	                        color: getColorByLevel(realPoints[realPointCounter].level, true),
+	                        opacity: 1,
+	                        fillOpacity: 1,
+	                        fillColor: getColorByLevel(realPoints[realPointCounter].level)
+	                    }).bindPopup(popupHolder));
+	                    curPosMk.setLatLng([realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon]);
+
+	                    tyLayerGroup.addLayer(tipHolder);
+
+	                    layerHolder = L.polyline([[realPoints[realPoints.length - 2].lat, realPoints[realPoints.length - 2].lon], [realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon]], {
+	                        color: getColorByLevel(realPoints[realPoints.length - 1].level),
+	                        weight: 3
+	                    });
+	                    tyLayerGroup.addLayer(layerHolder);
+	                    layerHolder.bringToBack();
+	                    layersGoesBack.push({
+	                        layer: layerHolder
+	                    });
+
+	                    if (fstPoints.length >= 1) {
+	                        layerHolder = L.polyline([[realPoints[realPoints.length - 1].lat, realPoints[realPoints.length - 1].lon], [fstPoints[fstPointCounter].lat, fstPoints[fstPointCounter].lon]], {
+	                            dashArray: '15, 10',
+	                            dashOffset: '8',
+	                            color: getColorByLevel(fstPoints[fstPointCounter].level),
+	                            weight: 1
+	                        });
+	                        tyLayerGroup.addLayer(layerHolder);
+	                        layerHolder.bringToBack();
+	                        layersGoesBack.push({
+	                            layer: layerHolder
+	                        });
+	                        var fstPointsInterval = setInterval(function () {
+	                            if (fstPointCounter != fstPoints.length - 1) {
+	                                popupHolder = createTyPointPopup(fstPoints[fstPointCounter], false, fstPointCounter);
+	                                tyLayerGroup.addLayer(L.circleMarker([fstPoints[fstPointCounter].lat, fstPoints[fstPointCounter].lon], {
+	                                    zIndexOffset: 2000,
+	                                    radius: 6,
+	                                    color: getColorByLevel(fstPoints[fstPointCounter].level, true),
+	                                    weight: 1,
+	                                    opacity: 1,
+	                                    fillOpacity: 1,
+	                                    fillColor: getColorByLevel(fstPoints[fstPointCounter].level)
+	                                }).bindPopup(popupHolder));
+
+	                                if (fstPointCounter > 0) {
+	                                    layerHolder = L.polyline([[fstPoints[fstPointCounter - 1].lat, fstPoints[fstPointCounter - 1].lon], [fstPoints[fstPointCounter].lat, fstPoints[fstPointCounter].lon]], {
+	                                        dashArray: '8, 8',
+	                                        dashOffset: '10',
+	                                        color: getColorByLevel(fstPoints[fstPointCounter].level),
+	                                        weight: 1
 	                                    });
 	                                    tyLayerGroup.addLayer(layerHolder);
+	                                    layerHolder.bringToBack();
 	                                    layersGoesBack.push({
 	                                        layer: layerHolder
 	                                    });
+	                                }
+	                                fstPointCounter++;
+	                            } else {
+	                                clearInterval(fstPointsInterval);
+	                                popupHolder = createTyPointPopup(fstPoints[fstPoints.length - 1], false, fstPoints.length - 1);
+	                                tyLayerGroup.addLayer(L.circleMarker([fstPoints[fstPoints.length - 1].lat, fstPoints[fstPoints.length - 1].lon], {
+	                                    zIndexOffset: 2000,
+	                                    radius: 6,
+	                                    color: getColorByLevel(fstPoints[fstPoints.length - 1].level, true),
+	                                    weight: 1,
+	                                    opacity: 1,
+	                                    fillOpacity: 1,
+	                                    fillColor: getColorByLevel(fstPoints[fstPoints.length - 1].level)
+	                                }).bindPopup(popupHolder));
+
+	                                if (fstPoints.length > 1) {
+	                                    layerHolder = L.polyline([[fstPoints[fstPoints.length - 2].lat, fstPoints[fstPoints.length - 2].lon], [fstPoints[fstPoints.length - 1].lat, fstPoints[fstPoints.length - 1].lon]], {
+	                                        dashArray: '8, 8',
+	                                        dashOffset: '10',
+	                                        color: getColorByLevel(fstPoints[fstPoints.length - 1].level),
+	                                        weight: 1
+	                                    });
+	                                    tyLayerGroup.addLayer(layerHolder);
 	                                    layerHolder.bringToBack();
-
-	                                    var lastPoint = realLastPoint,
-	                                        lastPointData = realPoints[realPoints.length - 1];
-
-	                                    if (lastPoint[0] > lastPoint[1]) lastPoint.reverse();
-	                                    for (var _i5 in windCircle) {
-	                                        tyLayerGroup.addLayer(L.circle(lastPoint, lastPointData[_i5] * 1000, {
-	                                            zIndexOffset: 2000,
-	                                            color: getWindColor(_i5),
-	                                            weight: 1,
-	                                            fill: false
-	                                        }));
-	                                    }
-
-	                                    _this.map.on('click', function () {
-	                                        tipHolder.setOpacity(0);
+	                                    layersGoesBack.push({
+	                                        layer: layerHolder
 	                                    });
 	                                }
-	                            }, 1);
-	                        })();
+
+
+	                                if (!window.fstAreas) window.fstAreas = [];
+	                                if (window.fstAreas.length < window.currentTyNum) window.fstAreas.push(fstAreaPoints);
+
+	                                layerHolder = L.polygon(fstAreaPoints, {
+	                                    color: 'red',
+	                                    weight: 1.5,
+	                                    opacity: 1,
+	                                    dashArray: '4, 5',
+	                                    dashOffset: '2',
+	                                    fillColor: 'red',
+	                                    fillOpacity: .3
+	                                });
+	                                tyLayerGroup.addLayer(layerHolder);
+	                                layersGoesBack.push({
+	                                    layer: layerHolder
+	                                });
+	                                layerHolder.bringToBack();
+
+	                                var lastPoint = realLastPoint,
+	                                    lastPointData = realPoints[realPoints.length - 1];
+
+	                                if (lastPoint[0] > lastPoint[1]) lastPoint.reverse();
+	                                for (var _i5 in windCircle) {
+	                                    tyLayerGroup.addLayer(L.circle(lastPoint, lastPointData[_i5] * 1000, {
+	                                        zIndexOffset: 2000,
+	                                        color: getWindColor(_i5),
+	                                        weight: 1,
+	                                        fill: false
+	                                    }));
+	                                }
+
+	                                _this.map.on('click', function () {
+	                                    tipHolder.setOpacity(0);
+	                                });
+	                            }
+	                        }, 1);
+	                    } else {
+	                        if (!window.fstAreas) window.fstAreas = [];
+	                        if (window.fstAreas.length < window.currentTyNum) window.fstAreas.push(fstAreaPoints);
 	                    }
-	                }, 1);
-	            })();
+	                }
+	            }, 1);
 	        }
 
 	        function createTyPointPopup(data) {
@@ -1700,19 +1736,18 @@
 	            if (isRealPoint) {
 	                n = new Date(data.datetime.replace(/\-/g, "/"));
 
-	                n.setHours(n.getHours() + 8);
 	                return L.popup({
 	                    className: 'ty-popup',
 	                    closeButton: false
-	                }).setContent("<section>\n\n                \n               \n                <ul>\n                   <li><span>\u65F6\u95F4</span><span>" + n.getDate() + "\u65E5" + (n.getHours() < 10 ? "0" + n.getHours() : n.getHours()) + "\u65F6</span></li>\n                    <li><span>\u5F53\u524D\u4F4D\u7F6E</span><span>" + data.lon + "/" + data.lat + "</span></li>             \n                    \n                    <li><span>\u98CE\u529B</span><span>" + getVelLevel(data.ws) + "\u7EA7</span></li>\n                    <li><span>\u98CE\u901F</span><span>" + data.ws + "m/s</span></li>\n                    <li><span>\u4E2D\u5FC3\u6C14\u538B</span><span>" + data.ps + "hpa</span></li>\n                    <li><span>\u4E03\u7EA7\u98CE\u5708</span><span>" + (data.rr07 ? data.rr07 + 'km' : "无") + "</span></li>\n                    <li><span>\u5341\u7EA7\u98CE\u5708</span><span>" + (data.rr10 ? data.rr10 + 'km' : "无") + "</span></li>\n                </ul>\n                <div class=\"bgLeft\">\n                    <div class=\"bgLeftInt\"></div>\n                </div>\n                </section>");
+	                }).setContent("<section>\n\n                \n               \n                <ul>\n                    <li><span>\u5E74\u6708\u4EFD</span><span>" + n.getFullYear() + "\u5E74" + (n.getMonth() + 1) + "\u6708</span></li>\n                    <li><span>\u65F6\u95F4</span><span>" + n.getDate() + "\u65E5" + (n.getHours() < 10 ? "0" + n.getHours() : n.getHours()) + "\u65F6</span></li>\n                    <li><span>\u5F53\u524D\u4F4D\u7F6E</span><span>" + data.lon + "/" + data.lat + "</span></li> \n                    <li><span>\u98CE\u529B</span><span>" + getVelLevel(data.ws) + "\u7EA7</span></li>\n                    <li><span>\u98CE\u901F</span><span>" + data.ws + "m/s</span></li>\n                    <li><span>\u4E2D\u5FC3\u6C14\u538B</span><span>" + data.ps + "hpa</span></li>\n                    <li><span>\u4E03\u7EA7\u98CE\u5708</span><span>" + (data.rr07 ? data.rr07 + 'km' : "无") + "</span></li>\n                    <li><span>\u5341\u7EA7\u98CE\u5708</span><span>" + (data.rr10 ? data.rr10 + 'km' : "无") + "</span></li>\n                </ul>\n                <div class=\"bgLeft\">\n                    <div class=\"bgLeftInt\"></div>\n                </div>\n                </section>");
 	            } else {
 	                n = new Date(data.datetime.replace(/\-/g, "/"));
 
-	                n.setHours(n.getHours() + 8 + data.leadtime);
+	                n.setHours(n.getHours() + data.leadtime);
 	                return L.popup({
 	                    className: 'ty-popup',
 	                    closeButton: false
-	                }).setContent("<section>\n                <ul>\n                   <li><span>\u65F6\u95F4</span><span>" + n.getDate() + "\u65E5" + (n.getHours() < 10 ? "0" + n.getHours() : n.getHours()) + "\u65F6</span></li>\n                    <li><span>\u9884\u8BA1\u4F4D\u7F6E</span><span>" + data.lon + "/" + data.lat + "</span></li>             \n                    \n                    <li><span>\u98CE\u529B</span><span>" + getVelLevel(data.ws) + "\u7EA7</span></li>\n                    <li><span>\u98CE\u901F</span><span>" + data.ws + "m/s</span></li>\n                    <li><span>\u4E2D\u5FC3\u6C14\u538B</span><span>" + data.ps + "hpa</span></li>\n                    <li><span>\u4E03\u7EA7\u98CE\u5708</span><span>" + (data.rr07 ? data.rr07 + 'km' : "无") + "</span></li>\n                    <li><span>\u5341\u7EA7\u98CE\u5708</span><span>" + (data.rr10 ? data.rr10 + 'km' : "无") + "</span></li>\n                </ul>\n                 <div class=\"bgLeft\">\n                    <div class=\"bgLeftInt\"></div>\n                </div>\n                </section>");
+	                }).setContent("<section>\n                <ul>\n                   <li><span>\u5E74\u6708\u4EFD</span><span>" + n.getFullYear() + "\u5E74" + (n.getMonth() + 1) + "\u6708</span></li>\n                   <li><span>\u65F6\u95F4</span><span>" + n.getDate() + "\u65E5" + (n.getHours() < 10 ? "0" + n.getHours() : n.getHours()) + "\u65F6</span></li>\n                    <li><span>\u9884\u8BA1\u4F4D\u7F6E</span><span>" + data.lon + "/" + data.lat + "</span></li>             \n                    \n                    <li><span>\u98CE\u529B</span><span>" + getVelLevel(data.ws) + "\u7EA7</span></li>\n                    <li><span>\u98CE\u901F</span><span>" + data.ws + "m/s</span></li>\n                    <li><span>\u4E2D\u5FC3\u6C14\u538B</span><span>" + data.ps + "hpa</span></li>\n                    <li><span>\u4E03\u7EA7\u98CE\u5708</span><span>" + (data.rr07 ? data.rr07 + 'km' : "无") + "</span></li>\n                    <li><span>\u5341\u7EA7\u98CE\u5708</span><span>" + (data.rr10 ? data.rr10 + 'km' : "无") + "</span></li>\n                </ul>\n                 <div class=\"bgLeft\">\n                    <div class=\"bgLeftInt\"></div>\n                </div>\n                </section>");
 	            }
 	        }
 
@@ -1731,6 +1766,8 @@
 	                    return '强台风';
 	                case 'SUPER':
 	                    return '超强台风';
+	                default:
+	                    return '热带低压';
 	            }
 	        }
 
@@ -1900,15 +1937,7 @@
 	        }
 
 	        function computeDistance(lng1, lat1, lng2, lat2) {
-	            var EARTH_RADIUS = 6378.137;
-	            var radLat1 = lat1 * Math.PI / 180.0;
-	            var radLat2 = lat2 * Math.PI / 180.0;
-	            var a = radLat1 - radLat2;
-	            var b = lng1 * Math.PI / 180.0 - lng2 * Math.PI / 180.0;
-	            var s = 2 * Math.asin(Math.sqrt(Math.pow(Math.sin(a / 2), 2) + Math.cos(radLat1) * Math.cos(radLat2) * Math.pow(Math.sin(b / 2), 2)));
-	            s = EARTH_RADIUS * s;
-	            s = Math.round(s * 10000) / 10000;
-	            return s.toFixed(1);
+	            return Math.floor(L.latLng(lat1, lng1).distanceTo(L.latLng(lat2, lng2)) / 100) / 10;
 	        };
 
 	        function getDateDiff(startTime, endTime, diffType) {
@@ -2041,7 +2070,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	exports.removeAllArea = exports.removeSingleArea = exports.removeAreaInfo = exports.addAreaInfo = exports.addArea = exports.removeTyphoonpot = exports.modifyTyphoonspot = exports.addTyphoonspot = exports.getTyphoonspot = undefined;
+	exports.clearAllInfo = exports.removeAllArea = exports.removeSingleArea = exports.removeAreaInfo = exports.addAreaInfo = exports.addArea = exports.removeTyphoonpot = exports.modifyTyphoonspot = exports.addTyphoonspot = exports.getTyphoonspot = undefined;
 
 	var _typhoon = __webpack_require__(14);
 
@@ -2261,6 +2290,12 @@
 	  for (var key in _areas) {
 	    _areas[key].layers.polyline = [];
 	    _areas[key].layers.divIcon = [];
+	  }
+	};
+
+	var clearAllInfo = exports.clearAllInfo = function clearAllInfo() {
+	  for (var id in _areas) {
+	    removeSingleArea(id);
 	  }
 	};
 
@@ -2508,16 +2543,21 @@
 	var tyInterval = setInterval(function () {
 	    var fstAreas = window.fstAreas;
 	    if (window.locationInfo && (fstAreas === false || Array.isArray(fstAreas) && fstAreas.length === currentTyNum)) {
-	        initTySpot();
+	        $('.decisionArea').click();
 	        clearInterval(tyInterval);
 	    }
 	}, 500);
 	var spots_global = {};
 
+	var hasLoadSpot = true;
 	var initTySpot = function initTySpot() {
+	    hasLoadSpot = false;
 	    _area.getTyphoonspot().then(function (res) {
 	        console.log(res);
-	        if (res.result !== 'S_OK') return;
+	        if (res.result !== 'S_OK') {
+	            hasLoadSpot = true;
+	            return;
+	        }
 	        var spots = res.tagObject.spots;
 
 	        var hasSZPoint = false;var _iteratorNormalCompletion = true;
@@ -2526,9 +2566,9 @@
 
 	        try {
 	            for (var _iterator = spots[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	                var spot = _step.value;
+	                var _spot = _step.value;
 
-	                if (spot.lon === 113.92 && spot.lat === 22.48) {
+	                if (_spot.lon === 113.92 && _spot.lat === 22.48) {
 	                    hasSZPoint = true;
 	                    break;
 	                }
@@ -2553,12 +2593,13 @@
 	                initTySpot();
 	            });
 	        } else {
+	            var promiseList = [];
 	            var _iteratorNormalCompletion2 = true;
 	            var _didIteratorError2 = false;
 	            var _iteratorError2 = undefined;
 
 	            try {
-	                var _loop = function _loop() {
+	                for (var _iterator2 = spots[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
 	                    var spot = _step2.value;
 
 	                    spots_global[spot.typhoonspotid] = spot;
@@ -2566,24 +2607,13 @@
 	                        lon = spot.lon,
 	                        radius = spot.radius,
 	                        typhoonspotid = spot.typhoonspotid;
-	                    if (!Array.isArray(radius)) return 'continue';
+	                    if (!Array.isArray(radius)) continue;
 	                    var radiusArr = radius.sort(function (a, b) {
 	                        return a < b;
 	                    });
 	                    var maxRadiu = radiusArr[0];
 	                    var bool = (0, _judgeArea.judge)(lat, lon, maxRadiu);
-	                    getInterpPoints(lon, lat).then(function (res) {
-	                        if (res.windPower >= 7) bool = true;
-	                        _area.addArea(lat, lon, radius, typhoonspotid, bool, res);
-	                    }).catch(function (e) {
-	                        _area.addArea(lat, lon, radius, typhoonspotid, bool, {});
-	                    });
-	                };
-
-	                for (var _iterator2 = spots[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-	                    var _ret = _loop();
-
-	                    if (_ret === 'continue') continue;
+	                    promiseList.push(getInterpPoints(lon, lat, radius, typhoonspotid, bool));
 	                }
 	            } catch (err) {
 	                _didIteratorError2 = true;
@@ -2600,11 +2630,27 @@
 	                }
 	            }
 
-	            console.log(spots_global);
+	            Promise.all(promiseList).then(function () {
+	                hasLoadSpot = true;
+	            });
 	        }
 	    });
 	};
-	var getInterpPoints = function getInterpPoints(lon, lat) {
+	$('.decisionArea').click(function (e) {
+	    e.stopPropagation();
+	    if (!hasLoadSpot) return;
+	    var el = $('.cloudMap li.tyListUl_com').eq(0);
+	    if ($(this).hasClass('on')) {
+	        el.hide();
+	        _area.clearAllInfo();
+	    } else {
+	        el.show();
+	        initTySpot();
+	    }
+	    $(this).toggleClass('on');
+	});
+
+	var getInterpPoints = function getInterpPoints(lon, lat, radius, typhoonspotid, bool) {
 	    var date = new Date().Format('yyyy/MM/dd 20:00:00');
 	    date = new Date(date).getTime();
 	    var nowTime = Date.now();
@@ -2624,7 +2670,8 @@
 	            timeout: 2000,
 	            success: function success(res) {
 	                if (/DB_ERROR/.test(res) || /null/.test(res) || !res.length) {
-	                    reject();
+	                    _area.addArea(lat, lon, radius, typhoonspotid, bool, {});
+	                    resolve();
 	                    return;
 	                }
 	                data = res[0];
@@ -2640,11 +2687,14 @@
 	                    if (!msg || /DB_ERROR/.test(msg) || /null/.test(msg) || !msg.length) data.windWater = 0;
 	                    data.windWater = msg[0];
 	                    if (data.windWater) data.windWater = data.windWater.toFixed(2);else data.windWater = 0;
-	                    resolve(data);
+	                    if (data.windPower >= 7) bool = true;
+	                    _area.addArea(lat, lon, radius, typhoonspotid, bool, data);
+	                    resolve();
 	                });
 	            },
 	            error: function error(err) {
-	                reject();
+	                _area.addArea(lat, lon, radius, typhoonspotid, bool, {});
+	                resolve();
 	            }
 	        });
 	    });
@@ -2658,7 +2708,7 @@
 	    seaWave: '.tycontener_bottSeawave',
 	    cloud: '#cloudOverlay',
 	    thunder: '.rainstormImg',
-	    buoy: '.buoy_bott'
+	    actual: '.actualImg'
 	};
 	$('#tyswNav>ul>li').on('click', function () {
 	    hidePreWarnPopup();
@@ -2670,7 +2720,7 @@
 	    var val = $(this).attr('name');
 	    var url = void 0;
 	    if ($(this).hasClass('a')) {
-	        if (val === 'typhoon' && !$('#tyChangeWraper li.layer-selected').length || val === 'cloud' && !$('#cloudOverlay li.on').length || val === 'thunder' && !$('.rainstormImg li.on').length) {
+	        if (val === 'typhoon' && !$('#tyChangeWraper li.layer-selected, .defenceArea.on, .decisionArea.on').length || val === 'cloud' && !$('#cloudOverlay li.on').length || val === 'thunder' && !$('.rainstormImg li.on').length || val === 'actual' && !$('.actualImg li.on').length) {
 	            $(this).removeClass('on');
 	        }
 	        $(susNavObj[val]).hide();
@@ -2682,12 +2732,6 @@
 	            } else {
 	                (0, _seawaveDom.getSeawaveData)();
 	                $('.buoy_bott').removeClass('on').stop().animate({ bottom: '-5.8rem' });
-	                $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({ 'bottom': '0.666667rem' });
-	            }
-	            $(this).toggleClass('on');
-	        } else if (val === 'buoy') {
-	            if ($(this).hasClass('on')) deleBuoyData();else {
-	                getBuoyData();
 	                $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({ 'bottom': '0.666667rem' });
 	            }
 	            $(this).toggleClass('on');
@@ -2713,15 +2757,24 @@
 	        if (val !== 'typhoon') toggleNavSel('#tyChangeWraper', '.layer-selected', '.tyList');
 	        if (val !== 'cloud') toggleNavSel('#cloudOverlay', '.on', '.rdList');
 	        if (val !== 'thunder') toggleNavSel('.rainstormImg', '.on', '.tsList');
-
+	        if (val !== 'actual') toggleNavSel('.actualImg', '.on', '.buoyList');
 	        for (var i in susNavObj) {
-	            if (i === 'typhoon' || i === 'cloud' || i === 'thunder') $(susNavObj[i]).hide();
+	            if (i === 'typhoon' || i === 'cloud' || i === 'thunder' || i === 'actual') $(susNavObj[i]).hide();
 	        }
 
 	        if (val !== 'seawave' && val !== 'buoy') $(susNavObj[val]).show();
 	    }
 	    $(this).siblings().removeClass('a');
 	    if (val !== 'seawave' && val !== 'buoy') $(this).toggleClass('a');
+	});
+
+	$('.buoyStation').click(function (e) {
+	    e.stopPropagation();
+	    if ($(this).hasClass('on')) deleBuoyData();else {
+	        getBuoyData();
+	        $('.tyCl_list,.imgEx,.getLonLat,.cloudPopup').stop().animate({ 'bottom': '0.666667rem' });
+	    }
+	    $(this).toggleClass('on');
 	});
 
 	var toggleNavSel = function toggleNavSel(child, classN, parent) {
@@ -2738,8 +2791,6 @@
 	};
 
 	$('.tySimilar>ul>li').on('click', function () {
-	    var _this = this;
-
 	    if ($('.simiMatch').hasClass('on')) $('.closeSimi').click();
 	    $('.rainProgressbar').stop().animate({ 'bottom': '-2.67rem' }).removeClass('on');
 	    $('.tyCl_list,.getLonLat,.imgEx,.cloudPopup').stop().animate({ 'bottom': '0.666667rem' });
@@ -2756,24 +2807,22 @@
 	    if ($('.cloudMap ul li:nth-child(1).on').length) $('#makePolicy').click();
 
 	    if (val === 'similar') {
-	        (function () {
-	            $(_this).addClass('on');
-	            $(simObj[val]).show();
+	        $(this).addClass('on');
+	        $(simObj[val]).show();
 
-	            var tsObj = {};
-	            $('#tyChange .layer-selected').map(function () {
-	                var $child = $(this).find('a'),
-	                    tsid = $child.attr('tsid'),
-	                    name = $child.text();
-	                tsObj[tsid] = name;
-	            });
-	            $('.cusDetales_centerTy select option').remove();
-	            var html = '';
-	            for (var i in tsObj) {
-	                html = '<option value="' + i + '">' + tsObj[i] + '</option>' + html;
-	            }
-	            $('.cusDetales_centerTy select').html(html);
-	        })();
+	        var tsObj = {};
+	        $('#tyChange .layer-selected').map(function () {
+	            var $child = $(this).find('a'),
+	                tsid = $child.attr('tsid'),
+	                name = $child.text();
+	            tsObj[tsid] = name;
+	        });
+	        $('.cusDetales_centerTy select option').remove();
+	        var html = '';
+	        for (var i in tsObj) {
+	            html = '<option value="' + i + '">' + tsObj[i] + '</option>' + html;
+	        }
+	        $('.cusDetales_centerTy select').html(html);
 	    }
 	});
 
@@ -2792,14 +2841,12 @@
 	$('.cusDetales_confirmTy').on('click', function () {
 	    hideSim('.typhoon_cusWin', 0);
 	    var tsid = $('.cusDetales_centerTy select').val(),
-	        lon = $('input[name="lon"]').val(),
-	        lat = $('input[name="lat"]').val(),
 	        angle = $('input[name="angle"]').val(),
 	        anglediff = $('input[name="anglediff"]').val(),
 	        speed = $('input[name="speed"]').val(),
 	        speeddiff = $('input[name="speeddiff"]').val(),
 	        strength = $('input[name="strength"]').val();
-	    (0, _getSimilarTy.getSimilarTy)(tsid, lon, lat, angle, anglediff, speed, speeddiff, strength);
+	    (0, _getSimilarTy.getSimilarTy)(tsid, angle, anglediff, speed, speeddiff, strength);
 	});
 
 	$('.simiTyHide').on('click', function () {
@@ -2931,12 +2978,7 @@
 	        });
 	        var maxRadiu = radiusArr[0];
 	        var bool = (0, _judgeArea.judge)(lat, lon, maxRadiu);
-	        getInterpPoints(lon, lat).then(function (res) {
-	            if (res.windPower >= 7) bool = true;
-	            _area.addArea(lat, lon, radius, pointId, bool, res);
-	        }).catch(function (e) {
-	            _area.addArea(lat, lon, radius, pointId, bool, {});
-	        });
+	        getInterpPoints(lon, lat, radiusArr, pointId, bool);
 	        spots_global[pointId] = res.tagObject;
 	    });
 	    closeAreaPopup();
@@ -2979,6 +3021,7 @@
 	    time = new Date(time).Format('yyyy-MM-dd HH:mm:00');
 
 	    var buoyUrl = 'http://119.29.102.103:8111/roa1080/discrete/buoy/d3/V22041%3bV22042%3bV22043%3bV22044%3bV22062%3bV22062_001%3bV23001%3bV23001_001%3bV23002%3bV23002_001%3bV23003%3bV23003_001%3bV23004%3bV23004_001%3bV23005%3bV23006%3bV23007%3bV23007_001,' + time + '/JSON?cacheCtrl=' + Date.now();
+
 	    $.ajax({ url: buoyUrl }).then(function (data) {
 	        if (/DB_ERROR/.test(data)) {
 	            (0, _tips.getNoDataTips)('.buoy_noData');return;
@@ -3092,24 +3135,16 @@
 	        pointId = $('.early_head').attr('pointid');
 	    _area.modifyTyphoonspot(lat, lon, radius, pointId).then(function (data) {
 	        if (data.result === 'S_OK') {
-	            (function () {
-	                var radiusArr = radius.sort(function (a, b) {
-	                    return a < b;
-	                });
-	                var radiusArrLen = radiusArr.length - 1;
-	                var maxRadiu = radiusArr[0];
-	                var bool = (0, _judgeArea.judge)(lat, lon, maxRadiu);
-	                getInterpPoints(lon, lat).then(function (res) {
-	                    _area.removeSingleArea(pointId);
-	                    if (res.windPower >= 7) bool = true;
-	                    _area.addArea(lat, lon, radius, pointId, bool, res);
-	                }).catch(function (e) {
-	                    _area.removeSingleArea(pointId);
-	                    _area.addArea(lat, lon, radius, pointId, bool, {});
-	                });
-	                spots_global[pointId] = { lat: lat, lon: lon, radius: radius, typhoonspotid: pointId };
-	                $('.preWarn_cusWin').hide();
-	            })();
+	            var radiusArr = radius.sort(function (a, b) {
+	                return a < b;
+	            });
+	            var radiusArrLen = radiusArr.length - 1;
+	            var maxRadiu = radiusArr[0];
+	            var bool = (0, _judgeArea.judge)(lat, lon, maxRadiu);
+	            _area.removeSingleArea(pointId);
+	            getInterpPoints(lon, lat, radiusArr, pointId, bool);
+	            spots_global[pointId] = { lat: lat, lon: lon, radius: radius, typhoonspotid: pointId };
+	            $('.preWarn_cusWin').hide();
 	        } else alert(data.description);
 	    });
 	});
@@ -3168,50 +3203,52 @@
 	var _ZmapHelper = __webpack_require__(15);
 
 	var getSimilarTy = exports.getSimilarTy = function getSimilarTy(tsid) {
-	  var lon = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 2;
-	  var lat = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 2;
-	  var angle = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 30;
-	  var anglediff = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 30;
-	  var speed = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 30;
-	  var speeddiff = arguments.length > 6 && arguments[6] !== undefined ? arguments[6] : 30;
-	  var strength = arguments.length > 7 && arguments[7] !== undefined ? arguments[7] : 30;
+	  var angle = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 30;
+	  var anglediff = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 30;
+	  var speed = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : 30;
+	  var speeddiff = arguments.length > 4 && arguments[4] !== undefined ? arguments[4] : 30;
+	  var strength = arguments.length > 5 && arguments[5] !== undefined ? arguments[5] : 30;
 
 	  if (!tsid) return;
 	  $('#simTyphoon ul .similarTyInner').remove();
-	  var url = 'http://119.29.102.103:8111/roa1080/discrete/typhoon/d10/' + tsid + ',' + new Date().Format('yyyy-MM-dd HH:00:00') + ',' + lon + ',' + lat + ',' + angle + ',' + anglediff + ',' + speed + ',' + speeddiff + ',' + strength + '/JSON?cacheCtrl=' + Date.now();
-
+	  var url = 'http://119.29.102.103:9021/typhoon/matchTyphoon?tsid=' + tsid + '&w_windspeed=' + strength + '&w_speed=' + speed + '&w_direction=' + angle + '&w_speed_change=' + speeddiff + '&w_direction_change=' + anglediff + '&_=' + Date.now();
 	  $.ajax({ url: url }).then(function (data) {
-	    if (typeof data === 'string' & /DB_ERROR/.test(data)) {
+	    data = JSON.parse(data);
+	    if (!data.length) {
 	      getNoSimi();
 	      if ($('.simiMatch').hasClass('on')) $('.closeSimi').click();
 	      removeAllSimTy();
 	      return;
 	    }
-	    data = JSON.parse(data);
-	    var typhoon = data[0].string;
 
-	    var prArr = [];
-	    typhoon.map(function (info) {
-	      info.replace(/(\d*),(\d*),(.*?),/, function ($0, $1, $2, $3) {
-	        var tyid = $1;
-	        prArr.push(new Promise(function (resolve, reject) {
-	          $.ajax({ url: 'http://119.29.102.103:8111/roa1080/discrete/typhoon/d2/' + tyid + ',BCGZ/JSON?cacheCtrl=' + Date.now() }).then(function (res) {
-	            if (typeof res === 'string' & /DB_ERROR/.test(res)) reject();else {
-	              res = JSON.parse(res);
-	              var tscname = res[0].tscname;
-	              if (tscname) $('#simTyphoon ul').prepend('<li class="similarTyInner" tyid="' + tyid + '"><a>' + tscname + '</a></li>');
-	              resolve();
-	            }
-	          });
-	        }));
-	      });
-	    });
+	    var _iteratorNormalCompletion = true;
+	    var _didIteratorError = false;
+	    var _iteratorError = undefined;
 
-	    Promise.all(prArr).then(function () {
-	      var simiMatchHeight = $('.simiMatch').height();
-	      $('.simiMatch').css({ 'transform': 'translateY(0%)', bottom: 0 }).addClass('on');
-	      $('.tyCl_list,.imgEx,.cloudPopup').stop().animate({ 'bottom': simiMatchHeight + 30 + 'px' });
-	    });
+	    try {
+	      for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
+	        var el = _step.value;
+
+	        $('#simTyphoon ul').prepend('<li class="similarTyInner" tyid="' + el.tsid + '"><a>' + el.cname + '</a></li>');
+	      }
+	    } catch (err) {
+	      _didIteratorError = true;
+	      _iteratorError = err;
+	    } finally {
+	      try {
+	        if (!_iteratorNormalCompletion && _iterator.return) {
+	          _iterator.return();
+	        }
+	      } finally {
+	        if (_didIteratorError) {
+	          throw _iteratorError;
+	        }
+	      }
+	    }
+
+	    var simiMatchHeight = $('.simiMatch').height();
+	    $('.simiMatch').css({ 'transform': 'translateY(0%)', bottom: 0 }).addClass('on');
+	    $('.tyCl_list,.imgEx,.cloudPopup').stop().animate({ 'bottom': simiMatchHeight + 30 + 'px' });
 	  });
 	};
 
@@ -3224,38 +3261,94 @@
 	};
 
 	var similarTyLayer = {};
-	var drawSimilayTy = function drawSimilayTy(tyid, data) {
+	var drawSimilayTy = function drawSimilayTy(tyid, res) {
 	  if (similarTyLayer[tyid]) {
 	    map.removeLayer(similarTyLayer[tyid]);
 	    delete similarTyLayer[tyid];
 	    return;
 	  }
 
-	  data = data[0];
-	  if (tyid) tyid = data.tsid;
-	  data.real.reverse();
-	  data.real.map(function (info) {
-	    info.datetime = info.time;
-	    info.lon = Number(info.lon);
-	    info.lat = Number(info.lat);
-	  });
-	  if (data.fst && data.fst.length) {
-	    data.fst.map(function (info) {
-	      info.datetime = info.time;
-	      info.lon = Number(info.lon);
-	      info.lat = Number(info.lat);
-	      info.leadtime = Number(info.leadtime);
+	  var json = {
+	    tsid: tyid,
+	    intlid: res.info && res.info[0] ? res.info[0].intlid : null,
+	    tscname: res.info && res.info[0] && res.info[0].info && res.info[0].info.cname ? res.info[0].info.cname : null,
+	    tsename: res.info && res.info[0] && res.info[0].info && res.info[0].info.ename ? res.info[0].info.ename : null,
+	    real: [],
+	    fst: []
+	  };
+
+	  if (res.real && Array.isArray(res.real)) {
+	    res.real.sort(function (a, b) {
+	      return a.datetime - b.datetime;
 	    });
+	    var _iteratorNormalCompletion2 = true;
+	    var _didIteratorError2 = false;
+	    var _iteratorError2 = undefined;
+
+	    try {
+	      for (var _iterator2 = res.real[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
+	        var el = _step2.value;
+
+	        var real = formartTyphData(el);
+	        json.real.push(real);
+	      }
+	    } catch (err) {
+	      _didIteratorError2 = true;
+	      _iteratorError2 = err;
+	    } finally {
+	      try {
+	        if (!_iteratorNormalCompletion2 && _iterator2.return) {
+	          _iterator2.return();
+	        }
+	      } finally {
+	        if (_didIteratorError2) {
+	          throw _iteratorError2;
+	        }
+	      }
+	    }
 	  }
+
+	  if (res.forecast && Array.isArray(res.forecast)) {
+	    res.forecast.sort(function (a, b) {
+	      return a.leadtime - b.leadtime;
+	    });
+	    var _iteratorNormalCompletion3 = true;
+	    var _didIteratorError3 = false;
+	    var _iteratorError3 = undefined;
+
+	    try {
+	      for (var _iterator3 = res.forecast[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
+	        var opt = _step3.value;
+
+	        if (!opt.location.lon || !opt.location.lat) continue;
+	        var fst = formartTyphData(opt);
+	        json.fst.push(fst);
+	      }
+	    } catch (err) {
+	      _didIteratorError3 = true;
+	      _iteratorError3 = err;
+	    } finally {
+	      try {
+	        if (!_iteratorNormalCompletion3 && _iterator3.return) {
+	          _iterator3.return();
+	        }
+	      } finally {
+	        if (_didIteratorError3) {
+	          throw _iteratorError3;
+	        }
+	      }
+	    }
+	  }
+
 	  var helper = new _ZmapHelper.ZmapHelper(map, window.positionCenter);
-	  var lyGp = helper.drawTy(data);
+	  var lyGp = helper.drawTy(json);
 	  similarTyLayer[tyid] = lyGp.tyLayerGroup;
 	  map.addLayer(similarTyLayer[tyid]);
 	  lyGp.layersGoesBack.map(function (el) {
 	    el.layer.bringToBack();
 	  });
 
-	  var tyReal = data.real,
+	  var tyReal = json.real,
 	      realLen = tyReal.length;
 	  var point = [tyReal[realLen - 1].lat, tyReal[realLen - 1].lon];
 	  map.setView(point, 4);
@@ -3271,16 +3364,31 @@
 	  $(this).toggleClass('simSelected');
 	  var tyid = $(this).attr('tyid');
 	  if ($(this).hasClass('simSelected')) {
-	    var url = 'http://119.29.102.103:8111/roa1080/discrete/typhoon/d2/' + tyid + ',BCGZ/JSONP/?cacheCtrl=' + Date.now();
-
+	    var url = 'http://119.29.102.103:9021/typhoon/findForecastReal?tsid=' + tyid + '&_=' + Date.now();
 	    $.ajax({ url: url }).then(function (data) {
-	      if (typeof data === 'string' & /DB_ERROR/.test(data)) return;
 	      drawSimilayTy(tyid, JSON.parse(data));
 	    });
 	  } else {
 	    drawSimilayTy(tyid);
 	  }
 	});
+
+	function formartTyphData(opt) {
+	  return {
+	    time: opt.datetime,
+	    datetime: new Date(opt.datetime).Format('yyyy-MM-dd HH:mm:ss'),
+	    leadtime: opt.leadtime || null,
+	    level: opt.elements.tcrank,
+	    lon: opt.location.lon,
+	    lat: opt.location.lat,
+	    ps: opt.elements.pressure,
+	    ws: opt.elements.windspeed,
+	    rr06: opt.elements.rr06 || null,
+	    rr07: opt.elements.rr07 || null,
+	    rr08: opt.elements.rr08 || null,
+	    rr10: opt.elements.rr10 || null
+	  };
+	}
 
 /***/ }),
 /* 22 */
@@ -3329,6 +3437,7 @@
 	var hasData = exports.hasData = false;
 	var getSeawaveData = exports.getSeawaveData = function getSeawaveData() {
 	  var listUrl = 'http://119.29.102.103:8111/SeaWaveForecast/listByDate?date={date}&cacheCtrl=' + Date.now();
+
 
 	  var date = new Date();
 	  var url = listUrl.replace('{date}', new Date(date).Format('yyyy-MM-dd HH:00:00'));
@@ -3539,6 +3648,7 @@
 	    }
 	    console.log(date);
 	    var oceanUrl = 'http://119.29.102.103:8111/SeaForecast/listByDate?date=' + date + '&cacheCtrl=' + Date.now();
+
 	    $.ajax({ type: 'get', url: oceanUrl }).then(function (data) {
 	      console.log(data);
 	      if (/DB_ERROR/.test(data) || /null/.test(data) || !data.length) return;
@@ -3908,8 +4018,6 @@
 
 	var _wind = __webpack_require__(23);
 
-	var w = _interopRequireWildcard(_wind);
-
 	var _typhoonDom = __webpack_require__(20);
 
 	var _Coder = __webpack_require__(18);
@@ -3934,8 +4042,6 @@
 
 	var cloudLoad = false;
 	$('#cloudOverlay li').click(function (e) {
-	  var _this = this;
-
 	  e.stopPropagation();
 	  var id = $(this).attr('id');
 
@@ -3948,17 +4054,16 @@
 	    }
 	  } else {
 	    if ($(this).siblings('li').hasClass('on') && !cloudLoad) return;
+	    var $bro = $(this).siblings('li.on');
+	    $(this).addClass('on');
+	    $bro.removeClass('on');
+	    (0, _newsTip.removeNewsTip)($bro.attr('id'));
 
 	    var getTimeUrl = getTime + ('&cacheCtrl=' + Date.now());
+	    cloudLoad = false;
 	    $.ajax({ url: getTimeUrl }).then(function (data) {
 	      var time = data;
 	      var url = urlCloud[id].replace('{datetime}', new Date(time).Format('yyyy-MM-dd HH:00:00')) + ('&cacheCtrl=' + Date.now());
-
-	      cloudLoad = false;
-	      var $bro = $(_this).siblings('li.on');
-	      $(_this).addClass('on');
-	      $bro.removeClass('on');
-	      (0, _newsTip.removeNewsTip)($bro.attr('id'));
 	      var showTimeUrl = showTime + ('&cacheCtrl=' + Date.now());
 	      $.ajax({ url: showTimeUrl }).then(function (msg) {
 	        var datetime = new Date(msg).Format('yyyy-MM-dd HH:00');
@@ -3978,7 +4083,7 @@
 	                case 'visibleLight':
 	                  cname = '可见光云图';break;
 	              }
-	              (0, _newsTip.addNewsTip)(item, '北京时: ' + new Date(msg).Format('yyyy年MM月dd日 HH:00') + '&nbsp;' + cname);
+	              (0, _newsTip.addNewsTip)(item, '北京时: ' + new Date(msg).Format('yyyy年MM月dd日 HH:mm') + '&nbsp;' + cname);
 	              (0, _viewer.viewerCor)();
 	            };
 	            img.onerror = function () {
@@ -4000,7 +4105,7 @@
 	});
 
 	var mcrUrl = 'http://119.29.102.103:8111/roa1080/grid/swan/mcr/{datetime}/HTML/png/,,,,,/color/cache';
-	var dataMcrUrl = 'http://119.29.102.103:9022/dataunit/model/renderModelData?datetime={datetime}&model=swan&element=mcr&time=0&level=3&top=27&bottom=19.2&left=108.5&right=117&width=600&height=600 ';
+	var dataMcrUrl = 'http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime={datetime}&type=swan&element=mcr&time=0&level=0&top=27&bottom=19.2&left=108.5&right=117&width=600&height=600';
 	$('.tgReflex').click(function (e) {
 	  e.stopPropagation();
 	  if ($(this).hasClass('on')) {
@@ -4020,7 +4125,7 @@
 	  console.log(url);
 	  var img = new Image();
 	  img.onload = function () {
-	    if ($btn.hasClass('on')) (0, _newsTip.addNewsTip)('tgReflex', '北京时: ' + new Date(time.replace(/-/g, '/')).Format('yyyy年MM月dd日 HH:00') + '&nbsp;雷达回波');
+	    if ($btn.hasClass('on')) (0, _newsTip.addNewsTip)('tgReflex', '北京时: ' + new Date(time.replace(/-/g, '/')).Format('yyyy年MM月dd日 HH:mm') + '&nbsp;雷达回波');
 	    $btn.hasClass('on') ? overlay.addImageOverlay('mcr', url, bounds) : overlay.removeOverlay('mcr');
 	    (0, _viewer.viewerCor)();
 	    $('.radar_colourCode').show();
@@ -4127,55 +4232,38 @@
 	  img.src = url;
 	};
 
+	function getArrowColor(v) {
+	  if (v < 4) return 'blue';else if (v <= 6) return 'yellow';else if (v <= 8) return 'orange';else return 'red';
+	}
+
 	var isWindCompAlive = false;
 	var windMarker = [];
 	var getWindData = function getWindData() {
-	  var siteUrl = 'http://10.148.83.228:8922/dataunit/station/findStationData_Latest?types[]=A&elements[]=wd2dd&elements[]=wd2df&elements[]=lat&elements[]=lon&provinces[]=\u5E7F\u4E1C&cacheCtrl=' + Date.now();
+	  var siteUrl = 'http://119.29.102.103:9022/dataunit/station/findStationData_Latest?types[]=A&elements[]=wd2dd&elements[]=wd2df&elements[]=lat&elements[]=lon&provinces[]=\u5E7F\u4E1C&cacheCtrl=' + Date.now();
+
 	  var time = Date.now() - Date.now() % (5 * 60 * 1000) - 15 * 60 * 1000;
 	  var datetime = new Date(time).Format('yyyy-MM-dd HH:mm:00');
 	  $.ajax({ url: siteUrl }).then(function (data) {
 	    if (!isWindCompAlive) return;
 
+	    (0, _newsTip.addNewsTip)('wind', '北京时: ' + new Date(time).Format('yyyy年MM月dd日 HH:mm') + '&nbsp;实时风况');
 	    if (/DB_ERROR/.test(data)) {
-	      (0, _tips.getNoDataTips)('.seaWave_noData');return;
+	      (0, _tips.getNoDataTips)('.seaWave_noData');
+	      return;
 	    }
-	    var siteIcon = L.icon({
-	      iconUrl: 'assets/station.png',
-	      iconSize: [5, 5],
-	      iconAnchor: [2.5, 2.5]
-	    });
-	    var options = {
-	      icon: siteIcon,
-	      zIndexOffset: 1000
-	    };
-	    var icon = {
-	      iconUrl: 'assets/arrowhead@3x.png',
-	      iconSize: [10, 14],
-	      iconAnchor: [5, 14]
-	    };
+
+	    var obj = {};
 	    var _iteratorNormalCompletion = true;
 	    var _didIteratorError = false;
 	    var _iteratorError = undefined;
 
 	    try {
 	      for (var _iterator = data[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-	        var item = _step.value;
+	        var _item = _step.value;
 
-	        var center = [item.elems.lat, item.elems.lon];
-	        overlay.addMarker('sitePoint', center, options);
-	        if (item.elems.wd2dd) {
-	          var marker = L.angleMarker([item.elems.lat, item.elems.lon], { icon: new L.Icon(icon), iconAngle: item.elems.wd2dd, iconOrigin: '50% 100%' });
-	          windMarker.push(marker);
-	          marker.addTo(map);
-	        }
-	        if (item.elems.wd2df) {
-	          var className = void 0;
-	          if (item.elems.wd2df < 90 || item.elems.wd2df > 270) className = 'wind_veltop';else className = 'wind_velbot';
-	          var opts = L.divIcon({
-	            html: '<div class="' + className + '">' + (Math.floor(item.elems.wd2df * 100) / 100 + 'm/s') + '</div>'
-	          });
-	          overlay.addMarker('windVel', [item.elems.lat, item.elems.lon], { icon: opts });
-	        }
+	        if (obj[_item.id]) {
+	          if (obj[_item.id].datetime < _item.datetime) obj[_item.id] = _item;
+	        } else obj[_item.id] = _item;
 	      }
 	    } catch (err) {
 	      _didIteratorError = true;
@@ -4189,6 +4277,44 @@
 	        if (_didIteratorError) {
 	          throw _iteratorError;
 	        }
+	      }
+	    }
+
+	    for (var i in obj) {
+	      var item = obj[i];
+	      var center = [item.elems.lat, item.elems.lon];
+	      var windLevel = item.elems.wd2df ? (0, _wind.getVelLevel)(item.elems.wd2df) : 0;
+
+	      overlay.addMarker('sitePoint', center, {
+	        icon: L.icon({
+	          iconUrl: 'assets/arrow_center.png',
+	          iconSize: [5, 5],
+	          iconAnchor: [2.5, 2.5]
+	        }),
+	        zIndexOffset: 1000
+	      });
+
+	      if (item.elems.wd2dd) {
+	        var marker = L.angleMarker([item.elems.lat, item.elems.lon], {
+	          icon: new L.Icon({
+	            iconUrl: 'assets/arrow_' + getArrowColor(windLevel) + '.png',
+	            iconSize: [10, 14],
+	            iconAnchor: [5, 14]
+	          }),
+	          iconAngle: item.elems.wd2dd,
+	          iconOrigin: '50% 100%'
+	        });
+	        windMarker.push(marker);
+	        marker.addTo(map);
+	      }
+
+	      if (item.elems.wd2df) {
+	        var className = void 0;
+	        if (item.elems.wd2dd && (item.elems.wd2dd < 90 || item.elems.wd2dd > 270)) className = 'wind_veltop';else className = 'wind_velbot';
+	        var opts = L.divIcon({
+	          html: '<div class="' + className + '">' + (windLevel + '级') + '</div>'
+	        });
+	        overlay.addMarker('windVel', [item.elems.lat, item.elems.lon], { icon: opts });
 	      }
 	    }
 	  });
@@ -4235,12 +4361,15 @@
 	  $(this).toggleClass('on');
 	});
 
-	var getImageStringUrl = 'http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime={date}&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=600&height=600';
+	var getImageStringUrl = 'http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime={date}&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=600&height=600&cacheCtrl=' + Date.now();
+
 	var rainTimes = [];
 	var rainLayer = void 0;
 	var getRainTime = function getRainTime() {
 	  return new Promise(function (resolve, reject) {
-	    var url = 'http://10.148.83.228:8922/dataunit/temporary/findTemporaryDataHeader_Latest?type=swan&element=qpf&time=60&level=3';
+	    var url = 'http://119.29.102.103:9022/dataunit/temporary/findTemporaryDataHeader_Latest?type=swan&element=qpf&time=60&level=3&cacheCtrl=' + Date.now();
+
+
 	    $.ajax({ url: url }).then(function (res) {
 	      console.log(res);
 	      resolve(res[0].datetime);
@@ -4249,11 +4378,12 @@
 	};
 
 	var getRainUrl = function getRainUrl(datetime) {
-	  return 'http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime=' + datetime + '&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=800&height=800';
+	  return 'http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime=' + datetime + '&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=800&height=800&cacheCtrl=' + Date.now();
 	};
 
 	$('.rainForecast').click(function (e) {
 	  if ($(this).hasClass('on')) {
+	    $(this).removeClass('on');
 	    $(this).removeClass('on');
 	    $('.rainProgressbar').stop().animate({ 'bottom': '-2.67rem' }, function () {
 	      if ($('.buttonPlay').hasClass('on')) $('.buttonPlay').click();

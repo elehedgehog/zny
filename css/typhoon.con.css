@@ -77,13 +77,10 @@
     .typhoonDetail_list ul li img{width:0.93333rem;height:0.93333rem;margin: 0.06667rem auto 0 0.06667rem;}
     .cloudMapIn{font-size: 0.346667rem!important}
     
-    .tyCl_list{position: absolute;z-index: 9999;bottom: 0.666667rem;right: 0.533333rem;border-radius: 0.08rem;/* background-color: rgba(255,255,255,0.8); */}
-    /*.cloudImg{bottom:1.6rem;display:none;width:3.36rem;height:1.06667rem;background-color:rgba(255,255,255,0.8);position: absolute;z-index:9;border-radius: 0.08rem;right: 2rem;text-align: center;}*/
-    /*.typhoonImg,.radarImg,.cloudImg,.rainstormImg{display:none;top: 1.4rem;width: calc(90% - 0.4rem);text-align:center;background-color:rgba(255,255,255,1);position: absolute;z-index:9;border-radius: 0.08rem;left: 10%;padding: 0.1rem;border:0;}*/
-    .typhoonImg:before,.rainstormImg:before,.cloudImg:before{content: '';position: absolute;left: calc(50% - 0.08rem);top: -0.1rem;border-bottom: 0.12rem solid #fff;border-left: 0.08rem solid transparent;border-right: 0.08rem solid transparent;}
-    /* .rainstormImg:before{left: calc(55% + 0.4rem) !important;} */
+    .tyCl_list{position: absolute;z-index: 9999;bottom: 0.666667rem;right: 0.533333rem;border-radius: 0.08rem;}
+    .typhoonImg:before,.rainstormImg:before,.cloudImg:before,.actualImg:before{content: '';position: absolute;left: calc(50% - 0.08rem);top: -0.1rem;border-bottom: 0.12rem solid #fff;border-left: 0.08rem solid transparent;border-right: 0.08rem solid transparent;}
     .rainstormImg{width: 150%!important;left: -28%!important;padding:0.1rem 0;}
-    .typhoonImg ul li,.cloudImg ul li,.rainstormImg ul li{padding-top: 0.05rem;padding-bottom: 0.05rem;}
+    .typhoonImg ul li,.cloudImg ul li,.rainstormImg ul li,.actualImg ul li{padding-top: 0.05rem;padding-bottom: 0.05rem;}
     .radarImg{left:5.3rem;}
     .radarImg ul li{width: 2rem;height: 0.8rem;line-height: 0.8rem;text-align: center;font-size: 0.37333rem;color: #A3A3A3;}
      .typhoonImg ul .typhoonImg_one.on,.typhoonImg ul .typhoonImg_two.on,.typhoonImg ul .typhoonImg_three.on{color:#58cdc6;}
@@ -149,8 +146,6 @@
     .mapImg{bottom: 0;display:none;width:3.36rem;height: 1rem;background-color:rgba(255,255,255,0.8);position: absolute;z-index:9;border-radius: 0.08rem;right: 1.2rem;text-align: center;}
     .cloudImg span,.mapImg span{display:inline-block;width:0.8rem;height:0.56rem;margin-right:0.16rem;margin-top:0.25333rem;cursor: pointer;}
     .cloudImg .cloudImg_one.on,.cloudImg .cloudImg_two.on,.cloudImg .cloudImg_three.on{color:#58cdc6;;}
-    /*.radarImg ul li,.typhoonImg ul li,.cloudImg ul li,.rainstormImg ul li{float:left;width: calc(100% - 0.4rem);height: 0.7rem;line-height: 0.7rem; text-align: center; font-size:0.37333rem;color: #A3A3A3;}*/
-    /*#tyChange .layer-selected,.radarImg ul .radarImg_one.on,.radarImg ul .radarImg_two.on,.radarImg ul .radarImg_three.on,.radarImg ul .radarImg_four.on,.radarImg ul .radarImg_five.on,.rainstormImg_inner span.on,.rainstormImg ul li.on{color:#58cdc6;transition:color .5s linear;-webkit-transition:color .5s linear;-o-transition:color .5s linear;-moz-transition:color .5s linear;}*/
     
     .mapImg .mapImg_one{background:url('../assets/typhone_map1@3x.png')no-repeat 0 0;background-size:0.8rem 0.56rem;/* cursor: pointer; */}
     .mapImg .mapImg_one.layer-selected{background:url('../assets/typhone_map1_pre@3x.png')no-repeat 0 0;background-size:0.8rem 0.56rem;}
@@ -549,7 +544,7 @@
     .live_details table tr td:nth-child(2n+1){color: #a3a3a3;}
     .live_details table tr:nth-child(2) td{padding-bottom: 0.4rem;padding-top: 0.4rem;}
     .live_details table tr td:nth-child(2n){color: #1c1c1c;}
-    .live_details table tr:nth-child(1) td:nth-child(1):before,.live_details table tr:nth-child(1) td:nth-child(3):before,.live_details table tr:nth-child(2) td:nth-child(1):beforeÃƒÂ¯Ã‚Â¼Ã…â€™.live_details table tr:nth-child(2) td:nth-child(3):before,.live_details table tr:nth-child(3) td:nth-child(1):before,.live_details table tr:nth-child(3) td:nth-child(3):before{position: absolute;left: 0;content: '';width: 0.3rem;height: 0.3rem;top: 0;}
+    .live_details table tr:nth-child(1) td:nth-child(1):before,.live_details table tr:nth-child(1) td:nth-child(3):before,.live_details table tr:nth-child(2) td:nth-child(1):beforeÃƒÆ’Ã‚Â¯Ãƒâ€šÃ‚Â¼Ãƒâ€¦Ã¢â‚¬â„¢.live_details table tr:nth-child(2) td:nth-child(3):before,.live_details table tr:nth-child(3) td:nth-child(1):before,.live_details table tr:nth-child(3) td:nth-child(3):before{position: absolute;left: 0;content: '';width: 0.3rem;height: 0.3rem;top: 0;}
     .live_details table tr:nth-child(1) td:nth-child(1):before{background: url(../assets/live_water@3x.png)no-repeat 0 0;background-size: 0.3rem;}
     .live_details table tr:nth-child(1) td:nth-child(2):before{background: url(../assets/sea_power@3x.png)no-repeat 0 0;background-size: 0.3rem;}
     .live_details table tr:nth-child(2) td:nth-child(1):before{top: 0.4rem!important;background: url(../assets/sea_low@3x.png)no-repeat 0 0;background-size: 0.3rem;}
@@ -557,7 +552,7 @@
     .live_details table tr:nth-child(3) td:nth-child(1):before{background: url(../assets/sea_direction@3x.png)no-repeat 0 0;background-size: 0.3rem;}
     .live_details table tr:nth-child(3) td:nth-child(2):before{background: url(../assets/typhone_pressure@3x.png)no-repeat 0 0;background-size: 0.3rem;}*/
     
-    /*ÃƒÂ¥Ã‚Â¼Ã‚ÂºÃƒÂ©Ã‚Â£Ã…Â½ÃƒÂ©Ã‚Â¢Ã¢â‚¬Å¾ÃƒÂ¨Ã‚Â­Ã‚Â¦ ÃƒÂ©Ã‚Â¢Ã¢â‚¬Å¾ÃƒÂ¨Ã‚Â­Ã‚Â¦ÃƒÂ§Ã…Â Ã‚Â¶ÃƒÂ¦Ã¢â€šÂ¬Ã‚Â*/
+    /*ÃƒÆ’Ã‚Â¥Ãƒâ€šÃ‚Â¼Ãƒâ€šÃ‚ÂºÃƒÆ’Ã‚Â©Ãƒâ€šÃ‚Â£Ãƒâ€¦Ã‚Â½ÃƒÆ’Ã‚Â©Ãƒâ€šÃ‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾ÃƒÆ’Ã‚Â¨Ãƒâ€šÃ‚Â­Ãƒâ€šÃ‚Â¦ ÃƒÆ’Ã‚Â©Ãƒâ€šÃ‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾ÃƒÆ’Ã‚Â¨Ãƒâ€šÃ‚Â­Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã‚Â§Ãƒâ€¦Ã‚Â Ãƒâ€šÃ‚Â¶ÃƒÆ’Ã‚Â¦ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚Â*/
     /*.strongWind_pre{padding: 0 0.53333rem;background-color: #f2f3f8;height:3.86rem;}
     .strongWind_pre table{width:100%;font-size: 0.37333rem;table-layout: fixed;word-break: break-all}
     .strongWind_pre table td{position: relative;line-height: 1.2rem}
@@ -603,9 +598,9 @@
     .early_warn .early_details table tr:nth-child(3) td:nth-child(1):before{background: url(../assets/typhone_storm-surge@3x.png)no-repeat 0 0;background-size: 0.3rem;}
     .early_warn .early_details table tr:nth-child(3) td:nth-child(3):before{background: url(../assets/sea_direction@3x.png)no-repeat 0 0;background-size: 0.3rem;}
     
-    /*ÃƒÂ©Ã‚Â¢Ã¢â‚¬Å¾ÃƒÂ¨Ã‚Â­Ã‚Â¦ÃƒÂ§Ã…Â Ã‚Â¶ÃƒÂ¦Ã¢â€šÂ¬Ã‚ÂÃƒÂ§Ã‚Â¼Ã¢â‚¬â€œÃƒÂ¨Ã‚Â¾Ã¢â‚¬Ëœ*/
+    /*ÃƒÆ’Ã‚Â©Ãƒâ€šÃ‚Â¢ÃƒÂ¢Ã¢â€šÂ¬Ã…Â¾ÃƒÆ’Ã‚Â¨Ãƒâ€šÃ‚Â­Ãƒâ€šÃ‚Â¦ÃƒÆ’Ã‚Â§Ãƒâ€¦Ã‚Â Ãƒâ€šÃ‚Â¶ÃƒÆ’Ã‚Â¦ÃƒÂ¢Ã¢â‚¬Å¡Ã‚Â¬Ãƒâ€šÃ‚ÂÃƒÆ’Ã‚Â§Ãƒâ€šÃ‚Â¼ÃƒÂ¢Ã¢â€šÂ¬Ã¢â‚¬Å“ÃƒÆ’Ã‚Â¨Ãƒâ€šÃ‚Â¾ÃƒÂ¢Ã¢â€šÂ¬Ã‹Å“*/
     
-    /*ÃƒÂ¥Ã¢â‚¬ÂºÃ‚Â¾ÃƒÂ¤Ã‚Â¾Ã¢â‚¬Â¹*/
+    /*ÃƒÆ’Ã‚Â¥ÃƒÂ¢Ã¢â€šÂ¬Ã‚ÂºÃƒâ€šÃ‚Â¾ÃƒÆ’Ã‚Â¤Ãƒâ€šÃ‚Â¾ÃƒÂ¢Ã¢â€šÂ¬Ã‚Â¹*/
     .imgEx{display:none;left: 0.533333rem;background-color: rgba(255,255,255,0.8);z-index: 999;border-radius: 0.08rem;position: absolute;bottom: 0.666667rem;z-index: 999;}
     .imgEx_titleOut{padding:0.2rem 0.2rem 0.2rem 0.08rem;position: relative}
     .imgEx_title{width: 1rem;height: 0.3rem;text-align: center;line-height: 0.3rem;font-size: 0.32rem;color: #6d6d6c;background: url(../assets/typhoon_hide@3x.png)no-repeat 0.7rem 0.2rem;}
@@ -848,7 +843,7 @@
         -ms-transform: translate(-50%,-50%);
         -o-transform: translate(-50%,-50%);
     }
-    .typhoonImg,.radarImg,.cloudImg,.rainstormImg{
+    .typhoonImg,.radarImg,.cloudImg,.rainstormImg,.actualImg{
         display: none;
         position: absolute;
         z-index:9;
@@ -861,18 +856,21 @@
         padding: 0.1rem;
         border: 0;
     }
+    .actualImg {
+        width: 130%;
+    }
     .cloudImg{
         left: -30%!important;
         width: 160%!important;
     }
-    .radarImg ul li,.typhoonImg ul li,.cloudImg ul li,.rainstormImg ul li{
+    .radarImg ul li,.typhoonImg ul li,.cloudImg ul li,.rainstormImg ul li,.actualImg ul li{
         width: 100%;
         height: 0.7rem;
         line-height: 0.7rem;
         font-size: 0.37333rem;
         color: #A3A3A3;
     }
-    #tyChange .layer-selected,.radarImg ul .radarImg_one.on,.radarImg ul .radarImg_two.on,.radarImg ul .radarImg_three.on,.radarImg ul .radarImg_four.on,.radarImg ul .radarImg_five.on,.rainstormImg_inner span.on,.rainstormImg ul li.on{
+    #tyChange .layer-selected,.radarImg ul .radarImg_one.on,.radarImg ul .radarImg_two.on,.radarImg ul .radarImg_three.on,.radarImg ul .radarImg_four.on,.radarImg ul .radarImg_five.on,.rainstormImg_inner span.on,.rainstormImg ul li.on,.actualImg ul li.on{
         width: 100%;
         color:#58cdc6;
         transition: color .5s linear;
@@ -882,12 +880,15 @@
         -ms-transition:color .5s linear;
     }
     
-    #tyChange .layer-selected a,.cloudImg ul li.on a,.rainstormImg ul li.on a{
+    #tyChange .layer-selected a,.cloudImg ul li.on a,.rainstormImg ul li.on a,.actualImg ul li.on a,.defenceArea.on a,.decisionArea.on a{
         display: inline-block;
         width: 85%;
         background: #58cdca;
         border-radius: 1rem;
         color: #fff;
+    }
+    .actualImg ul li.on a{
+        width: 95%!important;
     }
     .rainstormImg ul li.on a{
         width: 98%!important;
@@ -1260,7 +1261,7 @@
     .wind_velbot{
         position: absolute;
         top: -0.2rem;
-        color: #444;
+        color: #eee;
         white-space: nowrap;
     }
 
@@ -1293,6 +1294,6 @@
         color: #fff;
         position: absolute;
         top: 0.9rem;
-        left: -0.3rem;
+        left: 0rem;
         font-size: 0.32rem;
     }

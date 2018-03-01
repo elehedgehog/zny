@@ -1,6 +1,6 @@
 import * as overlay from './util/overlay'
 import { getNoDataTips } from './util/tips'
-import * as w from './util/wind'
+import { getVelLevel } from './util/wind'
 import { hidePreWarnPopup } from './typhoonDom'
 import { Coder } from './util/Coder'
 import { addNewsTip, removeNewsTip } from './util/newsTip'
@@ -11,11 +11,15 @@ const bounds = [            //图层边界
     [18.2, 119]
 ];
 
-// 云图
+// 云图 
 const baseCloud = `http://119.29.102.103:8111/Satelite/renderCloud?datetime={datetime}&dataType=`;
 const endOfCloud = `&top=53.55&bottom=3.86&left=73.66&right=150&width=600&height=600`;
 const getTime = `http://119.29.102.103:8111/Satelite/latestDatetime?dataType=ir2`; //云图请求时间
 const showTime = `http://119.29.102.103:8111/Satelite/latestDatetime?dataType=ir1&timeStamp=$`;//云图时间框的时间
+// const baseCloud = `https://www.fenglingzhixun.cn:9005/Satelite/renderCloud?datetime={datetime}&dataType=`;
+// const endOfCloud = `&top=53.55&bottom=3.86&left=73.66&right=150&width=600&height=600`;
+// const getTime = `https://www.fenglingzhixun.cn:9005/Satelite/latestDatetime?dataType=ir2`; //云图请求时间
+// const showTime = `https://www.fenglingzhixun.cn:9005/Satelite/latestDatetime?dataType=ir1&timeStamp=$`;//云图时间框的时间
 const urlCloud = {
   'visibleLight': `${baseCloud}VIS${endOfCloud}`,         //可见光
   'InfraRed': `${baseCloud}IR1${endOfCloud}`,             //红外线
@@ -41,17 +45,16 @@ $('#cloudOverlay li').click(function(e) {
     }
   } else {
     if($(this).siblings('li').hasClass('on') && !cloudLoad)  return;
+    let $bro = $(this).siblings('li.on')
+    $(this).addClass('on')
+    $bro.removeClass('on')
+    removeNewsTip($bro.attr('id'))
 
     let getTimeUrl = getTime + `&cacheCtrl=${Date.now()}`
+    cloudLoad = false;
     $.ajax({url:getTimeUrl}).then(data =>{
       let time = data
       let url = urlCloud[id].replace('{datetime}', new Date(time).Format('yyyy-MM-dd HH:00:00')) + `&cacheCtrl=${Date.now()}`
-
-      cloudLoad = false;
-      let $bro = $(this).siblings('li.on')
-      $(this).addClass('on')
-      $bro.removeClass('on')
-      removeNewsTip($bro.attr('id'))
       let showTimeUrl = showTime + `&cacheCtrl=${Date.now()}`
       $.ajax({url: showTimeUrl}).then(msg => {
         let datetime = new Date(msg).Format('yyyy-MM-dd HH:00')
@@ -67,7 +70,7 @@ $('#cloudOverlay li').click(function(e) {
                 case 'steam': cname = '水汽云图'; break;
                 case 'visibleLight': cname = '可见光云图'; break;
               }
-              addNewsTip(item, '北京时: '+ new Date(msg).Format('yyyy年MM月dd日 HH:00') + '&nbsp;' + cname)
+              addNewsTip(item, '北京时: '+ new Date(msg).Format('yyyy年MM月dd日 HH:mm') + '&nbsp;' + cname)
               viewerCor()
             }
             img.onerror = () => {
@@ -84,8 +87,9 @@ $('#cloudOverlay li').click(function(e) {
   }
 });
 //组合反射率(雷达回波)
-const mcrUrl = 'http://119.29.102.103:8111/roa1080/grid/swan/mcr/{datetime}/HTML/png/,,,,,/color/cache'
-const dataMcrUrl = 'http://119.29.102.103:9022/dataunit/model/renderModelData?datetime={datetime}&model=swan&element=mcr&time=0&level=3&top=27&bottom=19.2&left=108.5&right=117&width=600&height=600 '
+const mcrUrl = 'http://119.29.102.103:8111/roa1080/grid/swan/mcr/{datetime}/HTML/png/,,,,,/color/cache'        ///////////////
+// const dataMcrUrl = 'http://119.29.102.103:9022/dataunit/model/renderModelData?datetime={datetime}&model=swan&element=mcr&time=0&level=3&top=27&bottom=19.2&left=108.5&right=117&width=600&height=600'            ////////////
+const dataMcrUrl = `http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime={datetime}&type=swan&element=mcr&time=0&level=0&top=27&bottom=19.2&left=108.5&right=117&width=600&height=600`
 $('.tgReflex').click(function(e) {
   e.stopPropagation();
   if ($(this).hasClass('on')) {
@@ -106,7 +110,7 @@ const getImgFn = (i, type, $btn)=> {    //i为请求次数
   let img = new Image();
   img.onload = () => {
     if ($btn.hasClass('on'))
-      addNewsTip('tgReflex', '北京时: ' + new Date(time.replace(/-/g, '/')).Format('yyyy年MM月dd日 HH:00') + '&nbsp;雷达回波')
+      addNewsTip('tgReflex', '北京时: ' + new Date(time.replace(/-/g, '/')).Format('yyyy年MM月dd日 HH:mm') + '&nbsp;雷达回波')
     $btn.hasClass('on') ? overlay.addImageOverlay('mcr', url, bounds) : overlay.removeOverlay('mcr');
     viewerCor()
     $('.radar_colourCode').show()
@@ -167,7 +171,7 @@ const getRsUrl = (i) => {
   ];
   let contSize = map.getSize();
   // const url = `http://119.29.102.103:8111/roa1080/grid/thunder/titan/${date}/json/png/${left},${right},${top},${bottom},${contSize.x},${contSize.y}/color/cache?cacheCtrl=${Date.now()}`;
-  const url = `http://119.29.102.103:9022/dataunit/titan/renderTitan?datetime=${date}&top=${top}&bottom=${bottom}&left=${left}&right=${right}&width=${contSize.x}&height=${contSize.y}&cacheCtrl=${Date.now()}`
+  const url = `http://119.29.102.103:9022/dataunit/titan/renderTitan?datetime=${date}&top=${top}&bottom=${bottom}&left=${left}&right=${right}&width=${contSize.x}&height=${contSize.y}&cacheCtrl=${Date.now()}`       //////
   console.log(url)
   return {
     url,
@@ -228,45 +232,76 @@ const updateMap = () => {
 }
 
 //获取自动站 风向风速数据
+function getArrowColor(v) {
+  if (v < 4) return 'blue'
+  else if (v <= 6) return 'yellow'
+  else if (v <= 8) return 'orange'
+  else return 'red'
+}
+
+
 let isWindCompAlive = false
 let windMarker = []
 const getWindData= () => {
-  const siteUrl = `http://10.148.83.228:8922/dataunit/station/findStationData_Latest?types[]=A&elements[]=wd2dd&elements[]=wd2df&elements[]=lat&elements[]=lon&provinces[]=广东&cacheCtrl=${Date.now()}`;
+  const siteUrl = `http://119.29.102.103:9022/dataunit/station/findStationData_Latest?types[]=A&elements[]=wd2dd&elements[]=wd2df&elements[]=lat&elements[]=lon&provinces[]=广东&cacheCtrl=${Date.now()}`;
+  // const siteUrl = `https://www.fenglingzhixun.cn:9005/dataunit/station/findStationData_Latest?types[]=A&elements[]=wd2dd&elements[]=wd2df&elements[]=lat&elements[]=lon&provinces[]=广东&cacheCtrl=${Date.now()}`;
   const time= Date.now() - Date.now() % (5*60*1000) - 15*60*1000;
   let datetime = new Date( time).Format('yyyy-MM-dd HH:mm:00');
   $.ajax({url:siteUrl})
   .then(data =>{
     if (!isWindCompAlive) return
     // data = JSON.parse(data)
-    if(/DB_ERROR/.test(data)) { getNoDataTips('.seaWave_noData'); return }
-    const siteIcon = L.icon({
-      iconUrl: 'assets/station.png',
-      iconSize: [5, 5],
-      iconAnchor: [2.5, 2.5]
-    });
-    const options = {
-      icon: siteIcon,
-      zIndexOffset: 1000,
-    };
-    var icon = { 
-      iconUrl: 'assets/arrowhead@3x.png',      // 图片地址
-      iconSize: [10,14], 
-      iconAnchor: [5, 14] 
+    addNewsTip('wind', '北京时: ' + new Date(time).Format('yyyy年MM月dd日 HH:mm') + '&nbsp;实时风况')
+    if(/DB_ERROR/.test(data)) {
+      getNoDataTips('.seaWave_noData');
+      return;
     }
+
+    let obj = {}
     for (let item of data) {
+      if (obj[item.id]) {
+        if (obj[item.id].datetime < item.datetime) obj[item.id] = item
+      } else obj[item.id] = item
+    }
+
+    for (let i in obj) {
+      let item = obj[i]
       let center = [item.elems.lat, item.elems.lon]
-      overlay.addMarker('sitePoint', center, options)
+      let windLevel = item.elems.wd2df ? getVelLevel(item.elems.wd2df) : 0
+
+      // 中心点
+      overlay.addMarker('sitePoint', center,  {
+        icon: L.icon({
+          iconUrl: 'assets/arrow_center.png',
+          iconSize: [5, 5],
+          iconAnchor: [2.5, 2.5]
+        }),
+        zIndexOffset: 1000,
+      })
+
+      // 风向图标
       if (item.elems.wd2dd) {
-        let marker =L.angleMarker([item.elems.lat, item.elems.lon], { icon: new L.Icon(icon), iconAngle: item.elems.wd2dd, iconOrigin: '50% 100%' })
+        let marker = L.angleMarker([item.elems.lat, item.elems.lon], {
+          icon: new L.Icon({
+            iconUrl: `assets/arrow_${getArrowColor(windLevel)}.png`,
+            iconSize: [10,14], 
+            iconAnchor: [5, 14] 
+          }), 
+          iconAngle: item.elems.wd2dd, 
+          iconOrigin: '50% 100%'
+        })
         windMarker.push(marker)
         marker.addTo(map)
       }
+
+      // 风速级别
       if (item.elems.wd2df) {
         let className
-        if (item.elems.wd2df < 90 || item.elems.wd2df > 270) className = 'wind_veltop'
+        if (item.elems.wd2dd && (item.elems.wd2dd < 90 || item.elems.wd2dd > 270)) className = 'wind_veltop'
         else className = 'wind_velbot'
         const opts = L.divIcon({
-          html: `<div class="${className}">${ Math.floor(item.elems.wd2df * 100) / 100 + 'm/s' }</div>`
+          // html: `<div class="${className}">${ Math.floor(item.elems.wd2df * 100) / 100 + 'm/s' }</div>`
+          html: `<div class="${className}">${ windLevel + '级' }</div>`
         });
         overlay.addMarker('windVel', [item.elems.lat, item.elems.lon], { icon: opts })
       }
@@ -348,8 +383,8 @@ $('.actualWind').click(function(e){
 
 
 //降水
-// let getImageStringUrl = 'http://119.29.102.103:9002/nc/jsonp/bin/contour?binInfoArea.modelName=qpfacc&binInfoArea.datetime={date}&binInfoArea.varname=rain&binInfoArea.level=60&bounds.left=108.5&bounds.right=118.99&bounds.top=27&bounds.bottom=18.21&bounds.width=1050&bounds.height=880&shaderOn=true&contourOn=false&contourLabelOn=false&projName=equ'
-let getImageStringUrl = `http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime={date}&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=600&height=600`
+let getImageStringUrl = `http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime={date}&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=600&height=600&cacheCtrl=${Date.now()}`
+// let getImageStringUrl = `https://www.fenglingzhixun.cn:9005/dataunit/temporary/renderTemporaryData?datetime={date}&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=600&height=600&cacheCtrl=${Date.now()}`
 let rainTimes = []      // 10个时间戳
 let rainLayer           // 云图图层
 
@@ -361,7 +396,9 @@ const getRainTime = () => {
     //   if (res.result === 'S_OK') resolve(res.tagObject)
     //   else reject()
     // })
-    let url = `http://10.148.83.228:8922/dataunit/temporary/findTemporaryDataHeader_Latest?type=swan&element=qpf&time=60&level=3`
+    let url = `http://119.29.102.103:9022/dataunit/temporary/findTemporaryDataHeader_Latest?type=swan&element=qpf&time=60&level=3&cacheCtrl=${Date.now()}`
+    // let url = `https://www.fenglingzhixun.cn:9005/dataunit/temporary/findTemporaryDataHeader_Latest?type=swan&element=qpf&time=60&level=3&cacheCtrl=${Date.now()}`
+    
     $.ajax({ url }).then(res => {
       console.log(res)
       resolve(res[0].datetime)
@@ -372,7 +409,8 @@ const getRainTime = () => {
 
 // 获取图片链接
 const getRainUrl = datetime => {
-  return `http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime=${datetime}&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=800&height=800`
+  return `http://119.29.102.103:9022/dataunit/temporary/renderTemporaryData?datetime=${datetime}&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=800&height=800&cacheCtrl=${Date.now()}`
+  // return `https://www.fenglingzhixun.cn:9005/dataunit/temporary/renderTemporaryData?datetime=${datetime}&type=swan&element=qpf&time=60&level=3&top=27&bottom=19&left=108.5&right=119.0&width=800&height=800&cacheCtrl=${Date.now()}`
   // return new Promise((resolve, reject) => {
   //   console.log(datetime)
   //   let url = getImageStringUrl.replace('{date}', datetime) + `&cacheCtrl=${Date.now()}`
@@ -390,6 +428,7 @@ const getRainUrl = datetime => {
 $('.rainForecast').click(function(e) {
   if ($(this).hasClass('on')) {
     // removeNewsTip('rainForecast')
+    $(this).removeClass('on');
     $(this).removeClass('on');
     $('.rainProgressbar').stop().animate({'bottom': '-2.67rem'}, () => {
         if($('.buttonPlay').hasClass('on')) $('.buttonPlay').click();

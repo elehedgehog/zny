@@ -36,7 +36,7 @@ const clickFn = () => {
   }
 }
 
-// export const addNewsTip = (key, text) => {
+// export const addNewsTip = (key, text) => {         //滚动效果
 //   clearInt()
 //   $('.cloudPopup').css({height: '26px'})
 //   $('.cloudPopup .wrapper').removeClass('on')

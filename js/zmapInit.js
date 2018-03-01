@@ -14,9 +14,6 @@ const layerOpts = {
 }
 
 const layers = {
-    // terLayer: new L.tileLayer("http://mt2.google.cn/vt/lyrs=t@132,r@269000000&hl=zh-CN&gl=CN&src=app&x={x}&y={y}&z={z}", layerOpts),
-    // satLayer: new L.tileLayer("http://mt2.google.cn/vt/lyrs=y&hl=zh-CN&gl=CN&src=app&x={x}&y={y}&z={z}&s=G", layerOpts),
-    // busLayer: new L.tileLayer("http://mt2.google.cn/vt/lyrs=m@235000000&hl=zh-CN&gl=CN&src=app&x={x}&y={y}&z={z}&s=Galileo", layerOpts)
     terLayer: new L.tileLayer("http://119.29.102.103:8097/vt/lyrs=p&x={x}&y={y}&z={z}", layerOpts),
     satLayer: new L.tileLayer("http://119.29.102.103:8097/vt/lyrs=y&x={x}&y={y}&z={z}", layerOpts),
     busLayer: new L.tileLayer("http://119.29.102.103:8097/vt/lyrs=m&x={x}&y={y}&z={z}", layerOpts)
@@ -90,20 +87,37 @@ initOceanTIme();
 
 
 // 添加防御区
-L.polyline([[35, 120], [35, 150], [0, 150], [0, 140]], {
-    color: 'red',
-    dashArray: [5, 10],
-    weight: 2
-}).addTo(map)
-
-let alarmPolyline = [
-    [[25, 119], [25, 125], [15, 125], [15, 110], [22, 110]],
-    [[25, 125], [25, 135], [0, 135]],
-    [[25, 135], [25, 140], [0, 140], [0, 105], [10.5, 105]]
-]
-for (let el of alarmPolyline) {
-    L.polyline(el, { color: 'red', weight: 2 }).addTo(map)
-}
+let polyline = null,
+    polylineArr = []
+$('.defenceArea').click(function(e) {
+    e.stopPropagation()
+    if($(this).hasClass('on')) {
+        map.removeLayer(polyline)
+        polyline = null
+        for (let el of polylineArr) {
+            map.removeLayer(el)
+        }
+        polylineArr = []
+    } else {
+        polyline =  L.polyline([[35, 120], [35, 150], [0, 150], [0, 140]], {
+            color: 'red',
+            dashArray: [5, 10],
+            weight: 2
+        }).addTo(map)
+        
+        let alarmPolyline = [
+            [[25, 119], [25, 125], [15, 125], [15, 110], [22, 110]],
+            [[25, 125], [25, 135], [0, 135]],
+            [[25, 135], [25, 140], [0, 140], [0, 105], [10.5, 105]]
+        ]
+        for (let el of alarmPolyline) {
+            let line = L.polyline(el, { color: 'red', weight: 2 }).addTo(map)
+            polylineArr.push(line)
+        }
+    }
+    $(this).toggleClass('on')
+})
+$('.defenceArea').click()
 
 //添加九段线
 let ninePolyline = [
@@ -118,5 +132,5 @@ let ninePolyline = [
     [[21, 121], [22, 122]],
 ]
 for (let el of ninePolyline) {
-    L.polyline(el, { color: '#E74727', weight: 5 }).addTo(map)
+    L.polyline(el, { color: '#aaa', weight: 1 }).addTo(map)
 }
